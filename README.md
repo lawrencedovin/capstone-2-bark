@@ -10,12 +10,18 @@ breed of their choice in a pound closest to them to adopt.
 ## Demographic  
 Anyone that is interested in adopting a dog.
 
-## API
+## API 
 `petfinder`       
 The petfinder API will be used to display interesting facts and what to expect    
 in taking care of the dogs according to their breed. As well as helping the user    
 discover dogs from pounds that are filtered by the user's chosen location (zipcode)    
 and breed.
+
+## Technologies 
+Bark will be a web application that will be built using   
+Front-End: `React` `Sass SCSS` `Bootstrap`    
+Back-End: `Node.js` `Express.js`    
+Database: `PostgreSQL`
 
 ## Details  
 
