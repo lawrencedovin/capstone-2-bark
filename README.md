@@ -8,7 +8,7 @@ best suits them. Another goal is to help the users discover a dog with the
 breed of their choice in a pound closest to them to adopt.
 
 ## Demographic  
-Anyone that is looking to adopt a dog.
+Anyone that is interested in adopting a dog.
 
 ## API
 `spoonacular`  `twilio`  
