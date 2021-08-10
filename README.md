@@ -11,14 +11,11 @@ breed of their choice in a pound closest to them to adopt.
 Anyone that is interested in adopting a dog.
 
 ## API
-`spoonacular`  `twilio`  
-The spoonacular API will be used to display recipes along with their ingredients 
-which also allows recipes to be filtered by different types of diets such
-as vegetarian, vegan, pescetarian also the types of cuisine which comes from
-various countries. The twilio API will be used to gather the user’s phone if
-they want to text the ingredients of the recipes to their phone to conveniently
-shop at the grocery store. In terms of user data: a username, password, 
-liked recipes list, phone number, grocery list.
+`petfinder`       
+The petfinder API will be used to display interesting facts and what to expect    
+in taking care of the dogs according to their breed. As well as helping the user    
+discover dogs from pounds that are filtered by the user's chosen location (zipcode)    
+and breed.
 
 ## Details  
 
@@ -34,12 +31,12 @@ people to serve for the grocery list. For the twilio API verifying a phone numbe
 after registering.
 
 ### Sensitive Information
-password and phone number.
+password.
 
 ### Functionality
 
 - #### Registration
-  Users register with their username, password, phone number, and “email” for 
+  Users register with their username, password, location, and “email” for 
 password reset.  
 
 - #### Password Encryption
@@ -60,7 +57,7 @@ will be displayed. The user enters their email address and a password
 reset link will be sent to their email.
 
 - #### Filtering
-  Users can filter by diet, cuisine, likes or querying their search using a searchbar.
+  Users can filter by breed, size, location or querying their search using a searchbar.
 
 - #### Grocery List
   Users can store the recipes in a grocery list which allows the user to be sent the
