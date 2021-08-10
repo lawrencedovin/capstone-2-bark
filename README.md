@@ -1,12 +1,14 @@
-# **Capstone 1 Wonder Recipe Proposal**
+# **Capstone 2 Bark Proposal**
 
-## Goals
-
-The goal is to allow the users who want to discover recipes to do
-so conveniently from the website all the way to the grocery store.  
+## Goals 
+The goal is to inform the users who are interested in adopting a dog about    
+different dog breeds. To learn what to expect in taking care of them along     
+with their quirks. Which will help the user conveniently find which breed     
+best suits them. Another goal is to help the users discover a dog with the     
+breed of their choice in a pound closest to them to adopt.
 
 ## Demographic  
-Anyone that wants to discover new recipes to cook.
+Anyone that is looking to adopt a dog.
 
 ## API
 `spoonacular`  `twilio`  
