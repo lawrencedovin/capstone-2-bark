@@ -12,7 +12,7 @@ Anyone that is interested in adopting a dog.
 
 ## API 
 `petfinder`       
-The petfinder API will be used to display interesting facts and what to expect    
+The [petfinder](https://www.petfinder.com/) API will be used to display interesting facts and what to expect    
 in taking care of the dogs according to their breed. As well as helping the user to       
 discover dogs from pounds that are filtered by the user's chosen location (zipcode)    
 and breed.
@@ -29,9 +29,8 @@ Database: `PostgreSQL`
 ![ERD Diagram](database-erd.PNG?raw=true) 
 
 ### Potential API issues
-The petfinder API has a vast amount of adoptable dogs with over 250 dog breeds. 
-The potential challenge is to interact with the API to retrieve and display 
-the individual dog's information properly. 
+The [petfinder](https://www.petfinder.com/) API has a vast amount of adoptable dogs with hundreds of thousands of 
+adoptable pets. Each individual dog will not be stored to a database so a potential issue is that when the [petfinder](https://www.petfinder.com/) API is down Bark will not be usuable until the API is back on.
 
 ### Sensitive Information
 password.
