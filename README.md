@@ -43,7 +43,7 @@ password reset.
 
 - #### Password Encryption
   Every user’s password will be encrypted by salting and then hashing the 
-password storing it in the database through using `Flask-Bcrypt`.
+password storing it in the database through using `Bcrypt`.
 
 - #### Password Reset
   If a user enters incorrect credentials for logging in a password reset
@@ -59,8 +59,7 @@ will be displayed. The user enters their email address and a password
 reset link will be sent to their email.
 
 - #### Filtering
-  Users can filter by breed, location, training, vocality, grooming, exercise, energy or    
-  querying their search using a searchbar.
+  Users can filter by breed, location, or querying their search using a searchbar.
 
 - #### Breeds
   Users can favorite or unfavorite dog breeds that will be used to help them refer to information 
@@ -79,11 +78,7 @@ which the user can send to their phone to conveniently shop for the ingredients.
 There will be filtering options for different diet types and cuisines.
 
 ### Possible Future Features  
-- Randomize Recipes feature will allow a user to swipe left or right for discovering and liking 
-  their favorite recipes.  
-- User may further search of the Randomize Recipe by diet and or cuisine. 
+- Filtering by training, vocality, grooming, exercise, and energy 
 - Different language support. 
-- Users can add comments on the recipes.  
-- Dark and light mode.  
+- Dark and light mode.    
 - Social media share.  
-- Send Grocery List recipes to email.
