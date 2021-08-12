@@ -4,44 +4,16 @@ id PK SERIAL
 username UNIQUE STRING
 email UNIQUE STRING
 password STRING
-phone_number UNIQUE STRING
+zipcode INTEGER(5)
 
-recipe
+favorite_breeds
 -
 id PK SERIAL
-title UNIQUE STRING
-ingredients JSONB
-directions JSONB
-macros JSONB
-ready_in_minutes NUMERIC
-servings NUMERIC
-
-diet
--
-id PK SERIAL
-title UNIQUE STRING
-
-recipe_diet
--
-recipe_id INTEGER FK >- recipe.id
-diet_id INTEGER FK >- diet.id
-
-cuisine
--
-id PK SERIAL
-title UNIQUE STRING
-
-recipe_cuisine
--
-recipe_id INTEGER FK >- recipe.id
-cuisine_id INTEGER FK >- cuisine.id
-
-grocery_list
--
 user_id INTEGER FK >- user.id
-recipe_id INTEGER FK >- recipe.id
+breeds INTEGER[]
 
-likes
+liked_dogs
 -
+id PK SERIAL
 user_id INTEGER FK >- user.id
-recipe_id INTEGER FK >- recipe.id
+dogs INTEGER[]
