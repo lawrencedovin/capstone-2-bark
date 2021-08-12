@@ -74,8 +74,8 @@ reset link will be sent to their email.
 
 ### Additional Features  
   Since there is a lot of data from the API (250+) breeds and (100,000+) adoptable pets constantly being 
-  updated. The bark DB will only store the user's information as well as the favored breed ids and liked dogs ids. With the rest of the heavy data (dog breed and pet information) being retrieved directly from the [petfinder](https://www.petfinder.com/) API. There will be filtering options that allow users to search 
-  according to breed and zip code. 
+  updated. The bark DB will only store the user's information as well as the favored breeds ids and liked dogs ids. With the rest of the heavy data (dog breed and pet information) being retrieved directly from the [petfinder](https://www.petfinder.com/) API. There will be filtering options that allow users to search 
+  according to their selected breed and zip code. 
 
 ### Possible Future Features  
 - Filtering by training, vocality, grooming, exercise, and energy 
