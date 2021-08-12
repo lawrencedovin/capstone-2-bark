@@ -38,7 +38,7 @@ password.
 ### Functionality
 
 - #### Registration
-  Users register with their username, password, location, and “email” for 
+  Users register with their username, password, zipcode, and “email” for 
 password reset.  
 
 - #### Password Encryption
@@ -73,9 +73,9 @@ reset link will be sent to their email.
 ![User Flow Diagram](user-flow-diagram.png?raw=true) 
 
 ### Additional Features  
-  The grocery list feature will temporarily store in recipes the user wants to use 
-which the user can send to their phone to conveniently shop for the ingredients. 
-There will be filtering options for different diet types and cuisines.
+  Since there is a lot of data from the API (250+) breeds and (100,000+) adoptable pets constantly being 
+  updated. The bark DB will only store the user's information as well as the favored breed ids and liked dogs ids. With the rest of the heavy data (dog breed and pet information) being retrieved directly from the [petfinder](https://www.petfinder.com/) API. There will be filtering options that allow users to search 
+  according to breed and zip code. 
 
 ### Possible Future Features  
 - Filtering by training, vocality, grooming, exercise, and energy 
