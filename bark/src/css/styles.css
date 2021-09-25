@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* 1rem = 10px, 10px/16px = 62.5% */
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%; }
+  @media only screen and (max-width: 120em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 62.5em) {
+    html {
+      font-size: 37.5%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 25%; } }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #fff;
+  font-size: 1.6rem;
+  color: #050505;
+  position: relative;
+  min-height: 100%; }
+
+a:hover {
+  text-decoration: none; }
+
+button {
+  outline-color: #31B233 !important; }
+
+.col-md-12 {
+  padding: 0 8.8rem; }
+
+.container-fluid {
+  max-width: 144rem; }
