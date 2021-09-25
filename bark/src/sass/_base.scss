@@ -1,0 +1,79 @@
+// COLOR VARIABLES
+$color-black: #050505;
+$color-gray: #7D8886;
+$color-light-gray: #9EA6A8;
+$color-white: #fff;
+$color-dark-green: #009B49;
+$color-green: #31B233;
+$color-light-green: #8CDC09;
+$color-red: #CF0000;
+
+// FONT VARIABLES
+$font-primary: "Montserrat", sans-serif;
+$font-logo: "Noto Sans JP", sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 120em; // 1920px / 16 = 75em
+$bp-large: 62.5em; // 1000px / 16 = 62.5em
+$bp-medium: 50em; // 800px / 16 = 50em
+$bp-small: 37.5em; // 600px / 16 = 37.5em
+
+// FONT SIZE
+$font-size-large: 4.8rem;
+$font-size-medium: 2.4rem;
+$font-size-smedium: 2rem;
+$font-size-small: 1.6rem;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px, 10px/16px = 62.5% */
+    scroll-behavior: smooth;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 37.5%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 25%;
+    }
+}
+
+body {
+    font-family: $font-primary;
+    background: $color-white;
+    font-size: $font-size-small;
+    color: $color-black;
+    position: relative;
+    min-height: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    outline-color: $color-green !important;
+}
+
+.col-md-12 {
+    padding: 0 8.8rem; 
+}
+
+.container-fluid {
+    max-width: 144rem;
+}
