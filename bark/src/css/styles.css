@@ -42,3 +42,8 @@ button {
 
 .container-fluid {
   max-width: 144rem; }
+
+.navbar {
+  background-color: blue; }
+  .navbar__logo {
+    color: green; }
