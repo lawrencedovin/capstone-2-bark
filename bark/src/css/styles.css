@@ -61,4 +61,5 @@ button {
 .hero__logo {
   padding: 0; }
   .hero__logo-item {
-    list-style: none; }
+    list-style: none;
+    margin: 1.6rem 0; }
