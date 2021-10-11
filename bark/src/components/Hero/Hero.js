@@ -28,7 +28,12 @@ const Hero = () => (
           <img src={process.env.PUBLIC_URL + 'images/hero-image.jpg'} className="hero__image img-fluid" alt="hero"/> 
         </div>
         <div className="col-md-1">
-          Scroll
+          <span className="hero__scroll">
+            <span className="hero__scroll--rectangle">
+              <div className="hero__scroll--ball"></div>
+            </span>
+            Scroll
+          </span>
         </div>
       </div>
     </div>

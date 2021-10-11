@@ -66,3 +66,42 @@ button {
     filter: invert(55%) sepia(8%) saturate(148%) hue-rotate(10deg) brightness(91%) contrast(89%); }
     .hero__logo-item:hover {
       filter: invert(75%) sepia(79%) saturate(360%) hue-rotate(131deg) brightness(82%) contrast(89%); }
+
+.hero__image {
+  margin-top: 2.4rem; }
+
+.hero__scroll {
+  display: inline-block;
+  -ms-transform: rotate(270deg);
+  /* IE 9 */
+  transform: rotate(270deg);
+  margin-left: -4.8rem; }
+  .hero__scroll--rectangle {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1.6rem;
+    background: #0A1F3F;
+    height: 4px;
+    width: 8rem;
+    border-radius: 4px; }
+  .hero__scroll--ball {
+    width: 8px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    animation-name: scroll;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite; }
+
+@keyframes scroll {
+  0% {
+    margin-left: 72px; }
+  50% {
+    width: 24px; }
+  80% {
+    width: 8px;
+    opacity: 1; }
+  100% {
+    margin-left: 0px;
+    opacity: 0; } }
