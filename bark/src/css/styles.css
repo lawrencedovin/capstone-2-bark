@@ -25,9 +25,9 @@ html {
 
 body {
   font-family: "Varela Round", sans-serif;
-  background: #31B233;
+  background: #FFFFFF;
   font-size: 1.6rem;
-  color: #050505;
+  color: #0A1F3F;
   position: relative;
   min-height: 100%; }
 
@@ -35,7 +35,7 @@ a:hover {
   text-decoration: none; }
 
 button {
-  outline-color: #31B233 !important; }
+  outline-color: #087C00 !important; }
 
 .col-md-12 {
   padding: 0 8.8rem; }
@@ -44,6 +44,16 @@ button {
   max-width: 144rem; }
 
 .navbar {
-  background-color: blue; }
+  height: 8rem; }
   .navbar__logo {
-    color: green; }
+    font-family: "Molle", cursive;
+    font-size: 3.2rem;
+    background: -webkit-linear-gradient(1turn, #087C00, #6BFDF2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  .navbar__link {
+    color: #83827E;
+    margin-left: 1.6rem; }
+  .navbar__link:hover {
+    color: #49C2C7; }

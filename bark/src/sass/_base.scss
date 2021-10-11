@@ -1,18 +1,22 @@
 // COLOR VARIABLES
-$color-black: #050505;
-$color-gray: #7D8886;
-$color-light-gray: #9EA6A8;
-$color-white: #fff;
-$color-dark-green: #009B49;
-$color-green: #31B233;
-$color-light-green: #8CDC09;
-$color-red: #CF0000;
+$color-black: #0A1F3F;
+$color-gray: #83827E;
+$color-white: #FFFFFF;
+$color-green: #087C00;
+$color-dark-blue: #1C738E;
+$color-blue: #49C2C7;
+$color-light-blue: #6BFDF2;
+
+// COLOR GRADIENTS
+$color-gradient-green-blue: -webkit-linear-gradient(1turn, $color-green, $color-light-blue);
+$color-gradient-form-green-blue: linear-gradient(180deg, $color-green 0%, $color-blue 35.94%, $color-light-blue 68.23%, $color-white 100%);
+$color-gradient-blue: linear-gradient(270deg, $color-dark-blue 0%, $color-light-blue 100%);
 
 // FONT VARIABLES
 $font-primary: "Varela Round", sans-serif;
-$font-secondary: "Montserrat", sans-serif;
-$font-hero-banner: "Yellowtail", cursive;
 $font-logo: "Molle", cursive;
+$font-hero-banner: "Yellowtail", cursive;
+$font-form: "Montserrat", sans-serif; 
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 120em; // 1920px / 16 = 75em
@@ -22,8 +26,8 @@ $bp-small: 37.5em; // 600px / 16 = 37.5em
 
 // FONT SIZE
 $font-size-large: 4.8rem;
-$font-size-medium: 2.4rem;
-$font-size-smedium: 2rem;
+$font-size-medium: 3.2rem;
+$font-size-smedium: 2.4rem;
 $font-size-small: 1.6rem;
 
 *,
@@ -57,8 +61,7 @@ html {
 
 body {
     font-family: $font-primary;
-    // background: $color-white;
-    background: $color-green;
+    background: $color-white;
     font-size: $font-size-small;
     color: $color-black;
     position: relative;

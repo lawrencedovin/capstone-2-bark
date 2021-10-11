@@ -1,6 +1,18 @@
 .navbar {
-    background-color: blue;
+    height: 8rem;
     &__logo {
-        color: green;
+        font-family: $font-logo;
+        font-size: $font-size-medium;
+        background: $color-gradient-green-blue;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    &__link {
+        color: $color-gray;
+        margin-left: 1.6rem;
+    }
+    &__link:hover {
+        color: $color-blue;
     }
 }
