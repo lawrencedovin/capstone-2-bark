@@ -62,4 +62,7 @@ button {
   padding: 0; }
   .hero__logo-item {
     list-style: none;
-    margin: 1.6rem 0; }
+    margin: 1.6rem 0;
+    filter: invert(55%) sepia(8%) saturate(148%) hue-rotate(10deg) brightness(91%) contrast(89%); }
+    .hero__logo-item:hover {
+      filter: invert(75%) sepia(79%) saturate(360%) hue-rotate(131deg) brightness(82%) contrast(89%); }

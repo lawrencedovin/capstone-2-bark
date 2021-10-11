@@ -8,13 +8,19 @@ const Hero = () => (
         <div className="col-md-1">
           <ul className="hero__logo">
             <li className="hero__logo-item">
-              <img src={process.env.PUBLIC_URL + 'icons/linkedin-icon.svg'} className="" alt="linkedin"/>
+              <a href="/">
+                <img src={process.env.PUBLIC_URL + 'icons/linkedin-icon.svg'} className="" alt="linkedin"/>
+              </a>
             </li>
             <li className="hero__logo-item">
-            <img src={process.env.PUBLIC_URL + 'icons/github-icon.svg'} className="" alt="github"/>
+              <a href="/">
+                <img src={process.env.PUBLIC_URL + 'icons/github-icon.svg'} className="" alt="github"/>
+              </a>
             </li>
             <li className="hero__logo-item">
-            <img src={process.env.PUBLIC_URL + 'icons/email-icon.svg'} className="" alt="email"/>
+              <a href="/">
+                <img src={process.env.PUBLIC_URL + 'icons/email-icon.svg'} className="" alt="email"/>
+              </a>
             </li>
           </ul>
         </div>
