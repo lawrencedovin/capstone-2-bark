@@ -25,11 +25,7 @@ const Hero = () => (
           </ul>
         </div>
         <div className="col-md-10">
-          <img src={process.env.PUBLIC_URL + 'images/hero-image.jpg'} className="hero__image img-fluid" alt="hero"/> 
-          <div className="hero__image--banner">
-            Text
-          </div>
-          <img src={process.env.PUBLIC_URL + 'images/banner-image.jpg'} className="hero__image img-fluid" alt="banner"/>
+          <img src={process.env.PUBLIC_URL + 'images/hero-image.jpg'} className="hero__image img-fluid" alt="hero"/>
         </div>
         <div className="col-md-1">
           <span className="hero__scroll">
@@ -38,6 +34,13 @@ const Hero = () => (
             </span>
             Scroll
           </span>
+        </div>
+        <div className="row">
+          <div className="col-md-5">
+            <div className="hero__image--banner">
+              Start your Journey with your Best Friend.
+            </div>
+          </div>
         </div>
       </div>
     </div>

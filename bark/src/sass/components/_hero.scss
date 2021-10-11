@@ -12,12 +12,16 @@
     }
     &__image {
         margin-top: 2.4rem;
+        &--banner-container {
+            margin-left: 6.4rem;
+        }
         &--banner {
+            font-family: $font-hero-banner;
+            font-size: $font-size-medium;
+            color: $color-white;
             background-image: url("/images/banner-image.jpg");
-            background-size: cover;
-            box-sizing: border-box;
-            width: 100%;
-            height: 100%;
+            margin-top: -6.4rem;
+            padding: 4.8rem 0;
         }
     }
 
