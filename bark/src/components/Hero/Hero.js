@@ -26,6 +26,10 @@ const Hero = () => (
         </div>
         <div className="col-md-10">
           <img src={process.env.PUBLIC_URL + 'images/hero-image.jpg'} className="hero__image img-fluid" alt="hero"/> 
+          <div className="hero__image--banner">
+            Text
+          </div>
+          <img src={process.env.PUBLIC_URL + 'images/banner-image.jpg'} className="hero__image img-fluid" alt="banner"/>
         </div>
         <div className="col-md-1">
           <span className="hero__scroll">

@@ -69,6 +69,12 @@ button {
 
 .hero__image {
   margin-top: 2.4rem; }
+  .hero__image--banner {
+    background-image: url("/images/banner-image.jpg");
+    background-size: cover;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%; }
 
 .hero__scroll {
   display: inline-block;
