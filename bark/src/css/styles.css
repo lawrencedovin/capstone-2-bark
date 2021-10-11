@@ -57,3 +57,8 @@ button {
     margin-left: 1.6rem; }
     .navbar__link:hover {
       color: #49C2C7; }
+
+.hero__logo {
+  padding: 0; }
+  .hero__logo-item {
+    list-style: none; }
