@@ -11,8 +11,8 @@
     &__link {
         color: $color-gray;
         margin-left: 1.6rem;
-    }
-    &__link:hover {
-        color: $color-blue;
+        &:hover {
+            color: $color-blue;
+        }
     }
 }
