@@ -36,7 +36,7 @@ const Hero = () => (
           </span>
         </div>
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-5 hero__image--banner-container">
             <div className="hero__image--banner">
               Start your Journey with your Best Friend.
             </div>
