@@ -12,6 +12,12 @@
     }
 
     &__input {
+        padding: 8px;
+        border: $color-lightest-blue 1px solid;
+        &:hover,
+        &:active {
+            border: $color-blue 1px solid;
+        }
         &::-webkit-input-placeholder,
         &::-moz-placeholder,
         &:-ms-input-placeholder,
@@ -20,14 +26,26 @@
         }
     }
     &__button {
-        
         &--dropdown {
             font-family: $font-primary;
             
         }
-        &--icon {
+        &--icon,
+        &--icon:hover,
+        &--icon:focus {
+            margin-left: 1.6rem;
+            background: $color-white;
+            border: none;
+        }
+    }
 
+    &__icon {
+        &--search {
+            height: 2.4rem;
+            filter: invert(89%) sepia(15%) saturate(974%) hue-rotate(129deg) brightness(88%) contrast(90%);
+            &:hover {
+                filter: invert(68%) sepia(35%) saturate(613%) hue-rotate(134deg) brightness(92%) contrast(95%);
+            }
         }
     }
 }
-
