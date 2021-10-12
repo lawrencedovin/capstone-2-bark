@@ -120,15 +120,23 @@ button {
   .dog-search-filter__label, .dog-search-filter__input, .dog-search-filter__button {
     color: #0A1F3F;
     font-size: 1.6rem; }
+  .dog-search-filter__label {
+    margin-right: .8rem; }
   .dog-search-filter__input {
     padding: 8px;
-    border: #80D5D8 1px solid; }
+    border: #80D5D8 1px solid;
+    border-radius: 0px; }
     .dog-search-filter__input:hover, .dog-search-filter__input:active {
       border: #49C2C7 1px solid; }
     .dog-search-filter__input::-webkit-input-placeholder, .dog-search-filter__input::-moz-placeholder, .dog-search-filter__input:-ms-input-placeholder, .dog-search-filter__input:-moz-placeholder {
       color: #83827E; }
   .dog-search-filter__button--dropdown {
-    font-family: "Varela Round", sans-serif; }
+    font-family: "Varela Round", sans-serif;
+    border: #80D5D8 1px solid;
+    margin-right: -1px;
+    border-radius: 0px; }
+    .dog-search-filter__button--dropdown:hover, .dog-search-filter__button--dropdown:active {
+      border: #49C2C7 1px solid; }
   .dog-search-filter__button--icon, .dog-search-filter__button--icon:hover, .dog-search-filter__button--icon:focus {
     margin-left: 1.6rem;
     background: #FFFFFF;

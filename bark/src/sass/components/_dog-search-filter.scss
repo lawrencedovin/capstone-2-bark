@@ -5,15 +5,17 @@
     &__button {
         color: $color-black;
         font-size: $font-size-small;
+        
     }
 
     &__label {
-        
+        margin-right: .8rem;
     }
 
     &__input {
         padding: 8px;
         border: $color-lightest-blue 1px solid;
+        border-radius: 0px;
         &:hover,
         &:active {
             border: $color-blue 1px solid;
@@ -28,7 +30,13 @@
     &__button {
         &--dropdown {
             font-family: $font-primary;
-            
+            border: $color-lightest-blue 1px solid;
+            margin-right: -1px;
+            border-radius: 0px;
+            &:hover,
+            &:active {
+                border: $color-blue 1px solid;
+            }
         }
         &--icon,
         &--icon:hover,
