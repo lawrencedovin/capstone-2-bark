@@ -114,3 +114,13 @@ button {
   100% {
     margin-left: 0px;
     opacity: 0; } }
+
+.dog-search-filter {
+  margin-top: 6.4rem; }
+  .dog-search-filter__label, .dog-search-filter__input, .dog-search-filter__button {
+    color: #0A1F3F;
+    font-size: 1.6rem; }
+  .dog-search-filter__input::-webkit-input-placeholder, .dog-search-filter__input::-moz-placeholder, .dog-search-filter__input:-ms-input-placeholder, .dog-search-filter__input:-moz-placeholder {
+    color: #83827E; }
+  .dog-search-filter__button--dropdown {
+    font-family: "Varela Round", sans-serif; }

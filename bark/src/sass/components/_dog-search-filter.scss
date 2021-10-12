@@ -1,0 +1,33 @@
+.dog-search-filter {
+    margin-top: 6.4rem;
+    &__label,
+    &__input,
+    &__button {
+        color: $color-black;
+        font-size: $font-size-small;
+    }
+
+    &__label {
+        
+    }
+
+    &__input {
+        &::-webkit-input-placeholder,
+        &::-moz-placeholder,
+        &:-ms-input-placeholder,
+        &:-moz-placeholder {
+            color: $color-gray;
+        }
+    }
+    &__button {
+        
+        &--dropdown {
+            font-family: $font-primary;
+            
+        }
+        &--icon {
+
+        }
+    }
+}
+
