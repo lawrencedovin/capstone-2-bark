@@ -21,16 +21,6 @@ function DogSearchFilter() {
               <option class="dropdown-item dog-search-filter__button" value={"husky"}>Husky</option>
               <option class="dropdown-item dog-search-filter__button" value={"english bulldog"}>English Bulldog</option>
             </select>
-            {/* <div class="btn-group" role="group">
-              <button id="dogSearchFilter" type="button" onChange={handleChange} class="btn dropdown-toggle dog-search-filter__button dog-search-filter__button--dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                {breed}
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dogSearchFilter">
-                <li><button class="dropdown-item dog-search-filter__button" type="button" value={"All Breeds"}>All Breeds</button></li>
-                <li><button class="dropdown-item dog-search-filter__button" type="button" value={"Husky"}>Husky</button></li>
-                <li><button class="dropdown-item dog-search-filter__button" type="button" value={"English Bulldog"}>English Bulldog</button></li>
-              </ul>
-            </div> */}
             <div class="input-group">
               <input type="text" class="form-control dog-search-filter__input" placeholder="Zip Code" aria-label="Input group example" aria-describedby="btnGroupAddon" />
             </div>

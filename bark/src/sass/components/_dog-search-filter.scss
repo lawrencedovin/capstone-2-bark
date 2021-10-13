@@ -34,8 +34,15 @@
             margin-right: -1px;
             border-radius: 0px;
             &:hover,
-            &:active {
+            &:active,
+            &:focus 
+            {
                 border: $color-blue 1px solid;
+                border-radius: 0px;
+            }
+            &:focus {
+                outline: $color-blue-outline 3px solid;
+                z-index: 3;
             }
         }
         &--icon,

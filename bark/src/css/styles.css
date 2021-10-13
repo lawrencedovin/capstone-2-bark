@@ -136,8 +136,12 @@ button {
     border: #80D5D8 1px solid;
     margin-right: -1px;
     border-radius: 0px; }
-    .dog-search-filter__button--dropdown:hover, .dog-search-filter__button--dropdown:active {
-      border: #49C2C7 1px solid; }
+    .dog-search-filter__button--dropdown:hover, .dog-search-filter__button--dropdown:active, .dog-search-filter__button--dropdown:focus {
+      border: #49C2C7 1px solid;
+      border-radius: 0px; }
+    .dog-search-filter__button--dropdown:focus {
+      outline: #C2DBFE 3px solid;
+      z-index: 3; }
   .dog-search-filter__button--icon, .dog-search-filter__button--icon:hover, .dog-search-filter__button--icon:focus {
     margin-left: 1.6rem;
     background: #FFFFFF;
