@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import PropTypes from 'prop-types';
 
 function DogSearchFilter() {
 
@@ -34,9 +33,5 @@ function DogSearchFilter() {
   </div>
   );
 }
-
-DogSearchFilter.propTypes = {};
-
-DogSearchFilter.defaultProps = {};
 
 export default DogSearchFilter;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Hero = () => (
   <div data-testid="Hero">
@@ -46,9 +45,5 @@ const Hero = () => (
     </div>
   </div>
 );
-
-Hero.propTypes = {};
-
-Hero.defaultProps = {};
 
 export default Hero;
