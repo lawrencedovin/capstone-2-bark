@@ -6,7 +6,6 @@ function DogSearchFilter() {
   const [breed, setBreed] = useState('All Breeds');
 
   const handleChange = e => {
-    alert(e.target.value);
     setBreed(e.target.value);
   };
 
@@ -17,10 +16,10 @@ function DogSearchFilter() {
         <form className="dog-search-filter text-center">
           <span class="dog-search-filter__label">Find Best Friend: </span>
           <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <select name="breeds" class="dog-search-filter__button dog-search-filter__button--dropdown">
-              <option value="all breeds">All Breeds</option>
-              <option value="husky">Husky</option>
-              <option value="english bulldog">English Bulldog</option>
+            <select name="breeds" class="dog-search-filter__button dog-search-filter__button--dropdown" value={breed} onChange={handleChange}>
+              <option class="dropdown-item dog-search-filter__button" value={"all breeds"}>All Breeds</option>
+              <option class="dropdown-item dog-search-filter__button" value={"husky"}>Husky</option>
+              <option class="dropdown-item dog-search-filter__button" value={"english bulldog"}>English Bulldog</option>
             </select>
             {/* <div class="btn-group" role="group">
               <button id="dogSearchFilter" type="button" onChange={handleChange} class="btn dropdown-toggle dog-search-filter__button dog-search-filter__button--dropdown" data-bs-toggle="dropdown" aria-expanded="false">
