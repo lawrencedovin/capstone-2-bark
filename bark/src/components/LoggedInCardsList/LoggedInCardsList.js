@@ -12,24 +12,28 @@ const LoggedInCardsList = () => (
               <LoggedInCards 
                 imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
                 title={"Husky"}
+                btnText={"Check Breed"}
               />
             </div> 
             <div className="col">
               <LoggedInCards 
                 imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
                 title={"Husky"}
+                btnText={"Check Breed"}
               />
             </div>
             <div className="col">
               <LoggedInCards 
                 imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
                 title={"Husky"}
+                btnText={"Check Breed"}
               />
             </div>
             <div className="col">
               <LoggedInCards 
                 imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
                 title={"Husky"}
+                btnText={"Check Breed"}
               />
             </div>
           </div>

@@ -6,7 +6,7 @@ const HomeSeperator = ({title}) => (
     <div className="container-fluid">
       <div className="row">
         <div className="home-seperator col-md-10 mx-auto">
-          <h1 className="home-separator__title">
+          <h1 className="home-seperator__title">
             {title}
           </h1>
           <div className="home-seperator__underline"></div>
