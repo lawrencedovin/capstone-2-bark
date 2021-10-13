@@ -3,7 +3,7 @@ import React from 'react';
 
 const LoggedInCards = ({imgUrl, title, description}) => (
   <div data-testid="LoggedInCards">
-    <div class="card" style={{width: "18rem"}}>
+    <div class="card logged-in-card">
       <img class="card-img-top" src={imgUrl} alt={title} />
       <div class="card-body">
         <h5 class="card-title">{title}</h5>

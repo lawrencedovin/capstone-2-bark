@@ -7,9 +7,32 @@ const LoggedInCardsList = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-10 mx-auto">
-          <LoggedInCards 
-            imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
-          />
+          <div className="row justify-content-center text-center">
+            <div className="col">
+              <LoggedInCards 
+                imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
+                title={"Husky"}
+              />
+            </div> 
+            <div className="col">
+              <LoggedInCards 
+                imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
+                title={"Husky"}
+              />
+            </div>
+            <div className="col">
+              <LoggedInCards 
+                imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
+                title={"Husky"}
+              />
+            </div>
+            <div className="col">
+              <LoggedInCards 
+                imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
+                title={"Husky"}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
