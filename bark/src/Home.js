@@ -2,7 +2,7 @@ import NavBar from './components/NavBar/NavBar';
 import Hero from './components/Hero/Hero';
 import DogSearchFilter from './components/DogSearchFilter/DogSearchFilter';
 import HomeSeperator from './components/HomeSeperator/HomeSeperator';
-import LoggedInCards from './components/LoggedInCards/LoggedInCards';
+import LoggedInCardsList from './components/LoggedInCardsList/LoggedInCardsList';
 
 function Home() {
   return (
@@ -11,7 +11,7 @@ function Home() {
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
-      <LoggedInCards />
+      <LoggedInCardsList />
     </div>
   );
 }
