@@ -33,6 +33,13 @@
             border: $color-lightest-blue 1px solid;
             margin-right: -1px;
             border-radius: 0px;
+            
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            padding: 1.6rem;
+            padding-right: 6.4rem;
+            background: url("/icons/caret-icon.svg") 90% / 8% no-repeat;
             &:hover,
             &:active,
             &:focus 

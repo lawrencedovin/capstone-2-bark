@@ -135,7 +135,13 @@ button {
     font-family: "Varela Round", sans-serif;
     border: #80D5D8 1px solid;
     margin-right: -1px;
-    border-radius: 0px; }
+    border-radius: 0px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 1.6rem;
+    padding-right: 6.4rem;
+    background: url("/icons/caret-icon.svg") 90%/8% no-repeat; }
     .dog-search-filter__button--dropdown:hover, .dog-search-filter__button--dropdown:active, .dog-search-filter__button--dropdown:focus {
       border: #49C2C7 1px solid;
       border-radius: 0px; }
