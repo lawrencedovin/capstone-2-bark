@@ -117,7 +117,7 @@ button {
     opacity: 0; } }
 
 .dog-search-filter {
-  margin-top: 6.4rem; }
+  margin: 6.4rem auto 5.6rem; }
   .dog-search-filter__label, .dog-search-filter__input, .dog-search-filter__button {
     color: #0A1F3F;
     font-size: 1.6rem; }
@@ -159,7 +159,8 @@ button {
       filter: invert(68%) sepia(35%) saturate(613%) hue-rotate(134deg) brightness(92%) contrast(95%); }
 
 .home-seperator__title {
-  font-size: 2.4rem; }
+  font-size: 2.4rem;
+  margin-top: 5.6rem; }
 
 .home-seperator__underline {
   height: .4rem;
