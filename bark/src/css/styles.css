@@ -157,3 +157,12 @@ button {
     filter: invert(89%) sepia(15%) saturate(974%) hue-rotate(129deg) brightness(88%) contrast(90%); }
     .dog-search-filter__icon--search:hover {
       filter: invert(68%) sepia(35%) saturate(613%) hue-rotate(134deg) brightness(92%) contrast(95%); }
+
+.home-seperator__title {
+  font-size: 2.4rem; }
+
+.home-seperator__underline {
+  height: .4rem;
+  width: 4.8rem;
+  background: linear-gradient(90.4deg, #6BFDF2 0%, #1C738E 100%);
+  margin-top: 1.2rem; }
