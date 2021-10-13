@@ -1,6 +1,7 @@
 .navbar {
     height: 8rem;
     &__logo {
+        width: 8rem;
         font-family: $font-logo;
         font-size: $font-size-medium;
         background: $color-gradient-green-blue;

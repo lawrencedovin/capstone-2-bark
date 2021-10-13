@@ -46,6 +46,7 @@ button {
 .navbar {
   height: 8rem; }
   .navbar__logo {
+    width: 8rem;
     font-family: "Molle", cursive;
     font-size: 3.2rem;
     background: -webkit-linear-gradient(1turn, #087C00, #6BFDF2);
@@ -125,7 +126,7 @@ button {
   .dog-search-filter__input {
     padding: 8px;
     border: #80D5D8 1px solid;
-    border-radius: 0px; }
+    border-radius: 0; }
     .dog-search-filter__input:hover, .dog-search-filter__input:active {
       border: #49C2C7 1px solid; }
     .dog-search-filter__input::-webkit-input-placeholder, .dog-search-filter__input::-moz-placeholder, .dog-search-filter__input:-ms-input-placeholder, .dog-search-filter__input:-moz-placeholder {
