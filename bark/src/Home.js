@@ -1,10 +1,10 @@
-import NavBar from './components/NavBar/NavBar';
+import NavBar from './components/navs/NavBar/NavBar';
 import Hero from './components/Hero/Hero';
 import DogSearchFilter from './components/filters/DogSearchFilter/DogSearchFilter';
-import HomeSeperator from './components/HomeSeperator/HomeSeperator';
+import HomeSeperator from './components/titles/HomeSeperator/HomeSeperator';
 import BreedsCardsList from './components/cards/BreedsCardsList/BreedsCardsList';
 import DogsCardsList from './components/cards/DogsCardsList/DogsCardsList';
-import MainFooter from './components/MainFooter/MainFooter';
+import MainFooter from './components/footers/MainFooter/MainFooter';
 
 function Home() {
   return (
