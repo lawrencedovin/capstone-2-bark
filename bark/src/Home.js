@@ -9,7 +9,6 @@ import MainFooter from './components/MainFooter/MainFooter';
 function Home() {
   return (
     <div className="Home">
-      <NavBar />
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
