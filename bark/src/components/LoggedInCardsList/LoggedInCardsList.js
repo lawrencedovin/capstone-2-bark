@@ -8,20 +8,16 @@ const LoggedInCardsList = ({props}) => (
       <div className="row">
         <div className="col-md-10 mx-auto">
           <div className="row justify-content-center text-center">
+          {props.map(prop => (
             <div className="col">
-              <ul>
-                {props.map(prop => (
-                  <li>
-                      <LoggedInCards 
-                        imgUrl={process.env.PUBLIC_URL + 'images/breeds/' + prop.imgUrl + '.png'}
-                        title={prop.title}
-                        description={prop.description ? prop.description : null}
-                        btnText={prop.btnText}
-                      />
-                  </li>
-                ))}
-              </ul>
-            </div> 
+                <LoggedInCards 
+                  imgUrl={process.env.PUBLIC_URL + 'images/breeds/' + prop.imgUrl + '.png'}
+                  title={prop.title}
+                  description={prop.description ? prop.description : null}
+                  btnText={prop.btnText}
+                />
+            </div>
+          ))}
           </div>
         </div>
       </div>
