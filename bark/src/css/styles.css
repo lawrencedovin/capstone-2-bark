@@ -256,3 +256,6 @@ button {
       color: #0A1F3F; }
   .footer__icon {
     margin: auto .8rem; }
+
+.register__image {
+  height: calc(100vh - 8rem); }
