@@ -1,8 +1,6 @@
 import React from 'react';
 import LoggedInCards from '../LoggedInCards/LoggedInCards';
 
-
-// const LoggedInCardsList = (titles=[], imgUrls=[], btnText, description) => (
 const LoggedInCardsList = ({props}) => (
 
   <div data-testid="LoggedInCardsList">
@@ -23,33 +21,7 @@ const LoggedInCardsList = ({props}) => (
                   </li>
                 ))}
               </ul>
-              {/* <LoggedInCards 
-                imgUrl={process.env.PUBLIC_URL + 'images/breeds/husky-breed.png'}
-                title={"Husky"}
-                btnText={"Check Breed"}
-              /> */}
             </div> 
-            {/* <div className="col">
-              <LoggedInCards 
-                imgUrl={process.env.PUBLIC_URL + 'images/breeds/pug-breed.png'}
-                title={"Pug"}
-                btnText={"Check Breed"}
-              />
-            </div>
-            <div className="col">
-              <LoggedInCards 
-                imgUrl={process.env.PUBLIC_URL + 'images/breeds/yorkshire-terrier-breed.png'}
-                title={"Yorkshire Terrier"}
-                btnText={"Check Breed"}
-              />
-            </div>
-            <div className="col">
-              <LoggedInCards 
-                imgUrl={process.env.PUBLIC_URL + 'images/breeds/english-bulldog-breed.png'}
-                title={"English Bulldog"}
-                btnText={"Check Breed"}
-              />
-            </div> */}
           </div>
         </div>
       </div>
