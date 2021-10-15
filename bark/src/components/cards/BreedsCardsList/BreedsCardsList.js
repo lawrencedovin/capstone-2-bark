@@ -1,5 +1,5 @@
 import React from 'react';
-import LoggedInCardsList from '../LoggedInCardsList/LoggedInCardsList';
+import CardsList from '../CardsList/CardsList';
 
 
 function BreedsCardsList() {
@@ -23,7 +23,7 @@ function BreedsCardsList() {
   ]
   return (
     <div className="BreedsCardList">
-      <LoggedInCardsList props={breeds} type={"breeds"}/>
+      <CardsList props={breeds} type={"breeds"}/>
     </div>
   );
 }

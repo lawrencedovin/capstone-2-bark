@@ -1,9 +1,9 @@
 import React from 'react';
 
-function LoggedInCards({imgUrl, title, description, btnText}) {
+function Cards({imgUrl, title, description, btnText}) {
   let isLoggedIn = false;
   return(
-    <div data-testid="LoggedInCards">
+    <div data-testid="Cards">
       <div className="logged-in-card">
         <div className="logged-in-card__img-body-container">
           <img class="card-img-top" src={imgUrl} alt={title} />
@@ -34,4 +34,4 @@ function LoggedInCards({imgUrl, title, description, btnText}) {
   );
 }
 
-export default LoggedInCards;
+export default Cards;

@@ -1,5 +1,5 @@
 import React from 'react';
-import LoggedInCardsList from '../LoggedInCardsList/LoggedInCardsList';
+import CardsList from '../CardsList/CardsList';
 
 
 function DogsCardsList() {
@@ -32,7 +32,7 @@ function DogsCardsList() {
   ]
   return (
     <div data-testid="DogsCardsList">
-      <LoggedInCardsList props={dogs} type={"dogs"}/>
+      <CardsList props={dogs} type={"dogs"}/>
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import React from 'react';
-import LoggedInCards from '../LoggedInCards/LoggedInCards';
+import Cards from '../Cards/Cards';
 
-const LoggedInCardsList = ({props, type}) => (
+const CardsList = ({props, type}) => (
 
-  <div data-testid="LoggedInCardsList">
+  <div data-testid="CardsList">
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-10 mx-auto">
           <div className="row justify-content-center text-center">
           {props.map(prop => (
             <div className="col">
-                <LoggedInCards 
+                <Cards 
                   imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
                   title={prop.title}
                   description={prop.description}
@@ -25,8 +25,8 @@ const LoggedInCardsList = ({props, type}) => (
   </div>
 );
 
-LoggedInCardsList.propTypes = {};
+CardsList.propTypes = {};
 
-LoggedInCardsList.defaultProps = {};
+CardsList.defaultProps = {};
 
-export default LoggedInCardsList;
+export default CardsList;
