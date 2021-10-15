@@ -3,27 +3,29 @@ import LoggedInCardsList from '../LoggedInCardsList/LoggedInCardsList';
 
 
 function DogsCardsList() {
-  const breeds = [
+  const dogs = [
     {
-      title: "Husky",
-      imgUrl: "husky-breed"
+      title: "George",
+      imgUrl: "george-dog",
+      description: "Breed: Corgi"
+
     },
     {
-      title: "Pug",
-      imgUrl: "pug-breed"
+      title: "R2D2",
+      imgUrl: "r2d2-dog"
     },
     {
-      title: "Yorkshire Terrier",
-      imgUrl: "yorkshire-terrier-breed"
+      title: "Spot",
+      imgUrl: "spot-dog"
     },
     {
-      title: "English Bulldog",
-      imgUrl: "english-bulldog-breed"
+      title: "Winnie",
+      imgUrl: "winnie-dog"
     }
   ]
   return (
     <div data-testid="DogsCardsList">
-      <LoggedInCardsList props={breeds} type={"dog"}/>
+      <LoggedInCardsList props={dogs} type={"dogs"}/>
     </div>
   )
 }

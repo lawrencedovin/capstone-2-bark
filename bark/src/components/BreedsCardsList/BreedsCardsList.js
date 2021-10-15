@@ -23,7 +23,7 @@ function BreedsCardsList() {
   ]
   return (
     <div className="BreedsCardList">
-      <LoggedInCardsList props={breeds} type={"breed"}/>
+      <LoggedInCardsList props={breeds} type={"breeds"}/>
     </div>
   );
 }
