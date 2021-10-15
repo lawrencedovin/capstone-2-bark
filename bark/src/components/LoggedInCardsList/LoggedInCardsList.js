@@ -13,7 +13,7 @@ const LoggedInCardsList = ({props, type}) => (
                 <LoggedInCards 
                   imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
                   title={prop.title}
-                  description={prop.description ? prop.description : null}
+                  description={prop.description}
                   btnText={type === "breeds" ? "Check Breed" : "Check Dog"}
                 />
             </div>

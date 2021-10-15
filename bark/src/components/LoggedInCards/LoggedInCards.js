@@ -10,7 +10,15 @@ const LoggedInCards = ({imgUrl, title, description, btnText}) => (
         </button>
         <div class="card-body logged-in-card__body">
           <h5 class="card-title logged-in-card__title">{title}</h5>
-          <p class="card-text logged-in-card__description">{description}</p>
+          {description 
+          ? 
+          <>
+            <p class="card-text logged-in-card__description">{description.breed}</p>
+            <p class="card-text logged-in-card__description">{description.location}</p>
+          </>
+          :
+          <></>
+          }
         </div>
       </div>
       <a href="/" class="btn logged-in-card__button">{btnText}</a>

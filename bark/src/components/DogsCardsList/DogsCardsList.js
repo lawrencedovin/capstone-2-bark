@@ -7,20 +7,27 @@ function DogsCardsList() {
     {
       title: "George",
       imgUrl: "george-dog",
-      description: "Breed: Corgi"
+      description: {breed: "German Shepherd",
+                    location: "Bowie, MD"}
 
     },
     {
       title: "R2D2",
-      imgUrl: "r2d2-dog"
+      imgUrl: "r2d2-dog",
+      description: {breed: "Corgi",
+                    location: "Bowie, MD"}
     },
     {
       title: "Spot",
-      imgUrl: "spot-dog"
+      imgUrl: "spot-dog",
+      description: {breed: "Dalmatian",
+                    location: "Bowie, MD"}
     },
     {
       title: "Winnie",
-      imgUrl: "winnie-dog"
+      imgUrl: "winnie-dog",
+      description: {breed: "Chow Chow",
+                    location: "Bowie, MD"}
     }
   ]
   return (
