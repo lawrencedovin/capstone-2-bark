@@ -1,4 +1,5 @@
-import Home from "./main-pages/Home";
+import Home from "./main-pages/Home/Home";
+// import Home from "./main-pages/Home";
 import NavBar from "./components/navs/NavBar/NavBar";
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -9,6 +10,9 @@ function App() {
         <NavBar />
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/register">
+          {/* <RegistrationForm/> */}
         </Route>
       </BrowserRouter>
     </div>
