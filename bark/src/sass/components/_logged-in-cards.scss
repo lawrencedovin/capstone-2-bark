@@ -20,6 +20,7 @@
         background: $color-white;
         border-radius: 50%;
         position: absolute;
+        border: none;
         top: 8px;
         right: 8px;
 
@@ -51,7 +52,6 @@
 
     &__button {
         background-color: $color-blue;
-        color: $color-white;
         margin: -2.4rem 0 4.8rem;
         margin-top: -2.4rem;
         padding: 1.2rem;
@@ -59,5 +59,13 @@
         border-radius: 4px;
         position: relative;
         z-index: 1;
+
+        &, &:hover {
+            color: $color-white;
+        }
+
+        &:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
+        }
     }
 }
