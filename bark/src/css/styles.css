@@ -220,3 +220,39 @@ button {
     color: #FFFFFF; }
   .logged-in-card__button:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0); }
+
+.footer {
+  background: linear-gradient(90.15deg, #009B49 1%, #31B233 50.5%, #8CDC09 100%);
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem; }
+  .footer-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0; }
+  .footer-fix {
+    height: 32rem; }
+  .footer--forms {
+    background: #FFFFFF; }
+  .footer__button {
+    border: 1px solid #087C00;
+    margin: 11.4rem 0 2.4rem;
+    padding: .6rem .8rem .8rem;
+    border-radius: 2px; }
+    .footer__button-icon {
+      filter: invert(53%) sepia(13%) saturate(2758%) hue-rotate(72deg) brightness(102%) contrast(86%);
+      height: 2.4rem; }
+    .footer__button:hover {
+      background: #087C00; }
+      .footer__button:hover > #footerButtonIcon {
+        filter: invert(100%) sepia(1%) saturate(7500%) hue-rotate(305deg) brightness(106%) contrast(103%); }
+  .footer__text {
+    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center; }
+  .footer__made-with {
+    color: #FFFFFF; }
+    .footer__made-with--forms {
+      color: #0A1F3F; }
+  .footer__icon {
+    margin: auto .8rem; }
