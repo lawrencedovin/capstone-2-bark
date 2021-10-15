@@ -6,28 +6,24 @@ function BreedsCardsList() {
   const breeds = [
     {
       title: "Husky",
-      imgUrl: "husky-breed",
-      btnText: "Check Breed"
+      imgUrl: "husky-breed"
     },
     {
       title: "Pug",
-      imgUrl: "pug-breed",
-      btnText: "Check Breed"
+      imgUrl: "pug-breed"
     },
     {
       title: "Yorkshire Terrier",
-      imgUrl: "yorkshire-terrier-breed",
-      btnText: "Check Breed"
+      imgUrl: "yorkshire-terrier-breed"
     },
     {
       title: "English Bulldog",
-      imgUrl: "english-bulldog-breed",
-      btnText: "Check Breed"
+      imgUrl: "english-bulldog-breed"
     }
   ]
   return (
     <div className="BreedsCardList">
-      <LoggedInCardsList props={breeds}/>
+      <LoggedInCardsList props={breeds} type={"breed"}/>
     </div>
   );
 }

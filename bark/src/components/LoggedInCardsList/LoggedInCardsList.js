@@ -1,7 +1,7 @@
 import React from 'react';
 import LoggedInCards from '../LoggedInCards/LoggedInCards';
 
-const LoggedInCardsList = ({props}) => (
+const LoggedInCardsList = ({props, type}) => (
 
   <div data-testid="LoggedInCardsList">
     <div className="container-fluid">
@@ -14,7 +14,7 @@ const LoggedInCardsList = ({props}) => (
                   imgUrl={process.env.PUBLIC_URL + 'images/breeds/' + prop.imgUrl + '.png'}
                   title={prop.title}
                   description={prop.description ? prop.description : null}
-                  btnText={prop.btnText}
+                  btnText={type === "breed" ? "Check Breed" : "Check Dog"}
                 />
             </div>
           ))}
