@@ -13,8 +13,8 @@ const LoggedInCards = ({imgUrl, title, description, btnText}) => (
           {description 
           ? 
           <>
-            <p class="card-text logged-in-card__description">{description.breed}</p>
-            <p class="card-text logged-in-card__description">{description.location}</p>
+            <p class="card-text logged-in-card__description">Breed: {description.breed}</p>
+            <p class="card-text logged-in-card__description">Location: {description.location}</p>
           </>
           :
           <></>

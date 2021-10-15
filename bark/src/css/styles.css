@@ -204,7 +204,8 @@ button {
   font-size: 1.6rem; }
 
 .logged-in-card__description {
-  color: #83827E; }
+  color: #83827E;
+  margin-bottom: 0; }
 
 .logged-in-card__button {
   background-color: #49C2C7;
