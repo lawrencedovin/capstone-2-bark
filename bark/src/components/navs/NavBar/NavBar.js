@@ -17,25 +17,25 @@ function NavBar() {
               ?
                 <ul class="navbar-nav me-2">
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/">lawrence123</a>
+                    <a class="nav-link navbar__link" href="/user">lawrence123</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/">Breeds</a>
+                    <a class="nav-link navbar__link" href="/breeds">Breeds</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/">Dogs</a>
+                    <a class="nav-link navbar__link" href="/dogs">Dogs</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/">Logout</a>
+                    <a class="nav-link navbar__link" href="/logout">Logout</a>
                   </li>
                 </ul>
               :
                 <ul class="navbar-nav me-2">
                     <li class="nav-item">
-                      <a class="nav-link navbar__link" href="/">Sign Up</a>
+                      <a class="nav-link navbar__link" href="/register">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link navbar__link" href="/">Login</a>
+                      <a class="nav-link navbar__link" href="/login">Login</a>
                     </li>
                 </ul>
               }

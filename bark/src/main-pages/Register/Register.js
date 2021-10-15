@@ -1,15 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 
-const Register = () => (
-  <div data-testid="Register">
-    Register Component
-  </div>
-);
-
-Register.propTypes = {};
-
-Register.defaultProps = {};
+function Register() {
+  return(
+    <div data-testid="Register">
+      <h1>Register Component</h1>
+        <div className="row">
+            <div className="col">1</div>
+            <div className="col">2</div>
+        </div>
+    </div>
+  );
+}
 
 export default Register;

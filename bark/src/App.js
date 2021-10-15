@@ -1,5 +1,5 @@
 import Home from "./main-pages/Home/Home";
-// import Home from "./main-pages/Home";
+import Register from "./main-pages/Register/Register"
 import NavBar from "./components/navs/NavBar/NavBar";
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/register">
-          {/* <RegistrationForm/> */}
+          <Register />
         </Route>
       </BrowserRouter>
     </div>
