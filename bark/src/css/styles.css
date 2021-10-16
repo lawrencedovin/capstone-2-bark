@@ -263,7 +263,7 @@ button {
   padding: 0; }
 
 .register__form-container {
-  background: black; }
+  background: linear-gradient(180deg, #087C00 0%, #49C2C7 35.94%, #6BFDF2 68.23%, #FFFFFF 100%); }
 
 .col {
   padding: 0; }
