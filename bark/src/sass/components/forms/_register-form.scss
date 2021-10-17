@@ -8,13 +8,31 @@
 
     &__form {
         background: $color-white;
-        padding: 48px;
+        padding: 4.8rem;
         box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
         border-radius: 4px;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+
+        &-title,
+        &-description {
+            text-align: center;
+        }
+
+        &-title {
+            color: $color-black;
+            font-size: $font-size-medium;
+        }
+
+        &-description {
+            color: $color-gray;
+            font-size: $font-size-small;
+            font-family: $font-form;
+            margin-bottom: 4.8rem;
+        }
+
         &-container {
             background: $color-gradient-form-green-blue;
             position: relative;

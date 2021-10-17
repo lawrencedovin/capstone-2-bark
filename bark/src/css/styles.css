@@ -264,13 +264,23 @@ button {
 
 .register__form {
   background: #FFFFFF;
-  padding: 48px;
+  padding: 4.8rem;
   box-shadow: 0 2px 7px rgba(50, 50, 93, 0.25);
   border-radius: 4px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); }
+  .register__form-title, .register__form-description {
+    text-align: center; }
+  .register__form-title {
+    color: #0A1F3F;
+    font-size: 3.2rem; }
+  .register__form-description {
+    color: #83827E;
+    font-size: 1.6rem;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 4.8rem; }
   .register__form-container {
     background: linear-gradient(180deg, #087C00 0%, #49C2C7 35.94%, #6BFDF2 68.23%, #FFFFFF 100%);
     position: relative; }

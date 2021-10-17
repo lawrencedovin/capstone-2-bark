@@ -12,6 +12,8 @@ function Register() {
               {/* <form action="" className="register__form">
               </form> */}
               <form className="register__form col-md-8">
+                <h1 className="register__form-title">Create an Account</h1>
+                <p className="register__form-description">Please fill out the form to create an account</p>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
