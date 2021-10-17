@@ -11,7 +11,7 @@ function Register() {
             <div className="col register__form-container">
               {/* <form action="" className="register__form">
               </form> */}
-              <form>
+              <form className="register__form col-md-8">
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />

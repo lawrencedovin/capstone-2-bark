@@ -7,8 +7,17 @@
     }
 
     &__form {
+        background: $color-white;
+        padding: 48px;
+        box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
+        border-radius: 4px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
         &-container {
             background: $color-gradient-form-green-blue;
+            position: relative;
         }
     }
 }
