@@ -280,6 +280,7 @@ button {
     margin-bottom: 4.8rem; }
   .forms__container {
     background: linear-gradient(180deg, #087C00 0%, #49C2C7 35.94%, #6BFDF2 68.23%, #FFFFFF 100%);
+    height: calc(100vh - 16.8rem);
     position: relative; }
   .forms__input {
     color: #49C2C7;
