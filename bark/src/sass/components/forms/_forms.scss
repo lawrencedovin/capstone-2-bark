@@ -7,6 +7,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    max-width: 56rem;
     
     &__image {
         height: calc(100vh - 16.8rem);
