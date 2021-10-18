@@ -49,6 +49,11 @@
     &__description {
         color: $color-gray;
         margin-bottom: 0;
+        text-align: left;
+        &-container {
+            display: inline-block;
+            margin: 0 auto;
+        }
     }
 
     &__button {

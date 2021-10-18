@@ -168,6 +168,18 @@ button {
     background: linear-gradient(90.4deg, #6BFDF2 0%, #1C738E 100%);
     margin-top: 1.2rem; }
 
+.search {
+  text-align: center;
+  margin-top: 6.4rem; }
+  .search__title {
+    font-size: 3.2rem;
+    margin-bottom: 1.2rem; }
+  .search__underline {
+    height: .4rem;
+    width: 4.8rem;
+    background: linear-gradient(90.4deg, #6BFDF2 0%, #1C738E 100%);
+    margin: 0 auto; }
+
 .logged-in-card__img-body-container {
   width: 24rem;
   margin: 0 auto;
@@ -205,7 +217,11 @@ button {
 
 .logged-in-card__description {
   color: #83827E;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: left; }
+  .logged-in-card__description-container {
+    display: inline-block;
+    margin: 0 auto; }
 
 .logged-in-card__button {
   background-color: #49C2C7;

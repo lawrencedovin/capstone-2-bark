@@ -19,10 +19,10 @@ function Cards({imgUrl, title, description, btnText}) {
             <h5 class="card-title logged-in-card__title">{title}</h5>
             {description 
             ? 
-            <>
+            <div className="logged-in-card__description-container">
               <p class="card-text logged-in-card__description">Breed: {description.breed}</p>
               <p class="card-text logged-in-card__description">Location: {description.location}</p>
-            </>
+            </div>
             :
             <></>
             }
