@@ -1,89 +1,174 @@
-.register {
+// .register {
+    
+//     &__image {
+//         height: calc(100vh - 8rem);
+//         width: 100%;
+//         padding: 0;
+//     }
+
+//     &__form {
+//         background: $color-white;
+//         padding: 4.8rem;
+//         box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
+//         border-radius: 4px;
+//         position: absolute;
+//         left: 50%;
+//         top: 50%;
+//         transform: translate(-50%, -50%);
+
+//         &-title,
+//         &-description {
+//             text-align: center;
+//         }
+
+//         &-title {
+//             color: $color-black;
+//             font-size: $font-size-medium;
+//         }
+
+//         &-description {
+//             color: $color-gray;
+//             font-size: $font-size-small;
+//             font-family: $font-form;
+//             margin-bottom: 4.8rem;
+//         }
+
+//         &-container {
+//             background: $color-gradient-form-green-blue;
+//             position: relative;
+//         }
+
+//         &-input {
+//             color: $color-green;
+//             font-size: 1.6rem;
+//             height: auto;
+//             padding: 1rem 3.2rem;
+//             border: 2px solid $color-green;
+//             opacity: .6;
+
+//             &-container:not(:last-child) {
+//                 margin-bottom: 1.6rem;
+//             }
+
+//             &-icon {
+//                 color: $color-green;
+//                 opacity: .6;
+//                 position: absolute;
+//                 left: .8rem;
+//                 z-index: 4;
+//             }
+
+//             &:hover {
+//                 opacity: .8;
+//             }
+
+//             &:focus + &-icon {
+//                 opacity: 1;
+//             }
+            
+//         }
+
+//         &__button {
+//             width: 100%;
+//             color: $color-white;
+//             font-size: $font-size-small;
+//             background: $color-green;
+//             margin-top: 3.2rem;
+//             padding: 2rem 2.8rem;
+//             border-radius: 2px;
+//             border: none;
+
+//             &:hover {
+//                 background: $color-green;
+//             }
+//         }
+//     }
+// }
+
+.forms {
+    background: $color-white;
+    padding: 4.8rem;
+    box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     
     &__image {
         height: calc(100vh - 8rem);
         width: 100%;
         padding: 0;
     }
+    
+    &__title,
+    &__description {
+        text-align: center;
+    }
 
-    &__form {
-        background: $color-white;
-        padding: 4.8rem;
-        box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
-        border-radius: 4px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+    &__title {
+        color: $color-black;
+        font-size: $font-size-medium;
+    }
 
-        &-title,
-        &-description {
-            text-align: center;
+    &__description {
+        color: $color-gray;
+        font-size: $font-size-small;
+        font-family: $font-form;
+        margin-bottom: 4.8rem;
+    }
+
+    &__container {
+        background: $color-gradient-form-green-blue;
+        position: relative;
+    }
+
+    &__input {
+        color: $color-green;
+        font-size: 1.6rem;
+        height: auto;
+        padding: 1rem 3.2rem;
+        border: 2px solid $color-green;
+        opacity: .6;
+
+        &-container:not(:last-child) {
+            margin-bottom: 1.6rem;
         }
 
-        &-title {
-            color: $color-black;
-            font-size: $font-size-medium;
-        }
-
-        &-description {
-            color: $color-gray;
-            font-size: $font-size-small;
-            font-family: $font-form;
-            margin-bottom: 4.8rem;
-        }
-
-        &-container {
-            background: $color-gradient-form-green-blue;
-            position: relative;
-        }
-
-        &-input {
+        &-icon {
             color: $color-green;
-            font-size: 1.6rem;
-            height: auto;
-            padding: 1rem 3.2rem;
-            border: 2px solid $color-green;
             opacity: .6;
-
-            &-container:not(:last-child) {
-                margin-bottom: 1.6rem;
-            }
-
-            &-icon {
-                color: $color-green;
-                opacity: .6;
-                position: absolute;
-                left: .8rem;
-                z-index: 4;
-            }
-
-            &:hover {
-                opacity: .8;
-            }
-
-            &:focus + &-icon {
-                opacity: 1;
-            }
-            
+            position: absolute;
+            left: .8rem;
+            z-index: 4;
         }
 
-        &__button {
-            width: 100%;
-            color: $color-white;
-            font-size: $font-size-small;
-            background: $color-green;
-            margin-top: 3.2rem;
-            padding: 2rem 2.8rem;
-            border-radius: 2px;
-            border: none;
+        &:hover {
+            opacity: .8;
+        }
 
-            &:hover {
-                background: $color-green;
-            }
+        &:focus + &-icon {
+            opacity: 1;
+        }
+        
+    }
+
+    &__button {
+        width: 100%;
+        color: $color-white;
+        font-size: $font-size-small;
+        background: $color-green;
+        margin-top: 3.2rem;
+        padding: 2rem 2.8rem;
+        border-radius: 2px;
+        border: none;
+
+        &:hover {
+            background: $color-green;
         }
     }
 }
+
 
 .col {
     padding: 0;
