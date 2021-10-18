@@ -1,4 +1,5 @@
 import React from 'react';
+import FormFooter from '../../components/footers/FormFooter/FormFooter';
 
 function Register() {
   return(
@@ -37,7 +38,9 @@ function Register() {
               </form>
             </div>
         </div>
+        <FormFooter/>
     </div>
+    
   );
 }
 
