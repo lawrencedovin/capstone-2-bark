@@ -31,7 +31,7 @@ function Login() {
                   </span>
                 </div>
                 <button href="#" class="forms__button d-flex justify-content-between align-items-center">
-                  Register
+                  Login
                   <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" />
                 </button>
               </form>
