@@ -1,1 +1,93 @@
-@import "./register-form";
+.forms {
+    background: $color-white;
+    padding: 4.8rem;
+    box-shadow: 0 2px 7px rgba(50, 50, 93, .25);
+    border-radius: 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    &__image {
+        height: calc(100vh - 16.8rem);
+        width: 100%;
+        padding: 0;
+    }
+    
+    &__title,
+    &__description {
+        text-align: center;
+    }
+
+    &__title {
+        color: $color-black;
+        font-size: $font-size-medium;
+    }
+
+    &__description {
+        color: $color-gray;
+        font-size: $font-size-small;
+        font-family: $font-form;
+        margin-bottom: 4.8rem;
+    }
+
+    &__container {
+        background: $color-gradient-form-green-blue;
+        position: relative;
+    }
+
+    &__input {
+        color: $color-blue;
+        font-size: 1.6rem;
+        height: auto;
+        padding: 1rem 4rem;
+        border: 2px solid $color-blue;
+        opacity: .6;
+
+        &-container:not(:last-child) {
+            margin-bottom: 1.6rem;
+        }
+
+        &-icon {
+            color: $color-blue;
+            opacity: .6;
+            position: absolute;
+            left: 1.6rem;
+            z-index: 4;
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &:focus + &-icon {
+            opacity: 1;
+        }
+        
+    }
+
+    &__button {
+        width: 100%;
+        color: $color-white;
+        font-size: $font-size-small;
+        background: $color-blue;
+        margin-top: 4.8rem;
+        padding: 2rem 2.8rem;
+        border-radius: 40px;
+        border: none;
+
+        &:hover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
+        }
+    }
+}
+
+// For overriding bootstrap input-group border radius
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), 
+.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-radius: 40px;
+}
+
+.col {
+    padding: 0;
+}
