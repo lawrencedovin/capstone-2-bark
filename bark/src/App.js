@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/user/edit">
+        <Route exact path="/edit">
           <EditUser />
         </Route>
       </BrowserRouter>
