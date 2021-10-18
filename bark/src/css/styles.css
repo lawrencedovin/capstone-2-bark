@@ -284,19 +284,19 @@ button {
     background: linear-gradient(180deg, #087C00 0%, #49C2C7 35.94%, #6BFDF2 68.23%, #FFFFFF 100%);
     position: relative; }
   .forms__input {
-    color: #087C00;
+    color: #49C2C7;
     font-size: 1.6rem;
     height: auto;
-    padding: 1rem 3.2rem;
-    border: 2px solid #087C00;
+    padding: 1rem 4rem;
+    border: 2px solid #49C2C7;
     opacity: .6; }
     .forms__input-container:not(:last-child) {
       margin-bottom: 1.6rem; }
     .forms__input-icon {
-      color: #087C00;
+      color: #49C2C7;
       opacity: .6;
       position: absolute;
-      left: .8rem;
+      left: 1.6rem;
       z-index: 4; }
     .forms__input:hover {
       opacity: .8; }
@@ -306,13 +306,17 @@ button {
     width: 100%;
     color: #FFFFFF;
     font-size: 1.6rem;
-    background: #087C00;
-    margin-top: 3.2rem;
+    background: #49C2C7;
+    margin-top: 4.8rem;
     padding: 2rem 2.8rem;
-    border-radius: 2px;
+    border-radius: 40px;
     border: none; }
     .forms__button:hover {
-      background: #087C00; }
+      background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0); }
+
+.input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3),
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+  border-radius: 40px; }
 
 .col {
   padding: 0; }
