@@ -37,6 +37,51 @@
             background: $color-gradient-form-green-blue;
             position: relative;
         }
+
+        &-input {
+            color: $color-green;
+            font-size: 1.6rem;
+            height: auto;
+            padding: 1rem 3.2rem;
+            border: 2px solid $color-green;
+            opacity: .6;
+
+            &-container:not(:last-child) {
+                margin-bottom: 1.6rem;
+            }
+
+            &-icon {
+                color: $color-green;
+                opacity: .6;
+                position: absolute;
+                left: .8rem;
+                z-index: 4;
+            }
+
+            &:hover {
+                opacity: .8;
+            }
+
+            &:focus + &-icon {
+                opacity: 1;
+            }
+            
+        }
+
+        &__button {
+            width: 100%;
+            color: $color-white;
+            font-size: $font-size-small;
+            background: $color-green;
+            margin-top: 3.2rem;
+            padding: 2rem 2.8rem;
+            border-radius: 2px;
+            border: none;
+
+            &:hover {
+                background: $color-green;
+            }
+        }
     }
 }
 
