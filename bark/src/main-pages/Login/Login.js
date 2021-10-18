@@ -10,18 +10,12 @@ function Login() {
             </div>
             <div className="col forms__container">
               <form className="forms col-md-8">
-                <h1 className="forms__title">Create an Account</h1>
-                <p className="forms__description">Please fill out the form to create an account</p>
+                <h1 className="forms__title">Login</h1>
+                <p className="forms__description">Enter your user credentials to login</p>
                 <div class="input-group forms__input-container align-items-center">
                   <input type="text" placeholder="Username" className="form-control forms__input" />
                   <span class="input-group-btn forms__input-icon align-middle">
                       <i class="fas fa-user"></i>
-                  </span>
-                </div>
-                <div class="input-group forms__input-container align-items-center">
-                  <input type="text" placeholder="Email" className="form-control forms__input" />
-                  <span class="input-group-btn forms__input-icon align-middle">
-                      <i class="fas fa-envelope"></i>
                   </span>
                 </div>
                 <div class="input-group forms__input-container align-items-center">
