@@ -8,8 +8,11 @@ import MainFooter from '../../components/footers/MainFooter/MainFooter';
 function Search() {
   return(
     <div data-testid="Search">
-      <SearchTitle title="Dogs" />
+      <SearchTitle title="All Breeds in Bowie, MD" />
       <DogSearchFilter />
+      <DogsCardsList/>
+      <DogsCardsList/>
+      <DogsCardsList/>
       <DogsCardsList/>
       <MainFooter/>
     </div>

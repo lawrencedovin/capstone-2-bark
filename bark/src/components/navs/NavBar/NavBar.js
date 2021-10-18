@@ -1,7 +1,7 @@
 import React from 'react';
 
 function NavBar() {
-  let isLoggedIn = false;
+  let isLoggedIn = true;
   return(
     <div data-testid="NavBar">
       <nav class="navbar navbar-expand-lg">

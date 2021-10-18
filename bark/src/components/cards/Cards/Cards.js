@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Cards({imgUrl, title, description, btnText}) {
-  let isLoggedIn = false;
+  let isLoggedIn = true;
   return(
     <div data-testid="Cards">
       <div className="logged-in-card">
