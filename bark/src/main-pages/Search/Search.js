@@ -1,7 +1,6 @@
 import React from 'react';
 import DogSearchFilter from '../../components/filters/DogSearchFilter/DogSearchFilter';
-import HomeSeperator from '../../components/titles/HomeSeperator/HomeSeperator';
-import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsList';
+import SearchTitle from '../../components/titles/SearchTitle/SearchTitle';
 import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 
@@ -9,7 +8,7 @@ import MainFooter from '../../components/footers/MainFooter/MainFooter';
 function Search() {
   return(
     <div data-testid="Search">
-      <HomeSeperator title="Dogs" />
+      <SearchTitle title="Dogs" />
       <DogSearchFilter />
       <DogsCardsList/>
       <MainFooter/>
