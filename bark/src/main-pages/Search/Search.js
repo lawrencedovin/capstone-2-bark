@@ -9,7 +9,10 @@ import MainFooter from '../../components/footers/MainFooter/MainFooter';
 function Search() {
   return(
     <div data-testid="Search">
-      Search Component
+      <HomeSeperator title="Dogs" />
+      <DogSearchFilter />
+      <DogsCardsList/>
+      <MainFooter/>
     </div>
   );
 }
