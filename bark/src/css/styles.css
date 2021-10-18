@@ -267,7 +267,7 @@ button {
   top: 50%;
   transform: translate(-50%, -50%); }
   .forms__image {
-    height: calc(100vh - 8rem);
+    height: calc(100vh - 16.8rem);
     width: 100%;
     padding: 0; }
   .forms__title, .forms__description {
