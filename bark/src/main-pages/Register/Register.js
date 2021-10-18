@@ -30,9 +30,11 @@ function Register() {
                       <i class="fas fa-lock"></i>
                   </span>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button href="#" class="forms__button d-flex justify-content-between align-items-center">
+                  Register
+                  <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" />
+                </button>
               </form>
-              
             </div>
         </div>
     </div>
