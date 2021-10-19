@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Cards({imgUrl, title, description, btnText}) {
+function Cards({imgUrl, title, description, btnText, link}) {
   let isLoggedIn = true;
   return(
     <div data-testid="Cards">
@@ -28,7 +28,7 @@ function Cards({imgUrl, title, description, btnText}) {
             }
           </div>
         </div>
-        <a href="/" class="btn logged-in-card__button">{btnText}</a>
+        <a href={link} class="btn logged-in-card__button">{btnText}</a>
       </div>
     </div>
   );

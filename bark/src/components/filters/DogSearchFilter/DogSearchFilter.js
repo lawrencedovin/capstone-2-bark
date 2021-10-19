@@ -23,9 +23,9 @@ function DogSearchFilter() {
             <div class="input-group">
               <input type="text" class="form-control dog-search-filter__input" placeholder="Zip Code" aria-label="Input group example" aria-describedby="btnGroupAddon" />
             </div>
-            <button type="button" class="btn-primary dog-search-filter__button dog-search-filter__button--icon">
+            <a type="button" class="btn-primary dog-search-filter__button dog-search-filter__button--icon" href="/search">
               <img src={process.env.PUBLIC_URL + 'icons/search-icon.svg'} class="dog-search-filter__icon--search" alt="search icon" />
-            </button>
+            </a>
           </div>
         </form>
       </div>
