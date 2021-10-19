@@ -23,7 +23,7 @@ function NavBar() {
                     <a class="nav-link navbar__link" href="/breeds">Breeds</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/dogs">Dogs</a>
+                    <a class="nav-link navbar__link" href="/dog-list">Dogs</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link navbar__link" href="/logout">Logout</a>
