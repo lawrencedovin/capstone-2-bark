@@ -8,6 +8,7 @@
         margin-right: .8rem;
         border: none;
         background: none;
+        display: inline;
 
         &-icon {
             background: url("/icons/unliked-icon.svg") no-repeat center;
@@ -24,6 +25,7 @@
 
     &__title {
         font-size: $font-size-medium;
+        display: inline;
         display: table-cell;
         vertical-align: middle;
     }

@@ -347,7 +347,8 @@ button {
 .details__like {
   margin-right: .8rem;
   border: none;
-  background: none; }
+  background: none;
+  display: inline; }
   .details__like-icon {
     background: url("/icons/unliked-icon.svg") no-repeat center;
     height: 24px;
@@ -358,6 +359,7 @@ button {
 
 .details__title {
   font-size: 3.2rem;
+  display: inline;
   display: table-cell;
   vertical-align: middle; }
 
