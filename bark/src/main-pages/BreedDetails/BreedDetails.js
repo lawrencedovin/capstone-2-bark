@@ -33,7 +33,7 @@ const BreedDetails = () => (
           <div className="row details__section">
             <div className="col">
               <div className="details__section-title">Stats</div>
-                <ul className="details__section-description ps-0 list-unstyled">
+                <ul className="details__section-description list-unstyled">
                   <li><span className="details__section-description--black">Type: </span>Working</li>
                   <li><span className="details__section-description--black">Weight: </span>65lbs - 115lbs</li>
                   <li><span className="details__section-description--black">Height: </span>23 - 28"</li>
