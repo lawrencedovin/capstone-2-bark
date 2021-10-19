@@ -43,6 +43,10 @@
         }
         &-description {
             color: $color-gray;
+
+            &--black {
+                color: $color-black;
+            }
         }
     }
 }

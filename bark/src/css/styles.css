@@ -373,3 +373,5 @@ button {
     margin-bottom: 3.2rem; }
   .details__section-description {
     color: #83827E; }
+    .details__section-description--black {
+      color: #0A1F3F; }
