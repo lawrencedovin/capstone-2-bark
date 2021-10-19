@@ -54,6 +54,20 @@ const BreedDetails = () => (
               </ul>
             </div>
           </div>
+          <div className="row details__section">
+            <div className="col">
+              <div className="details__section-title">Temperament</div>
+                <p className="details__section-description">
+                  As befitting its spitz-like heritage, the Akita is bold, independent, stubborn, and tenacious. Demonstrative to their family, they are utterly devoted and will protect family members. This dog is reserved with strangers and can be assertive, so should be introduced carefully to new dogs and household pets. They can be domineering. Though not the breed for everyone, in the right hands the Akita is an excellent companion.
+                </p>
+            </div>
+            <div className="col">
+              <div className="details__section-title">Health</div>
+              <p className="details__section-description">
+                The Akita appreciates mental and physical exercise every day. They need the chance to run in a safe area or on leash for a long jog. Given ample exercise and training, this dog can be a quiet and well-mannered house dog. The coat needs brushing about once a week to remove dead hair, much more often when shedding. Akitas tend to be somewhat messy drinkers!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
