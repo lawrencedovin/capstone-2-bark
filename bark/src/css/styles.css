@@ -350,14 +350,16 @@ button {
   display: table; }
 
 .details__like {
-  margin-right: 1.6rem;
+  height: 3.2rem;
+  width: 3.2rem;
+  margin-right: .8rem;
   border: none;
   background: none;
   display: inline; }
   .details__like-icon {
     background: url("/icons/unliked-icon.svg") no-repeat center;
-    height: 24px;
-    width: 24px;
+    height: 2.4rem;
+    width: 2.4rem;
     transform: scale(1.333); }
   .details__like:hover .details__like-icon {
     background: url("/icons/liked-icon.svg") no-repeat center; }
