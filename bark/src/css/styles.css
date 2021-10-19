@@ -365,3 +365,11 @@ button {
 
 .details__image {
   margin: 4.8rem 0; }
+
+.details__section {
+  margin: 4.8rem 0; }
+  .details__section-title {
+    font-size: 2.4rem;
+    margin-bottom: 3.2rem; }
+  .details__section-description {
+    color: #83827E; }

@@ -35,6 +35,14 @@
     }
 
     &__section {
+        margin: 4.8rem 0;
 
+        &-title {
+            font-size: $font-size-smedium;
+            margin-bottom: 3.2rem;
+        }
+        &-description {
+            color: $color-gray;
+        }
     }
 }
