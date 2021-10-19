@@ -4,7 +4,6 @@ import SearchTitle from '../../components/titles/SearchTitle/SearchTitle';
 import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 
-
 function BreedList() {
   return(
     <div data-testid="Search">
