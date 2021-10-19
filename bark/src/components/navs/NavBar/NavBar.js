@@ -17,7 +17,7 @@ function NavBar() {
               ?
                 <ul class="navbar-nav me-2">
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/user">lawrence123</a>
+                    <a class="nav-link navbar__link" href="/edit">lawrence123</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link navbar__link" href="/breeds">Breeds</a>
