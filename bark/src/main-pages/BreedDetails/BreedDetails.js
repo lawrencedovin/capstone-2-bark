@@ -1,4 +1,5 @@
 import React from 'react';
+import MainFooter from '../../components/footers/MainFooter/MainFooter';
 
 
 const BreedDetails = () => (
@@ -71,6 +72,7 @@ const BreedDetails = () => (
         </div>
       </div>
     </div>
+    <MainFooter />
   </div>
 );
 
