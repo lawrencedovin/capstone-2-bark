@@ -13,9 +13,19 @@ const DogDetails = () => (
               <h1 className="details__title">Walter</h1>
             </div>
           <div className="row">
-            <div className="col-md-5">
-                <img src={process.env.PUBLIC_URL + 'images/akita.jpg'} className="details__image img-fluid" alt="akita"/>
+            <div className="col details__image-container">
+                <img src={process.env.PUBLIC_URL + 'images/walter-1.jpg'} className="details__image img-fluid" alt="walter-1"/>
             </div>
+            <div className="col details__image-container">
+                <img src={process.env.PUBLIC_URL + 'images/walter-2.jpg'} className="details__image img-fluid" alt="walter-2"/>
+            </div>
+            <div className="col details__image-container">
+                <img src={process.env.PUBLIC_URL + 'images/walter-3.jpg'} className="details__image img-fluid" alt="water-3"/>
+            </div>
+          </div>
+          <div className="row">
+            <p><span><a href="/" className="details__section-link">Siberian Husky</a></span> - Millersville, MD</p>
+            <p>Adult - Male - Large</p>
           </div>
           <div className="row details__section">
             <div className="details__section-title">About</div>

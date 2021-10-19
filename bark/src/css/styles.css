@@ -365,6 +365,8 @@ button {
 
 .details__image {
   margin: 4.8rem 0; }
+  .details__image-container:not(:last-child) {
+    margin-right: 1.6rem; }
 
 .details__section {
   margin: 4.8rem 0; }
@@ -376,3 +378,5 @@ button {
     padding-right: 3.2rem; }
     .details__section-description--black {
       color: #0A1F3F; }
+  .details__section-link {
+    color: #49C2C7; }
