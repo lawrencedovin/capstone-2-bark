@@ -5,6 +5,7 @@ import EditUser from "./main-pages/EditUser/EditUser";
 import Search from "./main-pages/Search/Search";
 import DogList from "./main-pages/DogList/DogList";
 import BreedList from "./main-pages/BreedList/BreedList";
+import BreedDetails from "./main-pages/BreedDetails/BreedDetails";
 import NavBar from "./components/navs/NavBar/NavBar";
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route exact path="/breed-list">
           <BreedList />
+        </Route>
+        <Route exact path="/breed-details">
+          <BreedDetails />
         </Route>
       </BrowserRouter>
     </div>

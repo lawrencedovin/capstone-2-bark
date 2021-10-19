@@ -1,0 +1,38 @@
+.details {
+    &__title-icon-container {
+        margin-top: 6.4rem;
+        display: table;
+    }
+
+    &__like {
+        margin-right: .8rem;
+        border: none;
+        background: none;
+
+        &-icon {
+            background: url("/icons/unliked-icon.svg") no-repeat center;
+            height: 24px;
+            width: 24px;
+            transform: scale(1.333);
+        }
+
+        &:hover &-icon {
+            background: url("/icons/liked-icon.svg") no-repeat center;
+        }
+
+    }
+
+    &__title {
+        font-size: $font-size-medium;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    &__image {
+        margin: 4.8rem 0;
+    }
+
+    &__section {
+
+    }
+}
