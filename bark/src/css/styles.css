@@ -151,10 +151,15 @@ button {
   .dog-search-filter__button--icon, .dog-search-filter__button--icon:hover, .dog-search-filter__button--icon:active, .dog-search-filter__button--icon:focus {
     margin-left: 1.6rem;
     background: #FFFFFF;
-    border: none; }
+    border: none;
+    position: relative; }
   .dog-search-filter__icon--search {
     height: 2.4rem;
-    filter: invert(89%) sepia(15%) saturate(974%) hue-rotate(129deg) brightness(88%) contrast(90%); }
+    filter: invert(89%) sepia(15%) saturate(974%) hue-rotate(129deg) brightness(88%) contrast(90%);
+    position: absolute;
+    left: 1.6rem;
+    top: 50%;
+    transform: translate(-50%, -50%); }
     .dog-search-filter__icon--search:hover {
       filter: invert(68%) sepia(35%) saturate(613%) hue-rotate(134deg) brightness(92%) contrast(95%); }
 

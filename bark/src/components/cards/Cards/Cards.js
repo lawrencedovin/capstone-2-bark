@@ -6,7 +6,7 @@ function Cards({imgUrl, title, description, btnText, link}) {
     <div data-testid="Cards">
       <div className="logged-in-card">
         <div className="logged-in-card__img-body-container">
-          <img class="card-img-top" src={imgUrl} alt={title} />
+          <img className="card-img-top" src={imgUrl} alt={title} />
           {isLoggedIn
           ?
           <button className="logged-in-card__like d-flex align-items-center justify-content-center">
@@ -15,20 +15,20 @@ function Cards({imgUrl, title, description, btnText, link}) {
           :
           <></>
           }
-          <div class="card-body logged-in-card__body">
-            <h5 class="card-title logged-in-card__title">{title}</h5>
+          <div className="card-body logged-in-card__body">
+            <h5 className="card-title logged-in-card__title">{title}</h5>
             {description 
             ? 
             <div className="logged-in-card__description-container">
-              <p class="card-text logged-in-card__description">Breed: {description.breed}</p>
-              <p class="card-text logged-in-card__description">Location: {description.location}</p>
+              <p className="card-text logged-in-card__description">Breed: {description.breed}</p>
+              <p className="card-text logged-in-card__description">Location: {description.location}</p>
             </div>
             :
             <></>
             }
           </div>
         </div>
-        <a href={link} class="btn logged-in-card__button">{btnText}</a>
+        <a href={link} className="btn logged-in-card__button">{btnText}</a>
       </div>
     </div>
   );

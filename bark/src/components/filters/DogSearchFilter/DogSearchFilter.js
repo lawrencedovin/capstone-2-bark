@@ -13,18 +13,18 @@ function DogSearchFilter() {
     <div className="row">
       <div className="col-md-12">
         <form className="dog-search-filter text-center">
-          <span class="dog-search-filter__label">Find Best Friend: </span>
-          <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <select name="breeds" class="dog-search-filter__button dog-search-filter__button--dropdown" value={breed} onChange={handleChange}>
-              <option class="dropdown-item dog-search-filter__button" value={"all breeds"}>All Breeds</option>
-              <option class="dropdown-item dog-search-filter__button" value={"husky"}>Husky</option>
-              <option class="dropdown-item dog-search-filter__button" value={"english bulldog"}>English Bulldog</option>
+          <span className="dog-search-filter__label">Find Best Friend: </span>
+          <div className="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <select name="breeds" className="dog-search-filter__button dog-search-filter__button--dropdown" value={breed} onChange={handleChange}>
+              <option className="dropdown-item dog-search-filter__button" value={"all breeds"}>All Breeds</option>
+              <option className="dropdown-item dog-search-filter__button" value={"husky"}>Husky</option>
+              <option className="dropdown-item dog-search-filter__button" value={"english bulldog"}>English Bulldog</option>
             </select>
-            <div class="input-group">
-              <input type="text" class="form-control dog-search-filter__input" placeholder="Zip Code" aria-label="Input group example" aria-describedby="btnGroupAddon" />
+            <div className="input-group">
+              <input type="text" className="form-control dog-search-filter__input" placeholder="Zip Code" aria-label="Input group example" aria-describedby="btnGroupAddon" />
             </div>
-            <a type="button" class="btn-primary dog-search-filter__button dog-search-filter__button--icon" href="/search">
-              <img src={process.env.PUBLIC_URL + 'icons/search-icon.svg'} class="dog-search-filter__icon--search" alt="search icon" />
+            <a className="btn-primary dog-search-filter__button dog-search-filter__button--icon" href="/search">
+              <img src={process.env.PUBLIC_URL + 'icons/search-icon.svg'} className="dog-search-filter__icon--search" alt="search icon" />
             </a>
           </div>
         </form>
