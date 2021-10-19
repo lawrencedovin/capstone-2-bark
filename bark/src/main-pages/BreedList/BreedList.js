@@ -1,15 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import DogSearchFilter from '../../components/filters/DogSearchFilter/DogSearchFilter';
+import SearchTitle from '../../components/titles/SearchTitle/SearchTitle';
+import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsList';
+import MainFooter from '../../components/footers/MainFooter/MainFooter';
 
 
-const BreedList = () => (
-  <div data-testid="BreedList">
-    BreedList Component
-  </div>
-);
-
-BreedList.propTypes = {};
-
-BreedList.defaultProps = {};
+function BreedList() {
+  return(
+    <div data-testid="Search">
+      <SearchTitle title="lawrence123's Breed List" />
+      <DogSearchFilter />
+      <BreedsCardsList/>
+      <BreedsCardsList/>
+      <BreedsCardsList/>
+      <BreedsCardsList/>
+      <MainFooter/>
+    </div>
+  );
+}
 
 export default BreedList;
