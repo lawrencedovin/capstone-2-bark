@@ -9,12 +9,35 @@ import BreedDetails from "./main-pages/BreedDetails/BreedDetails";
 import DogDetails from "./main-pages/DogDetails/DogDetails";
 import NavBar from "./components/navs/NavBar/NavBar";
 import { BrowserRouter, Route } from 'react-router-dom';
+import { useState } from "react";
 
 function App() {
+
+  const [state, setState] = useState({data: null});
+
+  const componentDidMount = () => {
+      callBackendAPI()
+        .then(res => setState({ data: res.express }))
+        .catch(err => console.log(err));
+  }
+      // fetching the GET route from the Express server which matches the GET route from server.js
+  const callBackendAPI = async () => {
+    const response = await fetch('/express_backend');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+
+  componentDidMount();
+
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
+        <p>{state.data}</p>
         <Route exact path="/">
           <Home />
         </Route>
