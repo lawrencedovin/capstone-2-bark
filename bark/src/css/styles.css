@@ -371,6 +371,7 @@ button {
   vertical-align: middle; }
 
 .details__image {
+  height: 80%;
   margin: 4.8rem 0; }
   .details__image-container:not(:last-child) {
     margin-right: 1.6rem; }

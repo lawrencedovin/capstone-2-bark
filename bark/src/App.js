@@ -24,7 +24,7 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        <Route exact path="/edit">
+        <Route exact path="/user/edit">
           <EditUser />
         </Route>
         <Route exact path="/search">

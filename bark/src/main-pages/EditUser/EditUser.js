@@ -30,7 +30,8 @@ function EditUser() {
                 </div>
                 <button href="#" class="forms__button d-flex justify-content-between align-items-center">
                   Save Changes
-                  <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" />
+                  {/* <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" /> */}
+                  <img src='public/icons/button-arrow.svg' alt="Form Button" class="forms__button-icon" />
                 </button>
               </form>
             </div>
