@@ -4,39 +4,36 @@ CREATE DATABASE barkdb;
 
 \c barkdb
 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS favorite_breeds;
+DROP TABLE IF EXISTS liked_dogs;
+
 DROP TABLE IF EXISTS invoices;
 DROP TABLE IF EXISTS companies;
 
-CREATE TABLE companies (
-    code text PRIMARY KEY,
-    name text NOT NULL UNIQUE,
-    description text
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT,
+    zipcode CHAR(5)
 );
 
-CREATE TABLE invoices (
-    id serial PRIMARY KEY,
-    comp_code text NOT NULL REFERENCES companies ON DELETE CASCADE,
-    amt float NOT NULL,
-    paid boolean DEFAULT false NOT NULL,
-    add_date date DEFAULT CURRENT_DATE NOT NULL,
-    paid_date date,
-    CONSTRAINT invoices_amt_check CHECK ((amt > (0)::double precision))
+CREATE TABLE favorite_breeds (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users ON DELETE CASCADE,
+    breeds TEXT[]
 );
 
-CREATE TABLE industries (
-    code text PRIMARY KEY,
-    industry text NOT NULL UNIQUE
+CREATE TABLE liked_dogs (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users ON DELETE CASCADE,
+    dogs TEXT[]
 );
 
-CREATE TABLE companies_industries (
-    comp_code text NOT NULL REFERENCES companies ON DELETE CASCADE,
-    industry_code text NOT NULL REFERENCES industries ON DELETE CASCADE,
-    PRIMARY KEY(comp_code, industry_code)
-);
-
-INSERT INTO companies
-  VALUES ('apple', 'Apple Computer', 'Maker of OSX.'),
-         ('ibm', 'IBM', 'Big blue.');
+INSERT INTO users
+  VALUES (1, 'lawrence123', 'lawrence123@gmail.com', 'abc123', '20720'),
+         (2, 'curry', 'curry@gmail.com', 'abc123', '19320');
 
 INSERT INTO invoices (comp_Code, amt, paid, paid_date)
   VALUES ('apple', 100, false, null),
