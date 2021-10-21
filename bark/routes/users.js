@@ -5,6 +5,7 @@ const router = express.Router();
 const db = require("../db");
 const ExpressError = require("../expressError");
 
+/** GET / - returns all users with their favorite breeds and liked dogs `{users: [...]}` */
 router.get("/", async (req, res, next) => {
     try {
         const results = await db.query(`
@@ -24,6 +25,7 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+/** GET / - returns a user by their id with their favorite breeds and liked dogs `{user: [...]}` */
 router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -49,6 +51,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
+/** GET / - returns a user by their id with their liked dogs `{user: [...]}` */
 router.get('/:id/liked_dogs', async (req, res, next) => {
     try {
         const { id } = req.params;
@@ -71,6 +74,7 @@ router.get('/:id/liked_dogs', async (req, res, next) => {
     }
 });
 
+/** GET / - returns a user by their id with their favorite breeds `{user: [...]}` */
 router.get('/:id/favorite_breeds', async (req, res, next) => {
     try {
         const { id } = req.params;
