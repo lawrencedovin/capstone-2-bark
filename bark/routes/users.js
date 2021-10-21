@@ -18,14 +18,14 @@ const ExpressError = require("../expressError");
 router.get("/", async (req, res, next) => {
     try {
         const results = await db.query(`
-        SELECT u.id as id, u.username as username, u.email as email, u.zipcode as zipcode, 
-        b.breeds as breeds, 
-        d.dogs as dogs
-        FROM users u
-        JOIN favorite_breeds b
-            ON b.user_id = u.id
-        JOIN liked_dogs d
-            ON d.user_id = u.id`
+            SELECT u.id as id, u.username as username, u.email as email, u.zipcode as zipcode, 
+            b.breeds as breeds, 
+            d.dogs as dogs
+            FROM users u
+            JOIN favorite_breeds b
+                ON b.user_id = u.id
+            JOIN liked_dogs d
+                ON d.user_id = u.id`
         );
         return res.json({users: results.rows});
     }
@@ -38,7 +38,15 @@ router.get('/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
         const results = await db.query(
-            `SELECT * FROM users WHERE id=$1`,
+            `SELECT u.id as id, u.username as username, u.email as email, u.zipcode as zipcode, 
+            b.breeds as breeds, 
+            d.dogs as dogs
+            FROM users u
+            JOIN favorite_breeds b
+                ON b.user_id = u.id
+            JOIN liked_dogs d
+                ON d.user_id = u.id 
+            WHERE u.id=$1`,
             [id]
         );
         if (results.rows.length === 0) {
