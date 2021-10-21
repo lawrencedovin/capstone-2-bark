@@ -5,9 +5,28 @@ const router = express.Router();
 const db = require("../db");
 const ExpressError = require("../expressError");
 
+// router.get("/", async (req, res, next) => {
+//     try {
+//         const results = await db.query(`SELECT * FROM users`);
+//         return res.json({users: results.rows});
+//     }
+//     catch(e) {
+//         return next(e);
+//     }
+// });
+
 router.get("/", async (req, res, next) => {
     try {
-        const results = await db.query(`SELECT * FROM users`);
+        const results = await db.query(`
+        SELECT u.id as id, u.username as username, u.email as email, u.zipcode as zipcode, 
+        b.breeds as breeds, 
+        d.dogs as dogs
+        FROM users u
+        JOIN favorite_breeds b
+            ON b.user_id = u.id
+        JOIN liked_dogs d
+            ON d.user_id = u.id`
+        );
         return res.json({users: results.rows});
     }
     catch(e) {
