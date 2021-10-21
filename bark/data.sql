@@ -35,11 +35,13 @@ INSERT INTO users
   VALUES (1, 'lawrence123', 'lawrence123@gmail.com', 'abc123', '20720'),
          (2, 'curry', 'curry@gmail.com', 'abc123', '19320');
 
-INSERT INTO invoices (comp_Code, amt, paid, paid_date)
-  VALUES ('apple', 100, false, null),
-         ('apple', 200, false, null),
-         ('apple', 300, true, '2018-01-01'),
-         ('ibm', 400, false, null);
+INSERT INTO favorite_breeds
+  VALUES (1, 1, ARRAY ['siberian-husky', 'pug', 'affenpinscher']),
+         (2, 2, ARRAY ['akita', 'american-bulldog', 'alaskan-malamute']);
+
+INSERT INTO liked_dogs
+  VALUES (1, 1, ARRAY ['siberian-husky', 'pug', 'affenpinscher']),
+         (2, 2, ARRAY ['akita', 'american-bulldog', 'alaskan-malamute']);
 
 INSERT INTO industries (code, industry)
   VALUES ('sw', 'Software'),
