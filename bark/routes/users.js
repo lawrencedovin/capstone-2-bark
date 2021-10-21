@@ -123,7 +123,6 @@ router.post("/", async function(req, res, next) {
             [user_id, []]
         );
 
-  
       return res.status(201).json({user: user_results.rows[0], dogs: liked_dogs.rows[0], breeds: favorite_breeds.rows[0]});  // 201 CREATED
     } catch (err) {
       return next(err);
@@ -144,6 +143,45 @@ router.patch("/:id", async function(req, res, next) {
              WHERE id = $4
              RETURNING id, username, email, zipcode`,
         [req.body.username, req.body.email, req.body.zipcode, req.params.id]);
+  
+      if (result.rows.length === 0) {
+        throw new ExpressError(`There is no user with id of '${req.params.id}`, 404);
+      }
+  
+      return res.json({ user: result.rows[0]});
+    } catch (err) {
+      return next(err);
+    }
+  });
+
+    /** PATCH /[id] - Add dog to user's liked dogs; return `{user: user}` */
+
+router.patch("/:id/liked_dogs/:dog_id", async function(req, res, next) {
+
+    try {
+      if ("id" in req.body || "dog_id" in req.body) {
+        throw new ExpressError("Not allowed", 400)
+      }
+      
+     const current_dogs = await db.query(
+         `SELECT dogs 
+          FROM liked_dogs 
+          WHERE user_id = $1`,
+          [req.params.id]
+     )
+    
+      let new_dog = req.params.dog_id;
+      // Adds new dog to list
+      current_dogs.rows[0].dogs.push(new_dog);
+      // Updated dog list with new dog id
+      let updated_dogs = current_dogs.rows[0].dogs;
+
+      const result = await db.query(
+        `UPDATE liked_dogs 
+             SET dogs = $1
+             WHERE user_id = $2
+             RETURNING user_id, dogs`,
+        [updated_dogs, req.params.id]);
   
       if (result.rows.length === 0) {
         throw new ExpressError(`There is no user with id of '${req.params.id}`, 404);
