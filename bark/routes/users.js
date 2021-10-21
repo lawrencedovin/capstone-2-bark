@@ -15,5 +15,22 @@ router.get("/", async (req, res, next) => {
     }
 });
 
+router.get('/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const results = await db.query(
+            `SELECT * FROM users WHERE id=$1`,
+            [id]
+        );
+        if (results.rows.length === 0) {
+            throw new ExpressError(`Can't find user with id of ${id}`, 404);
+        }
+        return res.json({user: results.rows[0]});
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+
 
 module.exports = router;
