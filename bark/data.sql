@@ -25,7 +25,7 @@ CREATE TABLE favorite_breeds (
 CREATE TABLE liked_dogs (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users ON DELETE CASCADE,
-    dogs TEXT[]
+    dogs INTEGER[]
 );
 
 INSERT INTO users
