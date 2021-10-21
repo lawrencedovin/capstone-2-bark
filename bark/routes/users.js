@@ -101,13 +101,55 @@ router.get('/:id/favorite_breeds', async (req, res, next) => {
 
 router.post("/", async function(req, res, next) {
     try {
-      const result = await db.query(
-        `INSERT INTO users (username, email, password, zipcode) 
-           VALUES ($1, $2, $3, $4) 
-           RETURNING id, username, email, password, zipcode`,
-        [req.body.username, req.body.email, req.body.password, req.body.zipcode]);
+        const user_results = await db.query(
+            `INSERT INTO users (username, email, password, zipcode) 
+                VALUES ($1, $2, $3, $4) 
+                RETURNING id, username, email, password, zipcode`,
+            [req.body.username, req.body.email, req.body.password, req.body.zipcode]
+        );
+        const user_id = user_results.rows[0].id
+
+        const liked_dogs = await db.query (
+            `INSERT INTO liked_dogs (user_id, dogs)
+                VALUES ($1, $2)
+                RETURNING id, user_id, dogs`,
+            [user_id, []]
+        );
+
+        const favorite_breeds = await db.query (
+            `INSERT INTO favorite_breeds (user_id, breeds)
+                VALUES ($1, $2)
+                RETURNING id, user_id, breeds`,
+            [user_id, []]
+        );
+
   
-      return res.status(201).json({user: result.rows[0]});  // 201 CREATED
+      return res.status(201).json({user: user_results.rows[0], dogs: liked_dogs.rows[0], breeds: favorite_breeds.rows[0]});  // 201 CREATED
+    } catch (err) {
+      return next(err);
+    }
+  });
+
+  /** PATCH /[id] - update fields in user; return `{user: user}` */
+
+router.patch("/:id", async function(req, res, next) {
+    try {
+      if ("id" in req.body) {
+        throw new ExpressError("Not allowed", 400)
+      }
+  
+      const result = await db.query(
+        `UPDATE users 
+             SET username=$1, email=$2, zipcode=$3
+             WHERE id = $4
+             RETURNING id, username, email, zipcode`,
+        [req.body.username, req.body.email, req.body.zipcode, req.params.id]);
+  
+      if (result.rows.length === 0) {
+        throw new ExpressError(`There is no user with id of '${req.params.id}`, 404);
+      }
+  
+      return res.json({ user: result.rows[0]});
     } catch (err) {
       return next(err);
     }
