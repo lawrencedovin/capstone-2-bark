@@ -8,9 +8,6 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS favorite_breeds;
 DROP TABLE IF EXISTS liked_dogs;
 
-DROP TABLE IF EXISTS invoices;
-DROP TABLE IF EXISTS companies;
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
@@ -40,14 +37,5 @@ INSERT INTO favorite_breeds
          (2, 2, ARRAY ['akita', 'american-bulldog', 'alaskan-malamute']);
 
 INSERT INTO liked_dogs
-  VALUES (1, 1, ARRAY ['siberian-husky', 'pug', 'affenpinscher']),
-         (2, 2, ARRAY ['akita', 'american-bulldog', 'alaskan-malamute']);
-
-INSERT INTO industries (code, industry)
-  VALUES ('sw', 'Software'),
-         ('comp', 'Computer');
-
-INSERT INTO companies_industries
-  VALUES ('apple', 'sw'),
-         ('apple', 'comp'),
-         ('ibm', 'sw');
+  VALUES (1, 1, ARRAY [52614551, 53121532, 50787225]),
+         (2, 2, ARRAY [53296707, 53237860, 51231093]);
