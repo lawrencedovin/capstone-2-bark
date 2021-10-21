@@ -1,9 +1,14 @@
-/** Database setup for cats. */
+/** Database setup for users. */
+
 const { Client } = require("pg");
 
-const DB_URI = (process.env.NODE_ENV === "test")
-  ? "postgresql:///barkdb_test"
-  : "postgresql:///barkdb";
+let DB_URI;
+
+if (process.env.NODE_ENV === "test") {
+  DB_URI = "postgresql:///barkdb_test";
+} else {
+  DB_URI = "postgresql:///barkdb";
+}
 
 let db = new Client({
   connectionString: DB_URI

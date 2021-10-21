@@ -1,0 +1,19 @@
+/** Routes for users of pg-intro-demo. */
+
+const express = require("express");
+const router = express.Router();
+const db = require("../db");
+const ExpressError = require("../expressError");
+
+router.get("/", async (req, res, next) => {
+    try {
+        const results = await db.query(`SELECT * FROM users`);
+        return res.json({users: results.rows});
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+
+
+module.exports = router;
