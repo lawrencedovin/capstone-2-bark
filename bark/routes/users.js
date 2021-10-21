@@ -97,4 +97,21 @@ router.get('/:id/favorite_breeds', async (req, res, next) => {
     }
 });
 
+/** POST / - create user from data; return `{user: user}` */
+
+router.post("/", async function(req, res, next) {
+    try {
+      const result = await db.query(
+        `INSERT INTO users (username, email, password, zipcode) 
+           VALUES ($1, $2, $3, $4) 
+           RETURNING id, username, email, password, zipcode`,
+        [req.body.username, req.body.email, req.body.password, req.body.zipcode]);
+  
+      return res.status(201).json({user: result.rows[0]});  // 201 CREATED
+    } catch (err) {
+      return next(err);
+    }
+  });
+  
+
 module.exports = router;
