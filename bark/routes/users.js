@@ -154,7 +154,7 @@ router.patch("/:id", async function(req, res, next) {
     }
   });
 
-    /** PATCH /[id] - Add dog to user's liked dogs; return `{user: user}` */
+    /** PATCH /[id] - Adds dog to user's liked dogs; return `{user: user}` */
 
 router.patch("/:id/liked_dogs/:dog_id", async function(req, res, next) {
 

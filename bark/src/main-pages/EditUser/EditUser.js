@@ -2,6 +2,10 @@ import React from 'react';
 import FormFooter from '../../components/footers/FormFooter/FormFooter';
 
 function EditUser() {
+  let handleKeyPress = () => {
+    // if(this.value.length === 4) return false;
+    alert(this.value);
+  }
   return(
     <div data-testid="EditUser">
         <div className="row">
@@ -21,6 +25,12 @@ function EditUser() {
                       <i class="fas fa-envelope"></i>
                   </span>
                 </div>
+                <div class="input-group forms__input-container align-items-center">
+                  <input type="number" placeholder="Zipcode" className="form-control forms__input" onKeyPress={handleKeyPress()} />
+                  <span class="input-group-btn forms__input-icon align-middle">
+                      <i class="fas fa-map-marker-alt"></i>
+                  </span>
+                </div>
                 <p>To confirm changes, enter your password</p>
                 <div class="input-group forms__input-container align-items-center">
                   <input type="password" placeholder="Password" className="form-control forms__input" />
@@ -30,8 +40,8 @@ function EditUser() {
                 </div>
                 <button href="#" class="forms__button d-flex justify-content-between align-items-center">
                   Save Changes
-                  {/* <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" /> */}
-                  <img src='public/icons/button-arrow.svg' alt="Form Button" class="forms__button-icon" />
+                  <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" />
+                  {/* <img src='public/icons/button-arrow.svg' alt="Form Button" class="forms__button-icon" /> */}
                 </button>
               </form>
             </div>

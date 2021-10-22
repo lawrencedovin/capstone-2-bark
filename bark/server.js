@@ -24,10 +24,12 @@
 // }); //Line 11
 
 const app = require('./app');
+const port = process.env.PORT || 5000; //Line 3
 
-app.listen(5000, function () {
-  console.log("Server started on 5000");
-});
+app.listen(port, () => console.log(`Listening on port ${port}`));
+// app.listen(5000, function () {
+//   console.log("Server started on 5000");
+// });
 
 // // create a GET route
 // app.get('/express_backend', (req, res) => { //Line 9
