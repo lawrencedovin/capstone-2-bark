@@ -63,6 +63,15 @@
         &:focus + &-icon {
             opacity: 1;
         }
+
+        &--error {
+            color: $color-red;
+            border: 2px solid $color-red;
+        }
+
+        &--error + &-icon{
+            color: $color-red;
+        }
         
     }
 

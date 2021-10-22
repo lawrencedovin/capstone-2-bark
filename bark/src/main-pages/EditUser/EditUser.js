@@ -40,7 +40,7 @@ function EditUser() {
                 <></>
                 }
                 <div class="input-group forms__input-container align-items-center">
-                  <input type="number" placeholder="Zipcode" className="form-control forms__input" onChange={handleChange} />
+                  <input type="number" placeholder="Zipcode" className={disabled === true ? "form-control forms__input forms__input--error" : "form-control forms__input"} onChange={handleChange} />
                   <span class="input-group-btn forms__input-icon align-middle">
                       <i class="fas fa-map-marker-alt"></i>
                   </span>

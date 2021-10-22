@@ -333,6 +333,11 @@ input[type=number] {
       opacity: .8; }
     .forms__input:focus + .forms__input-icon {
       opacity: 1; }
+    .forms__input--error {
+      color: #DC3545;
+      border: 2px solid #DC3545; }
+    .forms__input--error + .forms__input-icon {
+      color: #DC3545; }
   .forms__description, .forms__button {
     font-size: 1.6rem;
     font-family: "Montserrat", sans-serif; }
