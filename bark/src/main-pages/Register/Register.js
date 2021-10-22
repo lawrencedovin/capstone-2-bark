@@ -11,7 +11,7 @@ function Register() {
             <div className="col forms__container">
               <form className="forms col-md-8">
                 <h1 className="forms__title">Create an Account</h1>
-                <p className="forms__description">Please fill out the form to create an account</p>
+                <p className="forms__description">Please fill out the form to create an account.</p>
                 <div class="input-group forms__input-container align-items-center">
                   <input type="text" placeholder="Username" className="form-control forms__input" />
                   <span class="input-group-btn forms__input-icon align-middle">

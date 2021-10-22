@@ -348,6 +348,9 @@ input[type=number] {
     background: #49C2C7; }
     .forms__button:hover {
       background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0); }
+  .forms__error-message {
+    font-size: 1.6rem;
+    color: #DC3545; }
 
 .input-group:not(.has-validation) > .dropdown-toggle:nth-last-child(n+3),
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {

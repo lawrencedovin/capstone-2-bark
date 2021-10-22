@@ -11,7 +11,7 @@ function Login() {
             <div className="col forms__container">
               <form className="forms col-md-8">
                 <h1 className="forms__title">Login</h1>
-                <p className="forms__description">Enter your user credentials to login</p>
+                <p className="forms__description">Enter your user credentials to login.</p>
                 <div class="input-group forms__input-container align-items-center">
                   <input type="text" placeholder="Username" className="form-control forms__input" />
                   <span class="input-group-btn forms__input-icon align-middle">

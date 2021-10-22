@@ -89,6 +89,11 @@
             background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
         }
     }
+
+    &__error-message {
+        font-size: $font-size-small;
+        color: $color-red;
+    }
 }
 
 // For overriding bootstrap input-group border radius
