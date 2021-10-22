@@ -29,7 +29,7 @@ function Register() {
                   </span>
                 </div>
                 <div class="input-group forms__input-container align-items-center">
-                  <input type="text" placeholder="Email" className="form-control forms__input" />
+                  <input type="email" placeholder="Email" className="form-control forms__input" />
                   <span class="input-group-btn forms__input-icon align-middle">
                       <i class="fas fa-envelope"></i>
                   </span>
