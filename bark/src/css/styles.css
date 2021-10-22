@@ -336,15 +336,16 @@ input[type=number] {
   .forms__description, .forms__button {
     font-size: 1.6rem;
     font-family: "Montserrat", sans-serif; }
-  .forms__button {
+  .forms__button, .forms__button:hover {
     width: 100%;
-    color: #FFFFFF;
     font-size: 1.6rem;
-    background: #49C2C7;
+    color: #FFFFFF;
     margin-top: 4.8rem;
     padding: 2rem 2.8rem;
     border-radius: 40px;
     border: none; }
+  .forms__button {
+    background: #49C2C7; }
     .forms__button:hover {
       background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0); }
 

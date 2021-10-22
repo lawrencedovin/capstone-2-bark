@@ -72,15 +72,18 @@
         font-family: $font-form;
     }
 
-    &__button {
+    &__button, &__button:hover {
         width: 100%;
-        color: $color-white;
         font-size: $font-size-small;
-        background: $color-blue;
+        color: $color-white;
         margin-top: 4.8rem;
         padding: 2rem 2.8rem;
         border-radius: 40px;
         border: none;
+    }
+
+    &__button {
+        background: $color-blue;
 
         &:hover {
             background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0 0);
