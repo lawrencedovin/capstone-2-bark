@@ -12,8 +12,6 @@ function EditUser() {
     inputLength > 4 ? setDisable(true) : setDisable(false);
   }
 
-  
-
   return(
     <div data-testid="EditUser">
         <div className="row">
