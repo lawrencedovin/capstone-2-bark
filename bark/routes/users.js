@@ -161,7 +161,7 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
     try {
       if ("user_id" in req.body || "dog_id" in req.body) {
         throw new ExpressError("Not allowed", 400)
-      }
+    }
       
      const current_dogs = await db.query(
          `SELECT dogs 
@@ -190,6 +190,61 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
       return res.json({ user: result.rows[0]});
     } catch (err) {
       return next(err);
+    }
+  });
+
+/** PATCH /[id] - Removes dog to user's liked dogs; return `{user: user}` */
+
+router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res, next) {
+
+    try {
+      if ("user_id" in req.body || "dog_id" in req.body) {
+        throw new ExpressError("Not allowed", 400)
+      }
+    
+    const current_user = await db.query(
+        `SELECT username
+        FROM users
+        WHERE id = $1`,
+        [req.params.user_id]
+    )
+
+    const current_dogs = await db.query(
+        `SELECT dogs 
+        FROM liked_dogs 
+        WHERE user_id = $1`,
+        [req.params.user_id]
+     )
+    
+    let username = current_user.rows[0].username;
+    let dogId = req.params.dog_id;
+    let dogIndex = current_dogs.rows[0].dogs.indexOf(parseInt(dogId));
+    let dogMessage;
+    
+    if (dogIndex > -1) {
+        dogMessage = `Dog: ${dogId} successfully removed from ${username}'s list!`
+        // Remove dog from list
+        current_dogs.rows[0].dogs.splice(dogIndex, 1)
+    }
+    else {
+        dogMessage = `Dog: ${dogId} is not in ${username}'s list`
+    }
+
+    let updated_dogs = current_dogs.rows[0].dogs;
+
+    const result = await db.query(
+    `UPDATE liked_dogs 
+            SET dogs = $1
+            WHERE user_id = $2
+            RETURNING user_id, dogs`,
+    [updated_dogs, req.params.user_id]);
+  
+    if (result.rows.length === 0) {
+        throw new ExpressError(`There is no user with id of '${req.params.user_id}`, 404);
+    }
+        return res.json({msg: dogMessage, user: result.rows[0]});
+    } catch (err) {
+        return next(err);
     }
   });
   
