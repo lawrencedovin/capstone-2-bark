@@ -4,12 +4,14 @@ import FormFooter from '../../components/footers/FormFooter/FormFooter';
 function EditUser() {
 
   let [zipcode, setZipcode] = useState('');
-  let [disabled, setDisable] = useState(false);
+  let [disabledButton, setDisableButton] = useState(true);
+  let [errorStylesDisplay, setErrorStylesDisplay] = useState(false);
 
   const handleChange = (event) => {
     setZipcode(event.target.value);
     let inputLength = event.target.value.length;
-    inputLength > 4 ? setDisable(true) : setDisable(false);
+    inputLength === 4 ? setDisableButton(false) : setDisableButton(true);
+    inputLength > 4 ? setErrorStylesDisplay(true) : setErrorStylesDisplay(false);
   }
 
   return(
@@ -31,14 +33,14 @@ function EditUser() {
                       <i class="fas fa-envelope"></i>
                   </span>
                 </div>
-                {disabled === true 
+                {errorStylesDisplay === true 
                 ? 
                 <p className="forms__error-message">Zipcode should be 4 characters long.</p>
                 :
-                <></>
+                <p className="forms__description-message">Zipcode should be 4 characters long.</p>
                 }
                 <div class="input-group forms__input-container align-items-center">
-                  <input type="number" placeholder="Zipcode" className={disabled === true ? "form-control forms__input forms__input--error" : "form-control forms__input"} onChange={handleChange} />
+                  <input type="number" placeholder="Zipcode" className={errorStylesDisplay === true ? "form-control forms__input forms__input--error" : "form-control forms__input"} onChange={handleChange} />
                   <span class="input-group-btn forms__input-icon align-middle">
                       <i class="fas fa-map-marker-alt"></i>
                   </span>
@@ -50,7 +52,7 @@ function EditUser() {
                       <i class="fas fa-lock"></i>
                   </span>
                 </div>
-                <button href="#" class="btn forms__button d-flex justify-content-between align-items-center" disabled={disabled}>
+                <button href="#" class="btn forms__button d-flex justify-content-between align-items-center" disabled={disabledButton}>
                   Save Changes
                   <img src={process.env.PUBLIC_URL + 'icons/button-arrow.svg'} alt="Form Button" class="forms__button-icon" />
                 </button>
