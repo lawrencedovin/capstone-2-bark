@@ -219,15 +219,14 @@ router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res,
     let username = current_user.rows[0].username;
     let dogId = req.params.dog_id;
     let dogIndex = current_dogs.rows[0].dogs.indexOf(parseInt(dogId));
-    let dogMessage;
+    let message;
     
     if (dogIndex > -1) {
-        dogMessage = `Dog: ${dogId} successfully removed from ${username}'s list!`
-        // Remove dog from list
+        message = `Dog: ${dogId} successfully removed from ${username}'s list!`;
         current_dogs.rows[0].dogs.splice(dogIndex, 1)
     }
     else {
-        dogMessage = `Dog: ${dogId} is not in ${username}'s list`
+        throw new ExpressError(`Dog: ${dogId} is not in ${username}'s list`, 400);
     }
 
     let updated_dogs = current_dogs.rows[0].dogs;
@@ -242,7 +241,7 @@ router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res,
     if (result.rows.length === 0) {
         throw new ExpressError(`There is no user with id of '${req.params.user_id}`, 404);
     }
-        return res.json({msg: dogMessage, user: result.rows[0]});
+        return res.json({message, user: result.rows[0]});
     } catch (err) {
         return next(err);
     }
