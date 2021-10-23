@@ -159,50 +159,48 @@ router.patch("/:id", async function(req, res, next) {
 router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, next) {
 
     try {
-      if ("user_id" in req.body || "dog_id" in req.body) {
-        throw new ExpressError("Not allowed", 400)
-    }
 
-    const current_user = await db.query(
-        `SELECT username
-        FROM users
-        WHERE id = $1`,
-        [req.params.user_id]
-    )
-      
-     const current_dogs = await db.query(
-         `SELECT dogs 
-          FROM liked_dogs 
-          WHERE user_id = $1`,
-          [req.params.user_id]
-     )
+        if ("user_id" in req.body || "dog_id" in req.body) {
+            throw new ExpressError("Not allowed", 400)
+        }
+
+        const {user_id, dog_id} = req.params;
+
+        const results = await db.query(
+            `SELECT u.username as username,
+            d.dogs as dogs
+            FROM users u
+            JOIN liked_dogs d
+                ON d.user_id = u.id
+            WHERE u.id=$1`,
+            [user_id]
+        )
+        
+        let {username, dogs} = results.rows[0];
+        let isDogAlreadyInList = dogs.indexOf(parseInt(dog_id)) > -1 ? true : false;
+        let message;
+
+        // Adds new dog to list
+        if(isDogAlreadyInList) {
+            throw new ExpressError(`Dog: ${dog_id}, already exists in ${username}'s list, no duplicates allowed.`, 400);
+        }
+        else {
+            message = `Dog: ${dog_id}, successfully added to ${username}'s list!`;
+            dogs.push(dog_id);
+        }
+        // Updated dog list with new dog id
+        let updated_dogs = dogs;
+
+        const result = await db.query(
+            `UPDATE liked_dogs 
+                SET dogs = $1
+                WHERE user_id = $2
+                RETURNING user_id, dogs`,
+            [updated_dogs, user_id]);
     
-    let username = current_user.rows[0].username;
-    let dogId = req.params.dog_id;
-    let isDogAlreadyInList = current_dogs.rows[0].dogs.indexOf(parseInt(dogId)) > -1 ? true : false;
-    let message;
-
-      // Adds new dog to list
-      if(isDogAlreadyInList) {
-        throw new ExpressError(`Dog: ${dogId}, already exists in ${username}'s list, no duplicates allowed.`, 400);
-      }
-      else {
-        message = `Dog: ${dogId}, successfully added to ${username}'s list!`;
-        current_dogs.rows[0].dogs.push(dogId);
-      }
-      // Updated dog list with new dog id
-      let updated_dogs = current_dogs.rows[0].dogs;
-
-      const result = await db.query(
-        `UPDATE liked_dogs 
-             SET dogs = $1
-             WHERE user_id = $2
-             RETURNING user_id, dogs`,
-        [updated_dogs, req.params.user_id]);
-  
-      if (result.rows.length === 0) {
-        throw new ExpressError(`There is no user with id of '${req.params.user_id}`, 404);
-      }
+        if (result.rows.length === 0) {
+            throw new ExpressError(`There is no user with id of '${user_id}`, 404);
+        }
   
       return res.json({message, user: result.rows[0]});
     } catch (err) {
