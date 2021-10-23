@@ -162,6 +162,13 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
       if ("user_id" in req.body || "dog_id" in req.body) {
         throw new ExpressError("Not allowed", 400)
     }
+
+    const current_user = await db.query(
+        `SELECT username
+        FROM users
+        WHERE id = $1`,
+        [req.params.user_id]
+    )
       
      const current_dogs = await db.query(
          `SELECT dogs 
@@ -170,9 +177,19 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
           [req.params.user_id]
      )
     
-      let new_dog = req.params.dog_id;
+    let username = current_user.rows[0].username;
+    let dogId = req.params.dog_id;
+    let isDogAlreadyInList = current_dogs.rows[0].dogs.indexOf(parseInt(dogId)) > -1 ? true : false;
+    let message;
+
       // Adds new dog to list
-      current_dogs.rows[0].dogs.push(new_dog);
+      if(isDogAlreadyInList) {
+        throw new ExpressError(`Dog: ${dogId} already exists in ${username}'s list`, 400);
+      }
+      else {
+        message = `Dog: ${dogId} successfully added to ${username}'s list!`;
+        current_dogs.rows[0].dogs.push(dogId);
+      }
       // Updated dog list with new dog id
       let updated_dogs = current_dogs.rows[0].dogs;
 
@@ -187,7 +204,7 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
         throw new ExpressError(`There is no user with id of '${req.params.user_id}`, 404);
       }
   
-      return res.json({ user: result.rows[0]});
+      return res.json({message, user: result.rows[0]});
     } catch (err) {
       return next(err);
     }
