@@ -184,10 +184,10 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
 
       // Adds new dog to list
       if(isDogAlreadyInList) {
-        throw new ExpressError(`Dog: ${dogId} already exists in ${username}'s list`, 400);
+        throw new ExpressError(`Dog: ${dogId}, already exists in ${username}'s list, no duplicates allowed.`, 400);
       }
       else {
-        message = `Dog: ${dogId} successfully added to ${username}'s list!`;
+        message = `Dog: ${dogId}, successfully added to ${username}'s list!`;
         current_dogs.rows[0].dogs.push(dogId);
       }
       // Updated dog list with new dog id
@@ -236,14 +236,15 @@ router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res,
     let username = current_user.rows[0].username;
     let dogId = req.params.dog_id;
     let dogIndex = current_dogs.rows[0].dogs.indexOf(parseInt(dogId));
+    let isDogInList = dogIndex >-1 ? true : false;
     let message;
     
-    if (dogIndex > -1) {
-        message = `Dog: ${dogId} successfully removed from ${username}'s list!`;
+    if (isDogInList) {
+        message = `Dog: ${dogId}, successfully removed from ${username}'s list!`;
         current_dogs.rows[0].dogs.splice(dogIndex, 1)
     }
     else {
-        throw new ExpressError(`Dog: ${dogId} is not in ${username}'s list`, 400);
+        throw new ExpressError(`Dog: ${dogId}, doesn't already exist in ${username}'s list`, 400);
     }
 
     let updated_dogs = current_dogs.rows[0].dogs;
