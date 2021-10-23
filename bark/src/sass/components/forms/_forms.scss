@@ -99,9 +99,17 @@
         }
     }
 
-    &__error-message {
+    &__error-message,
+    &__description-message {
         font-size: $font-size-small;
+    }
+
+    &__error-message {
         color: $color-red;
+    }
+
+    &__description-message {
+        color: $color-black;
     }
 }
 
