@@ -208,7 +208,7 @@ router.patch("/:user_id/liked-dogs/:dog_id/add-dog", async function(req, res, ne
     }
   });
 
-/** PATCH /[id] - Removes dog to user's liked dogs; return `{user: user}` */
+/** PATCH /[id] - Removes dog from user's liked dogs; return `{user: user}` */
 
 router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res, next) {
 
@@ -232,17 +232,16 @@ router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res,
 
         let {username, dogs} = getUsernameDogs.rows[0];
         
-        let dogId = dog_id;
-        let dogIndex = dogs.indexOf(parseInt(dogId));
+        let dogIndex = dogs.indexOf(parseInt(dog_id));
         let isDogInList = dogIndex >-1 ? true : false;
         let message;
         
         if (isDogInList) {
-            message = `Dog: ${dogId}, successfully removed from ${username}'s list!`;
+            message = `Dog: ${dog_id}, successfully removed from ${username}'s list!`;
             dogs.splice(dogIndex, 1)
         }
         else {
-            throw new ExpressError(`Dog: ${dogId}, doesn't already exist in ${username}'s list`, 400);
+            throw new ExpressError(`Dog: ${dog_id}, doesn't already exist in ${username}'s list`, 400);
         }
 
         let updated_dogs = dogs;
@@ -263,7 +262,7 @@ router.patch("/:user_id/liked-dogs/:dog_id/remove-dog", async function(req, res,
         }
   });
   
-/** PATCH /[id] - Adds dog to user's liked dogs; return `{user: user}` */
+/** PATCH /[id] - Adds breed to user's favorite breeds; return `{user: user}` */
 
 router.patch("/:user_id/favorite-breeds/:breed_id/add-breed", async function(req, res, next) {
 
@@ -319,6 +318,60 @@ router.patch("/:user_id/favorite-breeds/:breed_id/add-breed", async function(req
     catch (err) {
       return next(err);
     }
+  });
+
+/** PATCH /[id] - Removes breed from user's favorite breeds; return `{user: user}` */
+
+router.patch("/:user_id/favorite-breeds/:breed_id/remove-breed", async function(req, res, next) {
+
+    try {
+    
+        if ("user_id" in req.body || "breed_id" in req.body) {
+            throw new ExpressError("Not allowed", 400)
+        }
+
+        const {user_id, breed_id} = req.params;
+
+        const getUsernameBreeds = await db.query(
+            `SELECT u.username as username,
+            b.breeds as breeds
+            FROM users u
+            JOIN favorite_breeds b
+                ON b.user_id = u.id
+            WHERE u.id=$1`,
+            [user_id]
+        )
+
+        let {username, breeds} = getUsernameBreeds.rows[0];
+        
+        let breedIndex = breeds.indexOf(breed_id);
+        let isBreedInList = breedIndex >-1 ? true : false;
+        let message;
+        
+        if (isBreedInList) {
+            message = `Breed: ${breed_id}, successfully removed from ${username}'s list!`;
+            breeds.splice(breedIndex, 1)
+        }
+        else {
+            throw new ExpressError(`Breed: ${breed_id}, doesn't already exist in ${username}'s list`, 400);
+        }
+
+        let updated_breeds = breeds;
+
+        const updatedLikedBreeds = await db.query(
+        `UPDATE favorite_breeds
+                SET breeds = $1
+                WHERE user_id = $2
+                RETURNING user_id, breeds`,
+        [updated_breeds, user_id]);
+    
+        if (updatedLikedBreeds.rows.length === 0) {
+            throw new ExpressError(`There is no user with id of '${user_id}`, 404);
+        }
+            return res.json({message, user: updatedLikedBreeds.rows[0]});
+        } catch (err) {
+            return next(err);
+        }
   });
 
 module.exports = router;
