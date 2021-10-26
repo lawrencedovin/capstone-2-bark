@@ -51,52 +51,6 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-/** GET / - returns a user by their id with their liked dogs `{user: [...]}` */
-router.get('/:id/liked-dogs', async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const results = await db.query(
-            `SELECT u.username as username,
-            d.dogs as dogs
-            FROM users u
-            JOIN liked_dogs d
-                ON d.user_id = u.id 
-            WHERE u.id=$1`,
-            [id]
-        );
-        if (results.rows.length === 0) {
-            throw new ExpressError(`Can't find user with id of ${id}`, 404);
-        }
-        return res.json({user: results.rows[0]});
-    }
-    catch(e) {
-        return next(e);
-    }
-});
-
-/** GET / - returns a user by their id with their favorite breeds `{user: [...]}` */
-router.get('/:id/favorite-breeds', async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const results = await db.query(
-            `SELECT u.username as username,
-            b.breeds as breeds
-            FROM users u
-            JOIN favorite_breeds b
-                ON b.user_id = u.id 
-            WHERE u.id=$1`,
-            [id]
-        );
-        if (results.rows.length === 0) {
-            throw new ExpressError(`Can't find user with id of ${id}`, 404);
-        }
-        return res.json({user: results.rows[0]});
-    }
-    catch(e) {
-        return next(e);
-    }
-});
-
 /** POST / - create user from data; return `{user: user}` */
 
 router.post("/", async function(req, res, next) {
@@ -153,6 +107,70 @@ router.patch("/:id", async function(req, res, next) {
       return next(err);
     }
   });
+
+/** DELETE / - deletes a user by their id `{user: [...]}` */
+router.delete('/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        let message = `Sucessfully deleted user with id: ${id};`
+        const results = await db.query(
+            `DELETE
+            FROM users
+            WHERE id=$1`,
+            [id]
+        );
+        return res.json({message});
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+
+/** GET / - returns a user by their id with their liked dogs `{user: [...]}` */
+router.get('/:id/liked-dogs', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const results = await db.query(
+            `SELECT u.username as username,
+            d.dogs as dogs
+            FROM users u
+            JOIN liked_dogs d
+                ON d.user_id = u.id 
+            WHERE u.id=$1`,
+            [id]
+        );
+        if (results.rows.length === 0) {
+            throw new ExpressError(`Can't find user with id of ${id}`, 404);
+        }
+        return res.json({user: results.rows[0]});
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+
+/** GET / - returns a user by their id with their favorite breeds `{user: [...]}` */
+router.get('/:id/favorite-breeds', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const results = await db.query(
+            `SELECT u.username as username,
+            b.breeds as breeds
+            FROM users u
+            JOIN favorite_breeds b
+                ON b.user_id = u.id 
+            WHERE u.id=$1`,
+            [id]
+        );
+        if (results.rows.length === 0) {
+            throw new ExpressError(`Can't find user with id of ${id}`, 404);
+        }
+        return res.json({user: results.rows[0]});
+    }
+    catch(e) {
+        return next(e);
+    }
+});
 
 /** PATCH /[id] - Adds dog to user's liked dogs; return `{user: user}` */
 
