@@ -13,26 +13,26 @@ import { useState } from "react";
 
 function App() {
 
-  const [state, setState] = useState({data: null});
+  // const [state, setState] = useState({data: null});
 
-  const componentDidMount = () => {
-      callBackendAPI()
-        .then(res => setState({ data: res.users }))
-        .catch(err => console.log(err));
-  }
-  // fetching the GET route from the Express server which matches the GET route from server.js
-  const callBackendAPI = async () => {
-    const response = await fetch('/users');
-    const body = await response.json();
-    console.log(response, body);
+  // const componentDidMount = () => {
+  //     callBackendAPI()
+  //       .then(res => setState({ data: res.users }))
+  //       .catch(err => console.log(err));
+  // }
+  // // fetching the GET route from the Express server which matches the GET route from server.js
+  // const callBackendAPI = async () => {
+  //   const response = await fetch('/users');
+  //   const body = await response.json();
+  //   console.log(response, body);
 
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
+  //   if (response.status !== 200) {
+  //     throw Error(body.message) 
+  //   }
+  //   return body;
+  // };
 
-  componentDidMount();
+  // componentDidMount();
 
   return (
     <div className="App">
@@ -40,11 +40,11 @@ function App() {
         <NavBar />
         {/* {state.data.map(user => <h1>{user.username}</h1>)} */}
         {/* <p>{state.data}</p> */}
-        {state.data ?
+        {/* {state.data ?
         state.data.map(person => <h1>{person.id} {person.username}</h1>)
         :
         <></>
-        }
+        } */}
         {/* {state.data && state.data.map(person => <h1>{person.id} {person.username}</h1>)} */}
         {/* {state.data.map(home => <div>{home.id}</div>)} */}
         <Route exact path="/">
