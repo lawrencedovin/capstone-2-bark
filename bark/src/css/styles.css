@@ -370,9 +370,6 @@ input[type=number] {
 .alert {
   position: absolute;
   z-index: 5;
-  color: #0f5132;
-  background-color: #d1e7dd;
-  border-color: #badbcc;
   top: 10rem;
   left: 50%;
   transform: translate(-50%); }
