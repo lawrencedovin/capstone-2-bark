@@ -56,24 +56,34 @@ function Register() {
     }))
   }
 
-  const handleSubmit = ((e) => {
+  // Example POST method implementation:
+  async function postData(url = '', data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      mode: 'cors', // no-cors, *cors, same-origin
+      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: 'follow', // manual, *follow, error
+      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+
+  const handleSubmit = e => {
     e.preventDefault();
     const { username, email, zipcode, password } = formData;
-    fetch('/users', {
-      method: 'post',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        "username": "pokemonback",
-        "email": "pokemonback@gmail.com",
-        "zipcode": "19320",
-        "password": "abc123"
-      })
-    }).then(function(response) {
-      alert(response.json())
-    })
-    // alert(`Created user: ${username}-${email}-${zipcode}-${password}`);
+    postData('/users', { username, email, zipcode, password })
+    .then(data => {
+      alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
+    });
     setFormData(FORM_INPUT_INITIAL_STATE);
-  })
+  }
 
   return(
     <div data-testid="Register">
@@ -84,19 +94,6 @@ function Register() {
             <div className="col forms__container">
               <form className="forms col-md-8" onSubmit={handleSubmit}>
                 <h1 className="forms__title">Create an Account</h1>
-                {/* <ul>
-                {state.data ?
-                state.data.map(person => 
-                  <ul>
-                  <li>{person.id}</li>
-                  <li>{person.username}</li>
-                  <li>{person.breeds}</li>
-                  </ul>
-                )
-                :
-                <></>
-                }
-                </ul> */}
                 <p className="forms__description">Please fill out the form to create an account.</p>
                 <div class="input-group forms__input-container align-items-center">
                   <UserInput 
