@@ -4,27 +4,6 @@ import UserInput from '../../components/forms/UserInput/UserInput';
 
 function Register() {
 
-  // const [state, setState] = useState({data: null});
-
-  // const componentDidMount = () => {
-  //     callBackendAPI()
-  //       .then(res => setState({ data: res.users }))
-  //       .catch(err => console.log(err));
-  // }
-  // fetching the GET route from the Express server which matches the GET route from server.js
-  // const callBackendAPI = async () => {
-  //   const response = await fetch('/users');
-  //   const body = await response.json();
-  //   // console.log(response, body);
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.message) 
-  //   }
-  //   return body;
-  // };
-
-  // componentDidMount();
-
   const FORM_INPUT_INITIAL_STATE = {
     username: '',
     email: '',
@@ -80,6 +59,7 @@ function Register() {
     const { username, email, zipcode, password } = formData;
     postData('/users', { username, email, zipcode, password })
     .then(data => {
+      console.log(data.json)
       alert(JSON.stringify(data)); // JSON data parsed by `data.json()` call
     });
     setFormData(FORM_INPUT_INITIAL_STATE);
@@ -87,6 +67,9 @@ function Register() {
 
   return(
     <div data-testid="Register">
+        <div class="alert alert-success" role="alert">
+              This is a success alert—check it out!
+        </div>
         <div className="row">
             <div className="col">
               <img src={process.env.PUBLIC_URL + 'images/forms/register-form-photo.jpg'} alt="register dog" className="forms__image" />

@@ -367,6 +367,16 @@ input[type=number] {
 .col {
   padding: 0; }
 
+.alert-success {
+  position: absolute;
+  z-index: 5;
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+  top: 10rem;
+  left: 50%;
+  transform: translate(-50%); }
+
 .details__title-icon-container {
   margin-top: 6.4rem;
   display: table; }
