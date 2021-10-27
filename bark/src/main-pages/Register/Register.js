@@ -63,12 +63,24 @@ function Register() {
 
   const resetShowAlert = () => setAlertData(ALERT_INITIAL_STATE);
 
+  const countdown = () => {
+    let timeleft = 3;
+    let downloadTimer = setInterval(() => {
+      if(timeleft <= 0) {
+        resetShowAlert();
+        clearInterval(downloadTimer);
+      }
+      timeleft -= 1;
+    }, 1000);
+  }
+
   const handleSubmit = e => {
     e.preventDefault();
     const { username, email, zipcode, password } = formData;
     postData('/users', { username, email, zipcode, password })
     .then(data => {
       setAlertData(alertData => ({...alertData, 'visible': true}));
+      countdown();
       if(data.hasOwnProperty('user')) {
         setAlertData(alertData => ({...alertData, 'content': `${data.user.username} successfully created account!`}));
       }
