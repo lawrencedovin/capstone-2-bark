@@ -65,8 +65,12 @@ function Register() {
     .then(data => {
       // console.log(data.json)
       setShowAlert(true);
-      // setAlertContent(`${data.user.username} successfully created account!`);
-      setAlertContent(`${data.error.message}`);
+      if(data.hasOwnProperty('user')) {
+        setAlertContent(`${data.user.username} successfully created account!`);
+      }
+      else {
+        setAlertContent(`${data.error.message}`);
+      }
       alert(data); // JSON data parsed by `data.json()` call
     });
     setFormData(FORM_INPUT_INITIAL_STATE);
