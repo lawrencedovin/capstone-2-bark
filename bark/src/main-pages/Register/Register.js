@@ -59,7 +59,19 @@ function Register() {
   const handleSubmit = ((e) => {
     e.preventDefault();
     const { username, email, zipcode, password } = formData;
-    alert(`Created user: ${username}-${email}-${zipcode}-${password}`);
+    fetch('/users', {
+      method: 'post',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        "username": "pokemonback",
+        "email": "pokemonback@gmail.com",
+        "zipcode": "19320",
+        "password": "abc123"
+      })
+    }).then(function(response) {
+      alert(response.json())
+    })
+    // alert(`Created user: ${username}-${email}-${zipcode}-${password}`);
     setFormData(FORM_INPUT_INITIAL_STATE);
   })
 
