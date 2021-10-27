@@ -12,7 +12,7 @@ function Register() {
   };
 
   const [formData, setFormData] = useState(FORM_INPUT_INITIAL_STATE);
-  const [showAlert, setShowAlert] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
   const [alertContent, setAlertContent] = useState('');
 
   let [disabledButton, setDisableButton] = useState(true);
@@ -56,6 +56,8 @@ function Register() {
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
+  const resetShowAlert = () => setShowAlert(false);
+
   const handleSubmit = e => {
     e.preventDefault();
     const { username, email, zipcode, password } = formData;
@@ -63,8 +65,9 @@ function Register() {
     .then(data => {
       // console.log(data.json)
       setShowAlert(true);
-      setAlertContent(`${data.user.username} successfully created account!`);
-      alert(data.user.username); // JSON data parsed by `data.json()` call
+      // setAlertContent(`${data.user.username} successfully created account!`);
+      setAlertContent(`${data.error.message}`);
+      alert(data); // JSON data parsed by `data.json()` call
     });
     setFormData(FORM_INPUT_INITIAL_STATE);
   }
@@ -88,7 +91,7 @@ function Register() {
           <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
             <svg class="bi flex-shrink-0 me-4" width="24" height="24" role="img" aria-label="Success:"><use xlinkHref="#check-circle-fill"/></svg>
             <p className="alert__content">{alertContent}</p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={resetShowAlert}></button>
           </div>
         </>
         :
