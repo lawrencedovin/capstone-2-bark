@@ -367,7 +367,7 @@ input[type=number] {
 .col {
   padding: 0; }
 
-.alert-success {
+.alert {
   position: absolute;
   z-index: 5;
   color: #0f5132;
@@ -376,6 +376,12 @@ input[type=number] {
   top: 10rem;
   left: 50%;
   transform: translate(-50%); }
+  .alert__content {
+    margin-right: 2rem;
+    margin-bottom: 0; }
+
+.btn-close {
+  position: relative; }
 
 .details__title-icon-container {
   margin-top: 6.4rem;

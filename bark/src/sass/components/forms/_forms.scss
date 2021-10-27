@@ -123,7 +123,7 @@
     padding: 0;
 }
 
-.alert-success {
+.alert {
     position: absolute;
     z-index: 5;
     color: #0f5132;
@@ -132,4 +132,13 @@
     top: 10rem;
     left: 50%;
     transform: translate(-50%);
+
+    &__content {
+        margin-right: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+.btn-close {
+    position: relative;
 }
