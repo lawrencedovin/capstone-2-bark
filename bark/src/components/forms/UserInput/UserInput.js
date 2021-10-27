@@ -1,19 +1,18 @@
 import React from 'react';
 import capitalize from '../../../helpers';
 
-const UserInput = (({name, value, type, handleChange}) => {
+const UserInput = (({name, value, type, handleChange, className}) => {
     return (
-        <>
-            <label htmlFor={name}>{capitalize(name)}</label>
-            <input 
-                id={name} 
-                type={type} 
-                name={name} 
-                placeholder={name} 
-                value={value} 
-                onChange={handleChange}
-            />
-        </>
+          // <input id={name} type={type} name={name}  placeholder={capitalize(name)} value={value} onChange={handleChange} className="form-control forms__input" />
+          <input 
+              id={name} 
+              type={type} 
+              name={name} 
+              placeholder={capitalize(name)} 
+              value={value} 
+              onChange={handleChange}
+              className={className}
+          />
     );
 });
 
