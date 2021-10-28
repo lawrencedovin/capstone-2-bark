@@ -32,14 +32,43 @@ function App() {
   //   return body;
   // };
 
-  // componentDidMount();
+    // componentDidMount();
+
+  const [state, setState] = useState({data: null});
+
+  let yourAccessTokenHere = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJoc1pjOGxSME9vbmxUb0JWTm9tV2RpVXIybm9vZFdIZnAzSGlLclg0dFRoV014SjFjRyIsImp0aSI6IjFjNDljYmRhOTJlN2U0YjA0NzczODE1ZmYzNzg1MTIwZGY2ZWI2Y2U1MGNmYTFlNGNkMzJkYjMwYjFlY2FiNWRmMGI4YWQ0MTI4Yjg1YTAzIiwiaWF0IjoxNjM1NDU4MzkwLCJuYmYiOjE2MzU0NTgzOTAsImV4cCI6MTYzNTQ2MTk5MCwic3ViIjoiIiwic2NvcGVzIjpbXX0.n5o0XXiCQuAuSpIHmqgNXO7qPGpwVxX0P7QvX9-wgTKXMCvrsrdhBuCnlSama0CxThCjMZPKCAAk-yQJi_2Pts21EEda8Tul4SYvuh9b-Yyt5wkHAMo_C5EQJkwVXpDRk5L0M1P7ZHw8k5UDouBppeMk37o7YkHgM7jvNsogwS39MpBrs8WaAW4sCQPuRPxxOAYjewFIfOE7AjTMc5h5PYlH9pTwWcpu6Seaye2_gwCHehrZFxWGhJbCciaw6ljaW0qLPPcXjooZzXrYQdED9peNn5cXwuhUMb7gx6I1FEJu_V7fv2SrUQIis3AewOUTfTyx5T8ZOGnetk-0Oea8AQ";
+
+  const componentDidMount = () => {
+      callBackendAPI()
+        .then(res => setState({ data: res.breeds[0].breeds[0] }))
+        .catch(err => console.log(err));
+  }
+  // fetching the GET route from the Express server which matches the GET route from server.js
+  const callBackendAPI = async () => {
+    const response = await fetch('https://api.petfinder.com/v2/types/dog/breeds', {
+      headers: { 'Authorization': 'Bearer ' + yourAccessTokenHere }})
+    const body = await response.json();
+    // console.log(response, body);
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+
+  componentDidMount();
+
+//   fetch('https://api.petfinder.com/v2/types/dog/breeds', {
+//   headers: { 'Authorization': 'Bearer ' + yourAccessTokenHere }
+// })
+//   .then(response => console.log(JSON.stringify(response)))
 
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
         {/* {state.data.map(user => <h1>{user.username}</h1>)} */}
-        {/* <p>{state.data}</p> */}
+        <p>{state.data}</p>
         {/* {state.data ?
         state.data.map(person => <h1>{person.id} {person.username}</h1>)
         :

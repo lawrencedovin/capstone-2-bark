@@ -372,7 +372,10 @@ input[type=number] {
   z-index: 5;
   top: 10rem;
   left: 50%;
-  transform: translate(-50%); }
+  transform: translate(-50%);
+  transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -webkit-transition: all .5s ease-in-out; }
   .alert__content {
     margin-right: 2rem;
     margin-bottom: 0; }
