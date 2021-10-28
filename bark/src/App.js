@@ -40,7 +40,7 @@ function App() {
 
   const componentDidMount = () => {
       callBackendAPI()
-        .then(res => setState({ data: res.breeds[0].breeds[0] }))
+        .then(res => setState({ data: res.breeds[0].name }))
         .catch(err => console.log(err));
   }
   // fetching the GET route from the Express server which matches the GET route from server.js
@@ -69,8 +69,9 @@ function App() {
         <NavBar />
         {/* {state.data.map(user => <h1>{user.username}</h1>)} */}
         <p>{state.data}</p>
+        {/* {state.data.map(breed => <h1>{breed}</h1>)} */}
         {/* {state.data ?
-        state.data.map(person => <h1>{person.id} {person.username}</h1>)
+        state.data.map(breed => <h1>{breed.name}</h1>)
         :
         <></>
         } */}
