@@ -5,22 +5,10 @@ import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsL
 import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
-import { postData } from '../../helpers/api-helpers';
+import { postData, getData } from '../../helpers/api-helpers';
 
 function Home() {
   const [state, setState] = useState({data: []});
-
-  // fetching the GET route from the Express server which matches the GET route from server.js
-  const getData = async (accessToken, url) => {
-    const response = await fetch(url, {
-      headers: { 'Authorization': 'Bearer ' + accessToken }})
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message) 
-    }
-    return body;
-  };
 
   useEffect(() => {
     let grant_type = "client_credentials";

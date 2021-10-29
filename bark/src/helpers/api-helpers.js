@@ -16,3 +16,16 @@ export async function postData(url = '', data = {}) {
     });
     return response.json(); // parses JSON response into native JavaScript objects
   }
+
+  
+  // fetching the GET route from the Express server which matches the GET route from server.js
+export async function getData(accessToken, url) {
+    const response = await fetch(url, {
+      headers: { 'Authorization': 'Bearer ' + accessToken }})
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
