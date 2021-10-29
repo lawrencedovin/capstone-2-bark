@@ -25,16 +25,7 @@ function Register() {
   let [disabledButton, setDisableButton] = useState(true);
   let [errorStylesDisplay, setErrorStylesDisplay] = useState(false);
 
-  const handleZipcodeChange = (e) => {
-    const {name, value} = e.target;
-    setFormData(formData => ({
-      ...formData,
-      [name]: value
-    }))
-    let inputLength = e.target.value.length;
-    inputLength === 5 ? setDisableButton(false) : setDisableButton(true);
-    inputLength > 5 ? setErrorStylesDisplay(true) : setErrorStylesDisplay(false);
-  }
+  
 
   const handleChange = (e) => {
     const {name, value} = e.target;
@@ -42,6 +33,13 @@ function Register() {
       ...formData,
       [name]: value
     }))
+  }
+
+  const handleZipcodeChange = (e) => {
+    handleChange(e)
+    let inputLength = e.target.value.length;
+    inputLength === 5 ? setDisableButton(false) : setDisableButton(true);
+    inputLength > 5 ? setErrorStylesDisplay(true) : setErrorStylesDisplay(false);
   }
 
   const resetShowAlert = () => setAlertData(ALERT_INITIAL_STATE);
