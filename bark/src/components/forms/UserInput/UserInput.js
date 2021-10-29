@@ -1,5 +1,5 @@
 import React from 'react';
-import capitalize from '../../../helpers/general-helpers';
+import { capitalize } from '../../../helpers/general-helpers';
 
 const UserInput = (({name, value, type, handleChange, className}) => {
     return (

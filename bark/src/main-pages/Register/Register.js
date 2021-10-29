@@ -67,7 +67,6 @@ function Register() {
     let timeleft = 3;
     let downloadTimer = setInterval(() => {
       if(timeleft <= 0) {
-        // $(".alert").fadeOut();
         
         resetShowAlert();
         clearInterval(downloadTimer);
