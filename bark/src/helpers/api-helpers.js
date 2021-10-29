@@ -1,3 +1,7 @@
+export let grant_type = "client_credentials";
+export let client_id = "hsZc8lR0OonlToBVNomWdiUr2noodWHfp3HiKrX4tThWMxJ1cG";
+export let client_secret = "cTGO1vj4Bn9Zvz37zg3D8nJ5kyM5JSEhnR0UqO9M";
+
 // Example POST method implementation:
 export async function postData(url = '', data = {}) {
     // Default options are marked with *

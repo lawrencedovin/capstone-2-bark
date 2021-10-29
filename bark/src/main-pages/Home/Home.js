@@ -5,15 +5,12 @@ import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsL
 import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
-import { postData, getData } from '../../helpers/api-helpers';
+import { postData, getData, grant_type, client_id, client_secret } from '../../helpers/api-helpers';
 
 function Home() {
   const [state, setState] = useState({data: []});
 
   useEffect(() => {
-    let grant_type = "client_credentials";
-    let client_id = "hsZc8lR0OonlToBVNomWdiUr2noodWHfp3HiKrX4tThWMxJ1cG";
-    let client_secret = "cTGO1vj4Bn9Zvz37zg3D8nJ5kyM5JSEhnR0UqO9M";
     let accessToken;
     
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
