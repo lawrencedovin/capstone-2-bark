@@ -62,7 +62,9 @@ function Home() {
         getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=3')
         .then(res => {
           // setState({dogs: res.animals.map(dog => dog.name)})
-          setState({dogs: res.animals.map(dog => dog.name)})
+          // setState({dogs: res.animals.map(dog => dog.name)})
+          setState(state.dogs.push({'id':5, 'title': 'R2D2'}));
+          setState(state.dogs.push({'id':4, 'title': 'pancake'}));
           // console.log()
           // alert(JSON.stringify(res.animals));
           alert(JSON.stringify(state.dogs));
