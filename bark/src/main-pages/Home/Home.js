@@ -67,8 +67,19 @@ function Home() {
           // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
 
 
+          // res.animals.map(dog => {
+          //   setState(state.dogs.push({'id':dog.id, 'title': dog.name}));
+          // })
+
+
           res.animals.map(dog => {
-            setState(state.dogs.push({'id':dog.id, 'title': dog.name}));
+            setState(state.dogs.push(
+                { id: dog.id, 
+                  title: dog.name,
+                  imgUrl: dog.primary_photo_cropped.medium || null,
+                  description: {breed: "Chow Chow", location: "Bowie, MD"}
+                }
+              ));
           })
           // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
           // console.log()
