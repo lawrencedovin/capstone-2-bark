@@ -36,9 +36,7 @@ function Home() {
         })
         .catch(err => console.log(err));
     });
-  }, [])
-
-  ;
+  }, []);
 
   return (
     <div className="Home">
@@ -50,7 +48,16 @@ function Home() {
       <ul>
         <li>ID: {dog.id}</li>
         <li>NAME: {dog.name}</li>
-        <li><img src={dog.photos.medium} alt={dog.name} /></li>
+        {/* <li><img src={dog.photos.medium} alt={dog.name} /></li> */}
+        {dog.primary_photo_cropped.medium
+        ? 
+        <li>
+          {/* {dog.primary_photo_cropped.medium.replace('\/', '/')} */}
+          <img src={dog.primary_photo_cropped.medium} alt={dog.name} />
+        </li>
+        :
+        <li></li>}
+        
         <li>Status URL: {dog.status}</li>
         <li>Location: {dog.contact.address.city}, {dog.contact.address.state}</li>
       </ul>
