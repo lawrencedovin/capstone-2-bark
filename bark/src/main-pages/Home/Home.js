@@ -10,7 +10,7 @@ import { postData, getData, grant_type, client_id, client_secret } from '../../h
 function Home() {
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
-  let doggies = [];
+  let getDogs = [];
 
   useEffect(() => {
     let accessToken;
@@ -21,7 +21,7 @@ function Home() {
         getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
         .then(res => {
           res.animals.map(dog => {
-            return doggies.push(
+            return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped.medium || null,
@@ -33,7 +33,7 @@ function Home() {
                 }
               );
           })
-          setDogs(doggies);
+          setDogs(getDogs);
         })
         .catch(err => console.log(err))
         .finally(() => {
