@@ -11,8 +11,8 @@ const CardsList = ({props, type}) => (
           {props.map(prop => (
             <div className="col">
                 <Cards 
-                  imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
-                  // imgUrl={prop.imgUrl}
+                  // imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
+                  imgUrl={prop.imgUrl}
                   title={prop.title}
                   description={prop.description}
                   btnText={type === "breeds" ? "Check Breed" : "Check Dog"}

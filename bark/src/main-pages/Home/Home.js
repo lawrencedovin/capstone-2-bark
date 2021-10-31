@@ -9,35 +9,46 @@ import { postData, getData, grant_type, client_id, client_secret } from '../../h
 
 function Home() {
   const [state, setState] = useState({dogs: []});
+  const [loading, setLoading] = useState(true);
 
   
   const dogs = [
     {
+      id: 1,
       title: "George",
       imgUrl: "george-dog",
       description: {breed: "German Shepherd",
-                    location: "Bowie, MD"}
+                    location: "Bowie, MD",
+                    status: "adoptable"}
 
     },
     {
+      id: 2,
       title: "R2D2",
       imgUrl: "r2d2-dog",
       description: {breed: "Corgi",
-                    location: "Bowie, MD"}
+                    location: "Bowie, MD",
+                    status: "adoptable"}
     },
     {
+      id: 3,
       title: "Spot",
       imgUrl: "spot-dog",
       description: {breed: "Dalmatian",
-                    location: "Bowie, MD"}
+                    location: "Bowie, MD",
+                    status: "adoptable"}
     },
     {
+      id: 4,
       title: "Winnie",
       imgUrl: "winnie-dog",
       description: {breed: "Chow Chow",
-                    location: "Bowie, MD"}
+                    location: "Bowie, MD",
+                    status: "adoptable"}
     }
   ]
+
+  // const dogs =  [{"id":53425494,"title":"Tyson","imgUrl":"https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53425494/1/?bust=1635696068&width=450","description":{"breed":"Chow Chow","location":"Washington  DC","status":"adoptable"}},{"id":53385410,"title":"Tony","imgUrl":"https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53385410/1/?bust=1635611482&width=450","description":{"breed":"Chow Chow","location":"Alexandria  VA","status":"adoptable"}},{"id":53377449,"title":"DA 8 &#34;Gizmo&#34;","imgUrl":"https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/53377449/1/?bust=1635551181&width=450","description":{"breed":"Chow Chow","location":"Glen Allen  VA","status":"adoptable"}}]
 
   // useEffect(() => {
   //   let accessToken;
@@ -73,29 +84,53 @@ function Home() {
 
 
           res.animals.map(dog => {
-            setState(state.dogs.push(
+            return setState(state.dogs.push(
                 { id: dog.id, 
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped.medium || null,
-                  description: {breed: "Chow Chow", location: "Bowie, MD"}
+                  description: {
+                                breed: "Chow Chow", 
+                                location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
+                                status: dog.status
+                              }
                 }
               ));
           })
           // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
           // console.log()
           // alert(JSON.stringify(res.animals));
+          alert(JSON.stringify(dogs));
           alert(JSON.stringify(state.dogs));
+          // alert(typeof(state));
+          // alert(state.dogs);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoading(false);
+        });
     });
   }, []);
+
+  
 
   return (
     <div className="Home">
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
-      <div>{JSON.stringify(state.dogs)}</div>
+      
+      {loading ?
+      <p>im loading</p>
+      :
+      // <p>{JSON.stringify(state.dogs)}</p>
+        state.dogs.map(dog => {
+        <ul>
+          <li>NAME: {dog.name}</li>
+        </ul>
+        })
+    }
+      
+      {/* <div>{JSON.stringify(state.dogs)}</div> */}
       {/* {state.data.map(user => <div>{user.name}</div>)} */}
       {
       // state.dogs.map(dog => 
@@ -103,20 +138,28 @@ function Home() {
       //   <li>ID: {dog.id}</li>
       //   <li>NAME: {dog.name}</li>
       //   {/* <li><img src={dog.photos.medium} alt={dog.name} /></li> */}
-      //   {dog.primary_photo_cropped.medium
+      //   {dog.imgUrl
       //   ? 
       //   <li>
       //     {/* {dog.primary_photo_cropped.medium.replace('\/', '/')} */}
-      //     <img src={dog.primary_photo_cropped.medium} alt={dog.name} />
+      //     <img src={dog.imgUrl} alt={dog.name} />
       //   </li>
       //   :
       //   <li></li>}
         
-      //   <li>Status URL: {dog.status}</li>
-      //   <li>Location: {dog.contact.address.city}, {dog.contact.address.state}</li>
+      //   <li>Status URL: {dog.description.status}</li>
+      //   <li>Location: {dog.description.location}</li>
       // </ul>
       // )
+
+      // state.dogs.map(dog => 
+      //   <ul>
+      //     <li>ID: {dog.id}</li>
+      //   </ul>
+      //   )
       }
+
+      
       
       <BreedsCardsList/>
       <HomeSeperator title="Dogs" />
