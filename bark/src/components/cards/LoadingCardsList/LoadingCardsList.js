@@ -7,14 +7,29 @@ function LoadingCardsList({type, numberOfCards}) {
   const loading = []
 
   for(let i = 0; i < numberOfCards; i++) {
-    loading.push(
-      {
-        title: "Loading",
-        imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`
-      }
-    )
+    if(type === "dogs"){
+      loading.push(
+        {
+          title: "Loading...",
+          imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`,
+          description: {
+                        breed: '?',
+                        location: '?', 
+                        status: '?'
+          }
+        }
+      )
+    }
+    else {
+      loading.push(
+        {
+          title: "Loading...",
+          imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`
+        }
+      )
+    }
   }
-  
+
   return (
     <div className="BreedsCardList">
       <CardsList props={loading} type={type}/>
