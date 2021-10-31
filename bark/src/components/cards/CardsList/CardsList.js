@@ -9,7 +9,7 @@ const CardsList = ({props, type}) => (
         <div className="col-md-10 mx-auto">
           <div className="row justify-content-center text-center">
           {props.map(prop => (
-            <div className="col">
+            <div className="col-md-3">
                 <Cards 
                   // imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
                   imgUrl={prop.imgUrl}

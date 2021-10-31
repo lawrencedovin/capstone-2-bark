@@ -18,8 +18,8 @@ function Home() {
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         accessToken = data.access_token;
-        // getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
-        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&limit=4')
+        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
+        // getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&limit=4')
         .then(res => {
           res.animals.map(dog => {
             return getDogs.push(
@@ -27,7 +27,7 @@ function Home() {
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped.medium || null,
                   description: {
-                                breed: "Chow Chow", 
+                                breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
                                 status: dog.status
                               }
@@ -52,7 +52,12 @@ function Home() {
       <HomeSeperator title="Breeds" />
       <BreedsCardsList/>
       <HomeSeperator title="Dogs" />
+      {loading 
+      ? 
+      <BreedsCardsList />
+      : 
       <DogsCardsList dogs={dogs}/>
+      }
       <MainFooter/>
     </div>
   );
