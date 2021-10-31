@@ -18,7 +18,8 @@ function Home() {
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         accessToken = data.access_token;
-        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
+        // getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
+        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&limit=4')
         .then(res => {
           res.animals.map(dog => {
             return getDogs.push(

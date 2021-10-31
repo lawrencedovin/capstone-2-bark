@@ -212,7 +212,8 @@ input[type=number] {
     height: 19rem;
     display: flex;
     align-items: start;
-    overflow: hidden; }
+    overflow: hidden;
+    border-radius: 4px 4px 0 0; }
 
 .logged-in-card__body {
   padding: 1.6rem 0 3.2rem; }
