@@ -8,8 +8,10 @@ import React, {useEffect, useState} from 'react';
 import { postData, getData, grant_type, client_id, client_secret } from '../../helpers/api-helpers';
 
 function Home() {
-  const [state, setState] = useState({dogs: []});
+  // const [state, setState] = useState({dogs: []});
+  const [state, setState] = useState([]);
   const [loading, setLoading] = useState(true);
+  let doggies = [];
 
   
   const dogs = [
@@ -83,8 +85,22 @@ function Home() {
           // })
 
 
+          // res.animals.map(dog => {
+          //   return setState(state.dogs.push(
+          //       { id: dog.id, 
+          //         title: dog.name,
+          //         imgUrl: dog.primary_photo_cropped.medium || null,
+          //         description: {
+          //                       breed: "Chow Chow", 
+          //                       location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
+          //                       status: dog.status
+          //                     }
+          //       }
+          //     ));
+          // })
+
           res.animals.map(dog => {
-            return setState(state.dogs.push(
+            return doggies.push(
                 { id: dog.id, 
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped.medium || null,
@@ -94,13 +110,31 @@ function Home() {
                                 status: dog.status
                               }
                 }
-              ));
+              );
           })
+
+          setState(doggies);
+
+          // res.animals.map(dog => {
+          //   setState(state.push(
+          //       { id: dog.id, 
+          //         title: dog.name,
+          //         imgUrl: dog.primary_photo_cropped.medium || null,
+          //         description: {
+          //                       breed: "Chow Chow", 
+          //                       location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
+          //                       status: dog.status
+          //                     }
+          //       }
+          //     ));
+          // })
           // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
           // console.log()
           // alert(JSON.stringify(res.animals));
           alert(JSON.stringify(dogs));
-          alert(JSON.stringify(state.dogs));
+          // alert(JSON.stringify(state.dogs));
+          alert(JSON.stringify(state));
+          // alert(JSON.stringify(res.animals));
           // alert(typeof(state));
           // alert(state.dogs);
         })
@@ -118,17 +152,6 @@ function Home() {
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
-      
-      {loading ?
-      <p>im loading</p>
-      :
-      // <p>{JSON.stringify(state.dogs)}</p>
-        state.dogs.map(dog => {
-        <ul>
-          <li>NAME: {dog.name}</li>
-        </ul>
-        })
-    }
       
       {/* <div>{JSON.stringify(state.dogs)}</div> */}
       {/* {state.data.map(user => <div>{user.name}</div>)} */}
@@ -152,11 +175,11 @@ function Home() {
       // </ul>
       // )
 
-      // state.dogs.map(dog => 
-      //   <ul>
-      //     <li>ID: {dog.id}</li>
-      //   </ul>
-      //   )
+      state.map(dog => 
+        <ul>
+          <li>ID: {dog.id}</li>
+        </ul>
+        )
       }
 
       
