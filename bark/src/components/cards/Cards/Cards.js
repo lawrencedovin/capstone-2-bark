@@ -6,7 +6,9 @@ function Cards({imgUrl, title, description, btnText, link}) {
     <div data-testid="Cards">
       <div className="logged-in-card">
         <div className="logged-in-card__img-body-container">
-          <img className="card-img-top" src={imgUrl} alt={title} />
+          <div className="logged-in-card__img-container">
+            <img className="logged-in-card__img" src={imgUrl} alt={title} />
+          </div>
           {isLoggedIn
           ?
           <button className="logged-in-card__like d-flex align-items-center justify-content-center">
