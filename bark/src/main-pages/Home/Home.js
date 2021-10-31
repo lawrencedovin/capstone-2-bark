@@ -2,6 +2,7 @@ import Hero from '../../components/Hero/Hero';
 import DogSearchFilter from '../../components/filters/DogSearchFilter/DogSearchFilter';
 import HomeSeperator from '../../components/titles/HomeSeperator/HomeSeperator';
 import BreedsCardsList from '../../components/cards/BreedsCardsList/BreedsCardsList';
+import LoadingCardsList from '../../components/cards/LoadingCardsList/LoadingCardsList';
 import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
@@ -54,7 +55,8 @@ function Home() {
       <HomeSeperator title="Dogs" />
       {loading 
       ? 
-      <BreedsCardsList />
+      // <BreedsCardsList />
+      <LoadingCardsList type={"dogs"}/>
       : 
       <DogsCardsList dogs={dogs}/>
       }
