@@ -1,6 +1,7 @@
 import DogSearchFilter from '../../components/filters/DogSearchFilter/DogSearchFilter';
 import SearchTitle from '../../components/titles/SearchTitle/SearchTitle';
 import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
+import LoadingCardsList from '../../components/cards/LoadingCardsList/LoadingCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
 import { postData, getData, grant_type, client_id, client_secret } from '../../helpers/api-helpers';
@@ -46,7 +47,13 @@ function DogList() {
     <div data-testid="Search">
       <SearchTitle title="lawrence123's Dog List" />
       <DogSearchFilter />
+      {loading 
+      ? 
+      // <BreedsCardsList />
+      <LoadingCardsList type={"dogs"} numberOfCards={24}/>
+      : 
       <DogsCardsList dogs={dogs}/>
+      }
       <MainFooter/>
     </div>
   );

@@ -19,9 +19,11 @@
             height: 19rem;
             display: flex;
             // justify-content: center;
-            align-items: start;
+            // align-items: start;
+            align-items: normal;
             overflow: hidden;
             border-radius: 4px 4px 0 0;
+            background: black;
         }
     }
 

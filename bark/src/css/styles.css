@@ -211,9 +211,10 @@ input[type=number] {
     width: 24rem;
     height: 19rem;
     display: flex;
-    align-items: start;
+    align-items: normal;
     overflow: hidden;
-    border-radius: 4px 4px 0 0; }
+    border-radius: 4px 4px 0 0;
+    background: black; }
 
 .logged-in-card__body {
   padding: 1.6rem 0 3.2rem; }

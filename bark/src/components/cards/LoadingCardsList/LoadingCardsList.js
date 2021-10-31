@@ -2,26 +2,19 @@ import React from 'react';
 import CardsList from '../CardsList/CardsList';
 
 
-function LoadingCardsList({type}) {
+function LoadingCardsList({type, numberOfCards}) {
+
+  const loading = []
+
+  for(let i = 0; i < numberOfCards; i++) {
+    loading.push(
+      {
+        title: "Loading",
+        imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`
+      }
+    )
+  }
   
-  const loading = [
-    {
-      title: "Loading",
-      imgUrl: "husky-breed"
-    },
-    {
-      title: "Loading",
-      imgUrl: "husky-breed"
-    },
-    {
-      title: "Loading",
-      imgUrl: "husky-breed"
-    },
-    {
-      title: "Loading",
-      imgUrl: "husky-breed"
-    }
-  ]
   return (
     <div className="BreedsCardList">
       <CardsList props={loading} type={type}/>

@@ -56,7 +56,7 @@ function Home() {
       {loading 
       ? 
       // <BreedsCardsList />
-      <LoadingCardsList type={"dogs"}/>
+      <LoadingCardsList type={"dogs"} numberOfCards={4}/>
       : 
       <DogsCardsList dogs={dogs}/>
       }
