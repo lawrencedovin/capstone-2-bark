@@ -74,16 +74,6 @@ function Home() {
         accessToken = data.access_token;
         getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=3')
         .then(res => {
-          // setState({dogs: res.animals.map(dog => dog.name)})
-          // setState({dogs: res.animals.map(dog => dog.name)})
-          // setState(state.dogs.push({'id':5, 'title': 'R2D2'}));
-          // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
-
-
-          // res.animals.map(dog => {
-          //   setState(state.dogs.push({'id':dog.id, 'title': dog.name}));
-          // })
-
 
           // res.animals.map(dog => {
           //   return setState(state.dogs.push(
@@ -112,31 +102,7 @@ function Home() {
                 }
               );
           })
-
           setState(doggies);
-
-          // res.animals.map(dog => {
-          //   setState(state.push(
-          //       { id: dog.id, 
-          //         title: dog.name,
-          //         imgUrl: dog.primary_photo_cropped.medium || null,
-          //         description: {
-          //                       breed: "Chow Chow", 
-          //                       location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
-          //                       status: dog.status
-          //                     }
-          //       }
-          //     ));
-          // })
-          // setState(state.dogs.push({'id':4, 'title': 'pancake'}));
-          // console.log()
-          // alert(JSON.stringify(res.animals));
-          alert(JSON.stringify(dogs));
-          // alert(JSON.stringify(state.dogs));
-          alert(JSON.stringify(state));
-          // alert(JSON.stringify(res.animals));
-          // alert(typeof(state));
-          // alert(state.dogs);
         })
         .catch(err => console.log(err))
         .finally(() => {
@@ -152,42 +118,9 @@ function Home() {
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
-      
-      {/* <div>{JSON.stringify(state.dogs)}</div> */}
-      {/* {state.data.map(user => <div>{user.name}</div>)} */}
-      {
-      // state.dogs.map(dog => 
-      // <ul>
-      //   <li>ID: {dog.id}</li>
-      //   <li>NAME: {dog.name}</li>
-      //   {/* <li><img src={dog.photos.medium} alt={dog.name} /></li> */}
-      //   {dog.imgUrl
-      //   ? 
-      //   <li>
-      //     {/* {dog.primary_photo_cropped.medium.replace('\/', '/')} */}
-      //     <img src={dog.imgUrl} alt={dog.name} />
-      //   </li>
-      //   :
-      //   <li></li>}
-        
-      //   <li>Status URL: {dog.description.status}</li>
-      //   <li>Location: {dog.description.location}</li>
-      // </ul>
-      // )
-
-      state.map(dog => 
-        <ul>
-          <li>ID: {dog.id}</li>
-        </ul>
-        )
-      }
-
-      
-      
       <BreedsCardsList/>
       <HomeSeperator title="Dogs" />
-      {/* <DogsCardsList dogs={dogs}/> */}
-      <DogsCardsList dogs={dogs}/>
+      <DogsCardsList dogs={state}/>
       <MainFooter/>
     </div>
   );
