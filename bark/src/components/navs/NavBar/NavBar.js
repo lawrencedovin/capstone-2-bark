@@ -19,9 +19,9 @@ function NavBar() {
                   <li class="nav-item">
                     <a class="nav-link navbar__link" href="/edit">lawrence123</a>
                   </li>
-                  <li class="nav-item">
+                  {/* <li class="nav-item">
                     <a class="nav-link navbar__link" href="/breed-list">Breeds</a>
-                  </li>
+                  </li> */}
                   <li class="nav-item">
                     <a class="nav-link navbar__link" href="/dog-list">Dogs</a>
                   </li>

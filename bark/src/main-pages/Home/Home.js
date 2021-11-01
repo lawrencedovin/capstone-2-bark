@@ -10,17 +10,35 @@ import { postData, getData, grant_type, client_id, client_secret } from '../../h
 
 function Home() {
   const [dogs, setDogs] = useState([]);
+  const [breeds, setBreeds] = useState([]);
   const [loading, setLoading] = useState(true);
   let getDogs = [];
+  let getBreeds = [];
 
   useEffect(() => {
     let accessToken;
+
+    
+    postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
+      .then(data => {
+        accessToken = data.access_token;
+        getData(accessToken, 'https://api.petfinder.com/v2/types/dog/breeds')
+        .then(res => {
+          
+          alert(JSON.stringify(res.breeds));
+          res.breeds.map(breed => {
+            return getBreeds.push(breed.name);
+          })
+          setBreeds(getBreeds);
+          alert('gello');
+        })
+        .catch(err => console.log(err));
+    });
     
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         accessToken = data.access_token;
         getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
-        // getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&limit=4')
         .then(res => {
           res.animals.map(dog => {
             return getDogs.push(
@@ -41,7 +59,8 @@ function Home() {
         .finally(() => {
           setLoading(false);
         });
-    });
+    })
+
   }, []);
 
   
@@ -50,8 +69,9 @@ function Home() {
     <div className="Home">
       <Hero />
       <DogSearchFilter />
-      <HomeSeperator title="Breeds" />
-      {loading ? <LoadingCardsList type={"breeds"} numberOfCards={4}/> : <BreedsCardsList dogs={dogs}/>}
+      {/* <HomeSeperator title="Breeds" />
+      {loading ? <LoadingCardsList type={"breeds"} numberOfCards={4}/> : <BreedsCardsList dogs={dogs}/>} */}
+      {breeds.map((breed) => <ul><li>{breed}</li></ul>)}
       <HomeSeperator title="Dogs" />
       {loading ? <LoadingCardsList type={"dogs"} numberOfCards={4}/> : <DogsCardsList dogs={dogs}/>}
       <MainFooter/>

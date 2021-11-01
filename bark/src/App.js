@@ -91,9 +91,9 @@ function App() {
         <Route exact path="/dog-list">
           <DogList />
         </Route>
-        <Route exact path="/breed-list">
+        {/* <Route exact path="/breed-list">
           <BreedList />
-        </Route>
+        </Route> */}
         <Route exact path="/breed-details">
           <BreedDetails />
         </Route>
