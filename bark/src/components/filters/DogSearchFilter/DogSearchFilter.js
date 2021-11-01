@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 import UserInput from '../../forms/UserInput/UserInput';
 
 function DogSearchFilter({breeds}) {
 
+  const history = useHistory();
   const [breed, setBreed] = useState('all breeds');
   const [zipcode, setZipcode] = useState('');
   let [disabledButton, setDisableButton] = useState(true);
@@ -26,7 +28,8 @@ function DogSearchFilter({breeds}) {
   }
 
   const onClick = () => {
-    alert(`zipcode: ${zipcode} breed: ${breed}`);
+    history.push(`/about/zipcode=${zipcode}&breeds=${breed}`);
+    // alert(`zipcode: ${zipcode} breed: ${breed}`);
   }
 
   return (
