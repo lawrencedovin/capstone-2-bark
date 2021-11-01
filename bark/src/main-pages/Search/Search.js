@@ -43,7 +43,7 @@ function Search() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
-                  imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
+                  imgUrl: dog.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 

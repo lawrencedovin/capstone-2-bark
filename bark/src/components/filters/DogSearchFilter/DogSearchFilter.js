@@ -52,7 +52,7 @@ function DogSearchFilter({breeds}) {
               />
             </div>
             <button className="btn dog-search-filter__button dog-search-filter__button--icon" href="/search" disabled={disabledButton} onClick={onClick}>
-              <img src={process.env.PUBLIC_URL + 'icons/search-icon.svg'} className="dog-search-filter__icon--search" alt="search icon" />
+              <img src={process.env.PUBLIC_URL + '/icons/search-icon.svg'} className="dog-search-filter__icon--search" alt="search icon" />
             </button>
           </div>
         </form>

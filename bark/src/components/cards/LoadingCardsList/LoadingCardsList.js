@@ -11,7 +11,7 @@ function LoadingCardsList({type, numberOfCards}) {
       loading.push(
         {
           title: "Loading...",
-          imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`,
+          imgUrl: `/${process.env.PUBLIC_URL}icons/loading-icon.svg`,
           description: {
                         breed: '?',
                         location: '?', 
@@ -24,7 +24,7 @@ function LoadingCardsList({type, numberOfCards}) {
       loading.push(
         {
           title: "Loading...",
-          imgUrl: `${process.env.PUBLIC_URL}icons/loading-icon.svg`
+          imgUrl: `/${process.env.PUBLIC_URL}icons/loading-icon.svg`
         }
       )
     }

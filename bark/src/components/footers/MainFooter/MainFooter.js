@@ -8,7 +8,7 @@ const MainFooter = () => (
             <div class="row">
               <div class="col-md-12 d-flex justify-content-end">
                   <a href="#" class="footer__button">
-                      <img src={process.env.PUBLIC_URL + 'icons/top-icon.svg'} alt="" class="footer__button-icon" id="footerButtonIcon" />
+                      <img src={`/${process.env.PUBLIC_URL}icons/top-icon.svg`} alt="" class="footer__button-icon" id="footerButtonIcon" />
                   </a>
               </div>
             </div>
