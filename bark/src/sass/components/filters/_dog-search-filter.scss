@@ -56,7 +56,7 @@
         &--icon:hover,
         &--icon:active,
         &--icon:focus {
-            margin-left: 1.6rem;
+            margin-left: 1.6rem !important;
             background: $color-white;
             border: none;
             position: relative;
