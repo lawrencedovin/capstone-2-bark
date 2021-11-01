@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 
-function DogSearchFilter() {
+function DogSearchFilter({breeds}) {
+  
+  const breedOptions = breeds.map((breed) => {
+    return <option className="dropdown-item dog-search-filter__button" value={breed.toLowerCase()}>{breed}</option>
+  })
 
   const [breed, setBreed] = useState('All Breeds');
 
@@ -16,9 +20,7 @@ function DogSearchFilter() {
           <span className="dog-search-filter__label">Find Best Friend: </span>
           <div className="btn-group" role="group" aria-label="Button group with nested dropdown">
             <select name="breeds" className="dog-search-filter__button dog-search-filter__button--dropdown" value={breed} onChange={handleChange}>
-              <option className="dropdown-item dog-search-filter__button" value={"all breeds"}>All Breeds</option>
-              <option className="dropdown-item dog-search-filter__button" value={"husky"}>Husky</option>
-              <option className="dropdown-item dog-search-filter__button" value={"english bulldog"}>English Bulldog</option>
+              {breedOptions}
             </select>
             <div className="input-group">
               <input type="text" className="form-control dog-search-filter__input" placeholder="Zip Code" aria-label="Input group example" aria-describedby="btnGroupAddon" />

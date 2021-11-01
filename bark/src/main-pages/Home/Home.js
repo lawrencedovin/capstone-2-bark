@@ -24,13 +24,11 @@ function Home() {
         accessToken = data.access_token;
         getData(accessToken, 'https://api.petfinder.com/v2/types/dog/breeds')
         .then(res => {
-          
-          alert(JSON.stringify(res.breeds));
           res.breeds.map(breed => {
             return getBreeds.push(breed.name);
           })
+          getBreeds.unshift("All Breeds");
           setBreeds(getBreeds);
-          alert('gello');
         })
         .catch(err => console.log(err));
     });
@@ -44,7 +42,7 @@ function Home() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
-                  imgUrl: dog.primary_photo_cropped.medium || `${process.env.PUBLIC_URL}images/placeholder-image.png`,
+                  imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
@@ -68,10 +66,10 @@ function Home() {
   return (
     <div className="Home">
       <Hero />
-      <DogSearchFilter />
+      <DogSearchFilter breeds={breeds}/>
       {/* <HomeSeperator title="Breeds" />
       {loading ? <LoadingCardsList type={"breeds"} numberOfCards={4}/> : <BreedsCardsList dogs={dogs}/>} */}
-      {breeds.map((breed) => <ul><li>{breed}</li></ul>)}
+      {/* {breeds.map((breed) => <ul><li>{breed}</li></ul>)} */}
       <HomeSeperator title="Dogs" />
       {loading ? <LoadingCardsList type={"dogs"} numberOfCards={4}/> : <DogsCardsList dogs={dogs}/>}
       <MainFooter/>
