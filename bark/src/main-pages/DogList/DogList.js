@@ -25,7 +25,7 @@ function DogList() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
-                  imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}images/placeholder-image.png` : dog.primary_photo_cropped.medium,
+                  imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
@@ -47,13 +47,7 @@ function DogList() {
     <div data-testid="Search">
       <SearchTitle title="lawrence123's Dog List" />
       <DogSearchFilter />
-      {loading 
-      ? 
-      // <BreedsCardsList />
-      <LoadingCardsList type={"dogs"} numberOfCards={24}/>
-      : 
-      <DogsCardsList dogs={dogs}/>
-      }
+      {loading ? <LoadingCardsList type={"dogs"} numberOfCards={24}/> : <DogsCardsList dogs={dogs}/>}
       <MainFooter/>
     </div>
   );
