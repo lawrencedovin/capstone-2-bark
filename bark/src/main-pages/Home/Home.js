@@ -26,7 +26,7 @@ function Home() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
-                  imgUrl: dog.primary_photo_cropped.medium || null,
+                  imgUrl: dog.primary_photo_cropped.medium || `${process.env.PUBLIC_URL}images/placeholder-image.png`,
                   description: {
                                 breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
@@ -51,15 +51,9 @@ function Home() {
       <Hero />
       <DogSearchFilter />
       <HomeSeperator title="Breeds" />
-      <BreedsCardsList/>
+      {loading ? <LoadingCardsList type={"breeds"} numberOfCards={4}/> : <BreedsCardsList dogs={dogs}/>}
       <HomeSeperator title="Dogs" />
-      {loading 
-      ? 
-      // <BreedsCardsList />
-      <LoadingCardsList type={"dogs"} numberOfCards={4}/>
-      : 
-      <DogsCardsList dogs={dogs}/>
-      }
+      {loading ? <LoadingCardsList type={"dogs"} numberOfCards={4}/> : <DogsCardsList dogs={dogs}/>}
       <MainFooter/>
     </div>
   );

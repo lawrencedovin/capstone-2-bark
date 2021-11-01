@@ -25,7 +25,7 @@ function DogList() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
-                  imgUrl: dog.primary_photo_cropped.medium || null,
+                  imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}images/placeholder-image.png` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
                                 location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
