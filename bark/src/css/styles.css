@@ -151,7 +151,7 @@ input[type=number] {
     appearance: none;
     padding: 1.6rem;
     padding-right: 6.4rem;
-    background: url("/icons/caret-icon.svg") 90%/8% no-repeat; }
+    background: url(/icons/caret-icon.svg) 95%/4% no-repeat; }
     .dog-search-filter__button--dropdown:hover, .dog-search-filter__button--dropdown:active, .dog-search-filter__button--dropdown:focus {
       border: #49C2C7 1px solid;
       border-radius: 0px; }

@@ -9,6 +9,7 @@ function DogSearchFilter({breeds}) {
   const [breed, setBreed] = useState('All Breeds');
 
   const handleChange = e => {
+    // alert(e.target.value)
     setBreed(e.target.value);
   };
 
