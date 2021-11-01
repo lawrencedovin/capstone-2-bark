@@ -217,7 +217,7 @@ input[type=number] {
     background: #DEDEDE; }
 
 .logged-in-card__body {
-  padding: 1.6rem 0 3.2rem; }
+  padding: 1.6rem 1.6rem 3.2rem; }
 
 .logged-in-card__like {
   height: 32px;
