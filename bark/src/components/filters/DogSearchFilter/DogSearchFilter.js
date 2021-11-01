@@ -3,7 +3,7 @@ import UserInput from '../../forms/UserInput/UserInput';
 
 function DogSearchFilter({breeds}) {
 
-  const [breed, setBreed] = useState('All Breeds');
+  const [breed, setBreed] = useState('all breeds');
   const [zipcode, setZipcode] = useState('');
   let [disabledButton, setDisableButton] = useState(true);
   let [errorStylesDisplay, setErrorStylesDisplay] = useState(false);
@@ -11,16 +11,6 @@ function DogSearchFilter({breeds}) {
   const breedOptions = breeds.map((breed) => {
     return <option className="dropdown-item dog-search-filter__button" value={breed.toLowerCase()}>{breed}</option>
   })
-
-  
-
-  // const handleChange = (e) => {
-  //   const {name, value} = e.target;
-  //   setFormData(formData => ({
-  //     ...formData,
-  //     [name]: value
-  //   }))
-  // }
 
   const handleBreedChange = e => {
     alert(e.target.value);
@@ -33,6 +23,10 @@ function DogSearchFilter({breeds}) {
     inputLength === 5 ? setDisableButton(false) : setDisableButton(true);
     inputLength > 5 ? setErrorStylesDisplay(true) : setErrorStylesDisplay(false);
     setZipcode(e.target.value);
+  }
+
+  const onClick = () => {
+    alert(`zipcode: ${zipcode} breed: ${breed}`);
   }
 
   return (
@@ -54,7 +48,7 @@ function DogSearchFilter({breeds}) {
                       className="form-control dog-search-filter__input"
               />
             </div>
-            <button className="btn dog-search-filter__button dog-search-filter__button--icon" href="/search" disabled={disabledButton}>
+            <button className="btn dog-search-filter__button dog-search-filter__button--icon" href="/search" disabled={disabledButton} onClick={onClick}>
               <img src={process.env.PUBLIC_URL + 'icons/search-icon.svg'} className="dog-search-filter__icon--search" alt="search icon" />
             </button>
           </div>
