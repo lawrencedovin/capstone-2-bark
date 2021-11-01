@@ -85,7 +85,7 @@ function App() {
         <Route exact path="/edit">
           <EditUser />
         </Route>
-        <Route exact path="/search">
+        <Route exact path="/search/breeds=:breed&zipcode=:zipcode">
           <Search />
         </Route>
         <Route exact path="/dog-list">
