@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import UserInput from '../../forms/UserInput/UserInput';
 
 function DogSearchFilter({breeds}) {
@@ -27,7 +27,8 @@ function DogSearchFilter({breeds}) {
   }
 
   const onClick = () => {
-    history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
+    // return history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
+    return history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
   }
 
   return (
@@ -49,7 +50,8 @@ function DogSearchFilter({breeds}) {
                       className="form-control dog-search-filter__input"
               />
             </div>
-            <button className="btn dog-search-filter__button dog-search-filter__button--icon" href="/search" disabled={disabledButton} onClick={onClick}>
+
+            <button className="btn dog-search-filter__button dog-search-filter__button--icon" disabled={disabledButton} onClick={onClick}>
               <img src={process.env.PUBLIC_URL + '/icons/search-icon.svg'} className="dog-search-filter__icon--search" alt="search icon" />
             </button>
           </div>

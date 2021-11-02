@@ -85,7 +85,7 @@ function App() {
         <Route exact path="/edit">
           <EditUser />
         </Route>
-        <Route exact path="/search/breeds=:breed&zipcode=:zipcode">
+        <Route path="/search/breeds=:breed&zipcode=:zipcode">
           <Search />
         </Route>
         <Route exact path="/dog-list">
@@ -94,9 +94,9 @@ function App() {
         {/* <Route exact path="/breed-list">
           <BreedList />
         </Route> */}
-        <Route exact path="/breed-details">
+        {/* <Route exact path="/breed-details">
           <BreedDetails />
-        </Route>
+        </Route> */}
         <Route exact path="/dog-details">
           <DogDetails />
         </Route>

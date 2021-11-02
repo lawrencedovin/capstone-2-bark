@@ -77,3 +77,44 @@ export async function getData(accessToken, url) {
         });
     })
   }
+
+  export async function getDogData(dogURL, setDog, setLoading) {
+    postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
+      .then(data => {
+        let accessToken = data.access_token;
+        getData(accessToken, dogURL)
+        .then(res => {
+          // res.animals.map(dog => {
+          //   return getDog.push(
+          //       { id: dog.id, 
+          //         title: dog.name,
+          //         imgUrl: dog.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
+                //   description: {
+                //                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
+                //                 location: `${dog.contact.address.city},  ${dog.contact.address.state}`, 
+                //                 status: dog.status
+                //               }
+                // }
+          //     );
+          // })
+
+          // setDog(getDog);
+          let { animal } = res;
+          let dog = {
+            id: animal.id,
+            title: animal.name,
+            description: animal.description,
+            breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
+            location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
+            status: animal.status
+            
+
+          }
+          alert(JSON.stringify(dog));
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoading(false);
+        });
+    })
+  }
