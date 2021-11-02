@@ -107,7 +107,6 @@ export async function getData(accessToken, url) {
             return [arr.slice(0, -1).join(', '), arr.slice(-1)[0]].join(arr.length < 2 ? '' : ' and ');
           }
           
-
           let { animal } = res;
 
           let goodWith = [];
@@ -116,6 +115,11 @@ export async function getData(accessToken, url) {
           pushToGoodOrNotGoodWith(animal.environment.dogs, 'Other dogs', goodWith, notGoodWith);
           pushToGoodOrNotGoodWith(animal.environment.children, 'Children', goodWith, notGoodWith);
           pushToGoodOrNotGoodWith(animal.environment.dogs, 'Cats', goodWith, notGoodWith);
+
+          let vaccinated = animal.attributes.shots_current ? 'Vaccinations up to date' : 'Not Vaccinated';
+          let neutered = animal.attributes.spayed_neutered ? 'Spayed/Neutered' : 'Not Spayed and Neutered'
+          let health = `${vaccinated}, ${neutered}.`;
+          let contactAddress = `${animal.contact.address.address1}\n${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}`;
 
           let dog = {
             id: animal.id,
@@ -129,8 +133,7 @@ export async function getData(accessToken, url) {
             size: animal.size,
             about: {
                   houseTrained: animal.attributes.house_trained ? 'Yes' : 'No',
-                  vaccinated: animal.attributes.shots_current ? 'Vaccinations up to date' : 'Not Vaccinated',
-                  neutered: animal.attributes.spayed_neutered ? 'Spayed / Neutered' : 'Not Spayed / Neutered',
+                  health: health,
                   goodWith: splitArrayWithComma(goodWith),
                   notGoodWith: splitArrayWithComma(notGoodWith)
             },
@@ -140,7 +143,9 @@ export async function getData(accessToken, url) {
               imgUrl3: animal.photos[2] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[2].medium,
             },
             contact: {
-
+              email: animal.contact.email || '',
+              phone: animal.contact.phone || '',
+              contactAddress: contactAddress || ''
             }
             
           }
