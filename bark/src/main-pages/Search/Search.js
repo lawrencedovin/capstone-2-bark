@@ -4,7 +4,7 @@ import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import { useParams } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
-import { getBreedsData, getDogsData, grant_type, client_id, client_secret } from '../../helpers/api-helpers';
+import { getBreedsData, getDogsData } from '../../helpers/api-helpers';
 import LoadingCardsList from '../../components/cards/LoadingCardsList/LoadingCardsList';
 
 

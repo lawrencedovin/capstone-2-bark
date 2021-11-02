@@ -15,7 +15,6 @@ function DogSearchFilter({breeds}) {
   })
 
   const handleBreedChange = e => {
-    alert(e.target.value);
     setBreed(e.target.value);
   };
   

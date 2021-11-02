@@ -1,4 +1,5 @@
 import React from 'react';
+import { titleCase } from '../../../helpers/general-helpers';
 
 
 const SearchTitle = ({title}) => (
@@ -7,7 +8,7 @@ const SearchTitle = ({title}) => (
       <div className="row">
         <div className="search col-md-10 mx-auto">
           <h1 className="search__title">
-            {title}
+            {titleCase(title)}
           </h1>
           <div className="search__underline"></div>
         </div>
