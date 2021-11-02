@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   let isLoggedIn = true;
@@ -6,7 +7,7 @@ function NavBar() {
     <div data-testid="NavBar">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar__logo" href="/">Bark</a>
+          <Link className="navbar__logo" to="/">Bark</Link>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -17,25 +18,25 @@ function NavBar() {
               ?
                 <ul class="navbar-nav me-2">
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/edit">lawrence123</a>
+                    <Link className="nav-link navbar__link" to="/edit">lawrence123</Link>
                   </li>
                   {/* <li class="nav-item">
                     <a class="nav-link navbar__link" href="/breed-list">Breeds</a>
                   </li> */}
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/dog-list">Dogs</a>
+                    <Link className="nav-link navbar__link" to="/dog-list">Dogs</Link>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link navbar__link" href="/logout">Logout</a>
+                    <Link className="nav-link navbar__link" to="/logout">Logout</Link>
                   </li>
                 </ul>
               :
                 <ul class="navbar-nav me-2">
                     <li class="nav-item">
-                      <a class="nav-link navbar__link" href="/register">Sign Up</a>
+                      <Link className="nav-link navbar__link" to="/register">Sign Up</Link>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link navbar__link" href="/login">Login</a>
+                      <Link className="nav-link navbar__link" to="/login">Login</Link>
                     </li>
                 </ul>
               }
