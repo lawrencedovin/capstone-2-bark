@@ -99,16 +99,50 @@ export async function getData(accessToken, url) {
           // })
 
           // setDog(getDog);
+          const pushToGoodOrNotGoodWith = (data, text, goodWith, notGoodWith) => {
+            return data ? goodWith.push(text) : notGoodWith.push(text);
+          }
+
+          const splitArrayWithComma = (arr) => {
+            return [arr.slice(0, -1).join(', '), arr.slice(-1)[0]].join(arr.length < 2 ? '' : ' and ');
+          }
+          
+
           let { animal } = res;
+
+          let goodWith = [];
+          let notGoodWith = [];
+
+          pushToGoodOrNotGoodWith(animal.environment.dogs, 'Other dogs', goodWith, notGoodWith);
+          pushToGoodOrNotGoodWith(animal.environment.children, 'Children', goodWith, notGoodWith);
+          pushToGoodOrNotGoodWith(animal.environment.dogs, 'Cats', goodWith, notGoodWith);
+
           let dog = {
             id: animal.id,
             title: animal.name,
             description: animal.description,
             breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
             location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
-            status: animal.status
-            
+            status: animal.status,
+            age: animal.age,
+            gender: animal.gender,
+            size: animal.size,
+            about: {
+                  houseTrained: animal.attributes.house_trained ? 'Yes' : 'No',
+                  vaccinated: animal.attributes.shots_current ? 'Vaccinations up to date' : 'Not Vaccinated',
+                  neutered: animal.attributes.spayed_neutered ? 'Spayed / Neutered' : 'Not Spayed / Neutered',
+                  goodWith: splitArrayWithComma(goodWith),
+                  notGoodWith: splitArrayWithComma(notGoodWith)
+            },
+            photos : {
+              imgUrl1: animal.photos[0] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[0].medium,
+              imgUrl2: animal.photos[1] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[1].medium,
+              imgUrl3: animal.photos[2] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[2].medium,
+            },
+            contact: {
 
+            }
+            
           }
           alert(JSON.stringify(dog));
         })
