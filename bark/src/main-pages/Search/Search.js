@@ -29,6 +29,7 @@ function Search() {
           res.breeds.map(breed => {
             return getBreeds.push(breed.name);
           })
+          getBreeds.unshift("All Breeds");
           setBreeds(getBreeds);
         })
         .catch(err => console.log(err));
@@ -45,8 +46,8 @@ function Search() {
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
-                                breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
-                                location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
+                                breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
+                                location: `${dog.contact.address.city},  ${dog.contact.address.state}`, 
                                 status: dog.status
                               }
                 }

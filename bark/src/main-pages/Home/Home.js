@@ -36,7 +36,7 @@ function Home() {
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         accessToken = data.access_token;
-        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=4')
+        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&breed=Pug&limit=24')
         .then(res => {
           res.animals.map(dog => {
             return getDogs.push(
@@ -44,8 +44,8 @@ function Home() {
                   title: dog.name,
                   imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
-                                breed: `${dog.breeds.primary} & ${dog.breeds.secondary}` || dog.breeds.primary,
-                                location: `${dog.contact.address.city}  ${dog.contact.address.state}`, 
+                                breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
+                                location: `${dog.contact.address.city},  ${dog.contact.address.state}`, 
                                 status: dog.status
                               }
                 }
@@ -71,7 +71,7 @@ function Home() {
       {loading ? <LoadingCardsList type={"breeds"} numberOfCards={4}/> : <BreedsCardsList dogs={dogs}/>} */}
       {/* {breeds.map((breed) => <ul><li>{breed}</li></ul>)} */}
       <HomeSeperator title="Dogs" />
-      {loading ? <LoadingCardsList type={"dogs"} numberOfCards={4}/> : <DogsCardsList dogs={dogs}/>}
+      {loading ? <LoadingCardsList type={"dogs"} numberOfCards={24}/> : <DogsCardsList dogs={dogs}/>}
       <MainFooter/>
     </div>
   );
