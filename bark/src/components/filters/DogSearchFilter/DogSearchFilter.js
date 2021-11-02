@@ -28,9 +28,7 @@ function DogSearchFilter({breeds}) {
   }
 
   const onClick = () => {
-    // history.push(`/about/zipcode=${zipcode}&breeds=${breed}`);
     history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
-    // alert(`zipcode: ${zipcode} breed: ${breed}`);
   }
 
   return (

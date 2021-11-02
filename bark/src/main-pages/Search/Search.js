@@ -38,7 +38,7 @@ function Search() {
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         accessToken = data.access_token;
-        getData(accessToken, 'https://api.petfinder.com/v2/animals?location=20720&type=dog&limit=24')
+        getData(accessToken, `https://api.petfinder.com/v2/animals?location=${zipcode}&type=dog&breed=${breed}&limit=24`)
         .then(res => {
           res.animals.map(dog => {
             return getDogs.push(
