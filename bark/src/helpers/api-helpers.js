@@ -84,21 +84,6 @@ export async function getData(accessToken, url) {
         let accessToken = data.access_token;
         getData(accessToken, dogURL)
         .then(res => {
-          // res.animals.map(dog => {
-          //   return getDog.push(
-          //       { id: dog.id, 
-          //         title: dog.name,
-          //         imgUrl: dog.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
-                //   description: {
-                //                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
-                //                 location: `${dog.contact.address.city},  ${dog.contact.address.state}`, 
-                //                 status: dog.status
-                //               }
-                // }
-          //     );
-          // })
-
-          // setDog(getDog);
           const pushToGoodOrNotGoodWith = (data, text, goodWith, notGoodWith) => {
             return data ? goodWith.push(text) : notGoodWith.push(text);
           }
@@ -149,7 +134,8 @@ export async function getData(accessToken, url) {
             }
             
           }
-          alert(JSON.stringify(dog));
+          setDog(dog)
+          // alert(JSON.stringify(dog));
         })
         .catch(err => console.log(err))
         .finally(() => {
