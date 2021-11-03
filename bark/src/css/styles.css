@@ -346,10 +346,10 @@ input[type=number] {
     .forms__input:focus + .forms__input-icon {
       opacity: 1; }
     .forms__input--error {
-      color: #DC3545;
-      border: 2px solid #DC3545; }
+      color: #ff2907;
+      border: 2px solid #ff2907; }
     .forms__input--error + .forms__input-icon {
-      color: #DC3545; }
+      color: #ff2907; }
   .forms__description, .forms__button {
     font-size: 1.6rem;
     font-family: "Montserrat", sans-serif; }
@@ -368,7 +368,7 @@ input[type=number] {
   .forms__error-message, .forms__description-message {
     font-size: 1.6rem; }
   .forms__error-message {
-    color: #DC3545; }
+    color: #ff2907; }
   .forms__description-message {
     color: #0A1F3F; }
 
@@ -446,3 +446,9 @@ input[type=number] {
       color: #0A1F3F; }
   .details__section-link {
     color: #49C2C7; }
+
+.details__status--adoptable {
+  color: #12cc54; }
+
+.details__status--adopted {
+  color: #ff2907; }

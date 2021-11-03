@@ -72,4 +72,13 @@
             color: $color-blue;
         }
     }
+
+    &__status {
+        &--adoptable {
+            color: $color-light-green;
+        }
+        &--adopted {
+            color: $color-red;
+        }
+    }
 }
