@@ -11,7 +11,7 @@ function DogDetails() {
 
   useEffect(() => {
     getDogData(dogURL, setDog, setLoading);
-  }, []);
+  }, [dogURL]);
 
   return(
     <div data-testid="DogDetails">
@@ -26,26 +26,27 @@ function DogDetails() {
               </div>
             <div className="row">
               <div className="col details__image-container">
-                  <img src={process.env.PUBLIC_URL + dog.photos.imgUrl1} className="details__image img-fluid" alt="walter-1"/>
+                  <img src={dog.imgUrl1} className="details__image img-fluid" alt="walter-1"/>
               </div>
               <div className="col details__image-container">
-                  <img src={process.env.PUBLIC_URL + dog.photos.imgUrl2} className="details__image img-fluid" alt="walter-2"/>
+                  <img src={dog.imgUrl2} className="details__image img-fluid" alt="walter-2"/>
               </div>
               <div className="col details__image-container">
-                  <img src={process.env.PUBLIC_URL + dog.photos.imgUrl3} className="details__image img-fluid" alt="water-3"/>
+                  <img src={dog.imgUrl3} className="details__image img-fluid" alt="water-3"/>
               </div>
             </div>
             <div className="row">
               <p><span><a href="/" className="details__section-link">{dog.breed}</a></span> - {dog.location}</p>
               <p>{dog.age} - {dog.gender} - {dog.size}</p>
+              <p>Status: {dog.status}</p>
             </div>
             <div className="row details__section">
               <div className="details__section-title">About</div>
                 <ul className="details__section-description list-unstyled">
-                  <li><span className="details__section-description--black">House-Trained: </span>{dog.about.houseTrained}</li>
-                  <li><span className="details__section-description--black">Health: </span>{dog.about.health}</li>
-                  <li><span className="details__section-description--black">Good In A Home With: </span>{dog.about.goodWith}</li>
-                  <li><span className="details__section-description--black">Prefers a Home Without: </span>{dog.about.notGoodWith}</li>
+                  <li><span className="details__section-description--black">House-Trained: </span>{dog.houseTrained}</li>
+                  <li><span className="details__section-description--black">Health: </span>{dog.health}</li>
+                  <li><span className="details__section-description--black">Good In A Home With: </span>{dog.goodWith}</li>
+                  <li><span className="details__section-description--black">Prefers a Home Without: </span>{dog.notGoodWith}</li>
                 </ul>
             </div>
             <div className="row details__section">
@@ -53,6 +54,14 @@ function DogDetails() {
               <div className="details__section-description">
                 <p>{dog.description}</p>
               </div>
+            </div>
+            <div className="row details__section">
+              <div className="details__section-title">Contact</div>
+                <ul className="details__section-description list-unstyled">
+                  <li><span className="details__section-description--black">Email: </span>{dog.email}</li>
+                  <li><span className="details__section-description--black">Phone: </span>{dog.phone}</li>
+                  <li><span className="details__section-description--black">Address: </span>{dog.contactAddress}</li>
+                </ul>
             </div>
           </div>
         </div>

@@ -27,3 +27,12 @@ export function titleCase(str) {
   // Directly return the joined string
   return splitStr.join(' '); 
 }
+
+
+export function pushToGoodOrNotGoodWith(data, text, goodWith, notGoodWith) {
+  return data ? goodWith.push(text) : notGoodWith.push(text);
+}
+
+export function splitArrayWithComma(arr) {
+  return [arr.slice(0, -1).join(', '), arr.slice(-1)[0]].join(arr.length < 2 ? '' : ' and ');
+}

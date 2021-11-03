@@ -1,3 +1,4 @@
+import {titleCase, pushToGoodOrNotGoodWith, splitArrayWithComma} from './general-helpers';
 export let grant_type = "client_credentials";
 export let client_id = "hsZc8lR0OonlToBVNomWdiUr2noodWHfp3HiKrX4tThWMxJ1cG";
 export let client_secret = "cTGO1vj4Bn9Zvz37zg3D8nJ5kyM5JSEhnR0UqO9M";
@@ -84,13 +85,6 @@ export async function getData(accessToken, url) {
         let accessToken = data.access_token;
         getData(accessToken, dogURL)
         .then(res => {
-          const pushToGoodOrNotGoodWith = (data, text, goodWith, notGoodWith) => {
-            return data ? goodWith.push(text) : notGoodWith.push(text);
-          }
-
-          const splitArrayWithComma = (arr) => {
-            return [arr.slice(0, -1).join(', '), arr.slice(-1)[0]].join(arr.length < 2 ? '' : ' and ');
-          }
           
           let { animal } = res;
 
@@ -116,26 +110,19 @@ export async function getData(accessToken, url) {
             age: animal.age,
             gender: animal.gender,
             size: animal.size,
-            about: {
-                  houseTrained: animal.attributes.house_trained ? 'Yes' : 'No',
-                  health: health,
-                  goodWith: splitArrayWithComma(goodWith),
-                  notGoodWith: splitArrayWithComma(notGoodWith)
-            },
-            photos : {
-              imgUrl1: animal.photos[0] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[0].medium,
-              imgUrl2: animal.photos[1] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[1].medium,
-              imgUrl3: animal.photos[2] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[2].medium,
-            },
-            contact: {
-              email: animal.contact.email || '',
-              phone: animal.contact.phone || '',
-              contactAddress: contactAddress || ''
-            }
+            houseTrained: animal.attributes.house_trained ? 'Yes' : 'No',
+            health: health,
+            goodWith: splitArrayWithComma(goodWith),
+            notGoodWith: splitArrayWithComma(notGoodWith),
+            imgUrl1: animal.photos[0] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[0].medium,
+            imgUrl2: animal.photos[1] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[1].medium,
+            imgUrl3: animal.photos[2] === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.photos[2].medium,
+            email: animal.contact.email || '',
+            phone: animal.contact.phone || '',
+            contactAddress: contactAddress || ''
             
           }
-          setDog(dog)
-          // alert(JSON.stringify(dog));
+          setDog(dog);
         })
         .catch(err => console.log(err))
         .finally(() => {
