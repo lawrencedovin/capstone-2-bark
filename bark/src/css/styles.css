@@ -430,7 +430,8 @@ input[type=number] {
     display: flex;
     align-items: normal;
     overflow: hidden;
-    background: #DEDEDE; }
+    background: #DEDEDE;
+    border-radius: 4px; }
   .details__image-container:not(:last-child) {
     margin-right: 1.6rem; }
 
@@ -447,8 +448,8 @@ input[type=number] {
   .details__section-link {
     color: #49C2C7; }
 
-.details__status--adoptable {
+.status--adoptable {
   color: #12cc54; }
 
-.details__status--adopted {
+.status--adopted {
   color: #ff2907; }

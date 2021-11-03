@@ -44,6 +44,7 @@
             align-items: normal;
             overflow: hidden;
             background: #DEDEDE;
+            border-radius: 4px;
         }
 
         &-container:not(:last-child) {
@@ -70,15 +71,6 @@
 
         &-link {
             color: $color-blue;
-        }
-    }
-
-    &__status {
-        &--adoptable {
-            color: $color-light-green;
-        }
-        &--adopted {
-            color: $color-red;
         }
     }
 }

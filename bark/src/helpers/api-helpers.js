@@ -61,6 +61,8 @@ export async function getData(accessToken, url) {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
+                  status: titleCase(dog.status),
+                  statusClass: titleCase(dog.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
                   imgUrl: dog.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
@@ -107,7 +109,7 @@ export async function getData(accessToken, url) {
             breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
             location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
             status: titleCase(animal.status),
-            statusClass: titleCase(animal.status) === 'Adoptable' ? 'details__status--adoptable' : 'details__status--adopted',
+            statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
             age: animal.age,
             gender: animal.gender,
             size: animal.size,
