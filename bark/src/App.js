@@ -97,7 +97,10 @@ function App() {
         {/* <Route exact path="/breed-details">
           <BreedDetails />
         </Route> */}
-        <Route exact path="/dog-details">
+        {/* <Route exact path="/dog-details">
+          <DogDetails />
+        </Route> */}
+        <Route path="/dog/:id">
           <DogDetails />
         </Route>
       </BrowserRouter>

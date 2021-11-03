@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Cards({imgUrl, title, description, btnText, link}) {
   let isLoggedIn = true;
@@ -30,7 +31,8 @@ function Cards({imgUrl, title, description, btnText, link}) {
             }
           </div>
         </div>
-        <a href={link} className="btn logged-in-card__button">{btnText}</a>
+        <Link to={link} className="btn logged-in-card__button">{btnText}</Link>
+        {/* <a href={link} className="btn logged-in-card__button">{btnText}</a> */}
       </div>
     </div>
   );

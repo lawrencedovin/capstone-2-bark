@@ -7,7 +7,7 @@ function DogDetails() {
   const { id } = useParams();
   const [dog, setDog] = useState([]);
   const [loading, setLoading] = useState(true);
-  let dogURL = `https://api.petfinder.com/v2/animals/53181476`;
+  let dogURL = `https://api.petfinder.com/v2/animals/${id}`;
 
   useEffect(() => {
     getDogData(dogURL, setDog, setLoading);
@@ -36,7 +36,8 @@ function DogDetails() {
               </div>
             </div>
             <div className="row">
-              <p><span><a href="/" className="details__section-link">{dog.breed}</a></span> - {dog.location}</p>
+              {/* <p><span><a href="/" className="details__section-link">{dog.breed}</a></span> - {dog.location}</p> */}
+              <p>{dog.breed} - {dog.location}</p>
               <p>{dog.age} - {dog.gender} - {dog.size}</p>
               <p>Status: {dog.status}</p>
             </div>
