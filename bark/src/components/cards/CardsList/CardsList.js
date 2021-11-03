@@ -17,6 +17,8 @@ const CardsList = ({props, type}) => (
                   description={prop.description}
                   btnText={type === "breeds" ? "Check Breed" : "Check Dog"}
                   link={type === "breeds" ? "/breed-details" : `/dog/${prop.id}`}
+                  status={prop.status}
+                  statusClass={prop.statusClass}
                 />
             </div>
           ))}

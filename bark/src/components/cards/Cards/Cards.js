@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function Cards({imgUrl, title, description, btnText, link}) {
+function Cards({imgUrl, title, description, btnText, link, status, statusClass}) {
   let isLoggedIn = true;
   return(
     <div data-testid="Cards">
@@ -25,6 +25,7 @@ function Cards({imgUrl, title, description, btnText, link}) {
             <div className="logged-in-card__description-container">
               <p className="card-text logged-in-card__description">Breed: {description.breed}</p>
               <p className="card-text logged-in-card__description">Location: {description.location}</p>
+              <p className={`card-text logged-in-card__description`}>Status: <span className={`${statusClass}`}>{status}</span></p>
             </div>
             :
             <></>
@@ -32,7 +33,6 @@ function Cards({imgUrl, title, description, btnText, link}) {
           </div>
         </div>
         <Link to={link} className="btn logged-in-card__button">{btnText}</Link>
-        {/* <a href={link} className="btn logged-in-card__button">{btnText}</a> */}
       </div>
     </div>
   );

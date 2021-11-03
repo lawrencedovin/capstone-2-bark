@@ -7,6 +7,7 @@ import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
 import { postData, getData, grant_type, client_id, client_secret } from '../../helpers/api-helpers';
+import { titleCase } from '../../helpers/general-helpers';
 
 function Home() {
   const [dogs, setDogs] = useState([]);
@@ -42,6 +43,8 @@ function Home() {
             return getDogs.push(
                 { id: dog.id, 
                   title: dog.name,
+                  status: titleCase(dog.status),
+                  statusClass: titleCase(dog.status) === 'Adoptable' ? 'details__status--adoptable' : 'details__status--adopted',
                   imgUrl: dog.primary_photo_cropped === null ? `${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : dog.primary_photo_cropped.medium,
                   description: {
                                 breed: dog.breeds.secondary === null ? dog.breeds.primary : `${dog.breeds.primary} & ${dog.breeds.secondary}`,
