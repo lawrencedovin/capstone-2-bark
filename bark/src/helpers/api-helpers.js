@@ -107,6 +107,7 @@ export async function getData(accessToken, url) {
             breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
             location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
             status: titleCase(animal.status),
+            statusClass: titleCase(animal.status) === 'Adoptable' ? 'details__status--adoptable' : 'details__status--adopted',
             age: animal.age,
             gender: animal.gender,
             size: animal.size,

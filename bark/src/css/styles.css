@@ -421,8 +421,16 @@ input[type=number] {
   vertical-align: middle; }
 
 .details__image {
-  height: 80%;
-  margin: 4.8rem 0; }
+  min-height: 100%;
+  min-width: 100%; }
+  .details__image-container {
+    margin: 4.8rem 0;
+    width: 24rem;
+    height: 24rem;
+    display: flex;
+    align-items: normal;
+    overflow: hidden;
+    background: #DEDEDE; }
   .details__image-container:not(:last-child) {
     margin-right: 1.6rem; }
 

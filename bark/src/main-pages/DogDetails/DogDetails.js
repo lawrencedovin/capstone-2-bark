@@ -25,21 +25,31 @@ function DogDetails() {
                 <h1 className="details__title">{dog.title}</h1>
               </div>
             <div className="row">
-              <div className="col details__image-container">
-                  <img src={dog.imgUrl1} className="details__image img-fluid" alt="walter-1"/>
+              
+              <div className="details__image-container col">
+                <img className="details__image" src={dog.imgUrl1} alt={`Dog named ${dog.title}`}/>
               </div>
-              <div className="col details__image-container">
+              <div className="details__image-container col">
+                <img className="details__image" src={dog.imgUrl2} alt={`Dog named ${dog.title}`}/>
+              </div>
+              <div className="details__image-container col">
+                <img className="details__image" src={dog.imgUrl3} alt={`Dog named ${dog.title}`}/>
+              </div>
+              {/* <div className="col details__image-container">
+                  <img src={dog.imgUrl1} className="details__image img-fluid" alt="walter-1"/>
+              </div> */}
+              {/* <div className="col details__image-container">
                   <img src={dog.imgUrl2} className="details__image img-fluid" alt="walter-2"/>
               </div>
               <div className="col details__image-container">
                   <img src={dog.imgUrl3} className="details__image img-fluid" alt="water-3"/>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               {/* <p><span><a href="/" className="details__section-link">{dog.breed}</a></span> - {dog.location}</p> */}
               <p>{dog.breed} - {dog.location}</p>
               <p>{dog.age} - {dog.gender} - {dog.size}</p>
-              <p>Status: {dog.status}</p>
+              <p>Status: <span className={dog.statusClass}>{dog.status}</span></p>
             </div>
             <div className="row details__section">
               <div className="details__section-title">About</div>
