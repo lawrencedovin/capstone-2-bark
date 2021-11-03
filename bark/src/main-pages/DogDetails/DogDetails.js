@@ -35,15 +35,6 @@ function DogDetails() {
               <div className="details__image-container col">
                 <img className="details__image" src={dog.imgUrl3} alt={`Dog named ${dog.title}`}/>
               </div>
-              {/* <div className="col details__image-container">
-                  <img src={dog.imgUrl1} className="details__image img-fluid" alt="walter-1"/>
-              </div> */}
-              {/* <div className="col details__image-container">
-                  <img src={dog.imgUrl2} className="details__image img-fluid" alt="walter-2"/>
-              </div>
-              <div className="col details__image-container">
-                  <img src={dog.imgUrl3} className="details__image img-fluid" alt="water-3"/>
-              </div> */}
             </div>
             <div className="row">
               {/* <p><span><a href="/" className="details__section-link">{dog.breed}</a></span> - {dog.location}</p> */}

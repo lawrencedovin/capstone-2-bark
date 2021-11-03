@@ -7,7 +7,6 @@ import DogsCardsList from '../../components/cards/DogsCardsList/DogsCardsList';
 import MainFooter from '../../components/footers/MainFooter/MainFooter';
 import React, {useEffect, useState} from 'react';
 import { getBreedsData, getDogsData } from '../../helpers/api-helpers';
-import { titleCase } from '../../helpers/general-helpers';
 
 function Home() {
   const [dogs, setDogs] = useState([]);
@@ -23,8 +22,6 @@ function Home() {
     getBreedsData(breedsURL, getBreeds, setBreeds)
     getDogsData(dogsURL, getDogs, setDogs, setLoading)
   }, []);
-
-  
 
   return (
     <div className="Home">

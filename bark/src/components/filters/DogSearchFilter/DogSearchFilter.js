@@ -27,7 +27,6 @@ function DogSearchFilter({breeds}) {
   }
 
   const onClick = () => {
-    // return history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
     return history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
   }
 

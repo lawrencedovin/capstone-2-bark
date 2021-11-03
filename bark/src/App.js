@@ -9,7 +9,8 @@ import BreedDetails from "./main-pages/BreedDetails/BreedDetails";
 import DogDetails from "./main-pages/DogDetails/DogDetails";
 import NavBar from "./components/navs/NavBar/NavBar";
 import { BrowserRouter, Route } from 'react-router-dom';
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { UserContext } from './context/UserContext'; 
 
 function App() {
 
@@ -58,51 +59,59 @@ function App() {
 
   // componentDidMount();
 
+  
+
+  const [user, setUser] = useState(null);
+
+  // If your component is making a lot of changes, the value of the Object is always going to change.
+  // The providerValue prevents providerValue from changing unless the value or the setValue changes.
+
+  const value = useMemo(() => ({user, setUser}), [user, setUser]);
+
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
-        {/* {state.data.map(user => <h1>{user.username}</h1>)} */}
-        {/* <p>{state.data}</p> */}
-        {/* {state.data.map(user => <div>{user.name}</div>)} */}
-        {/* {state.data.map(breed => <h1>{breed.name}</h1>)} */}
-        {/* {state.data ?
-        state.data.map(breed => <h1>{breed.name}</h1>)
-        :
-        <></>
-        } */}
-        {/* {state.data && state.data.map(person => <h1>{person.id} {person.username}</h1>)} */}
-        {/* {state.data.map(home => <div>{home.id}</div>)} */}
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/edit">
-          <EditUser />
-        </Route>
-        <Route path="/search/breeds=:breed&zipcode=:zipcode">
-          <Search />
-        </Route>
-        <Route exact path="/dog-list">
-          <DogList />
-        </Route>
-        {/* <Route exact path="/breed-list">
-          <BreedList />
-        </Route> */}
-        {/* <Route exact path="/breed-details">
-          <BreedDetails />
-        </Route> */}
-        {/* <Route exact path="/dog-details">
-          <DogDetails />
-        </Route> */}
-        <Route path="/dog/:id">
-          <DogDetails />
-        </Route>
+        <UserContext.Provider value={value}>
+          <NavBar />
+          {/* {state.data.map(user => <h1>{user.username}</h1>)} */}
+          {/* <p>{state.data}</p> */}
+          {/* {state.data.map(user => <div>{user.name}</div>)} */}
+          {/* {state.data.map(breed => <h1>{breed.name}</h1>)} */}
+          {/* {state.data ?
+          state.data.map(breed => <h1>{breed.name}</h1>)
+          :
+          <></>
+          } */}
+          {/* {state.data && state.data.map(person => <h1>{person.id} {person.username}</h1>)} */}
+          {/* {state.data.map(home => <div>{home.id}</div>)} */}
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/edit">
+            <EditUser />
+          </Route>
+          <Route path="/search/breeds=:breed&zipcode=:zipcode">
+            <Search />
+          </Route>
+          <Route exact path="/dog-list">
+            <DogList />
+          </Route>
+          {/* <Route exact path="/breed-list">
+            <BreedList />
+          </Route> */}
+          {/* <Route exact path="/breed-details">
+            <BreedDetails />
+          </Route> */}
+          <Route path="/dog/:id">
+            <DogDetails />
+          </Route>
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );

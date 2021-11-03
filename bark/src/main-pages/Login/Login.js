@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FormFooter from '../../components/footers/FormFooter/FormFooter';
 import UserInput from '../../components/forms/UserInput/UserInput';
+import { UserContext } from '../../context/UserContext';
 
 function Login() {
+
+  const {user, setUser} = useContext(UserContext);
 
   const FORM_INPUT_INITIAL_STATE = {
     username: '',
@@ -22,7 +25,12 @@ function Login() {
   const handleSubmit = ((e) => {
     e.preventDefault();
     const { username, password } = formData;
-    alert(`User: ${username}-${password}`);
+    // alert(`User: ${username}-${password}`);
+    setUser({
+      username: username,
+      loggedIn: true
+    })
+    alert(`User: ${JSON.stringify(user)}`);
     setFormData(FORM_INPUT_INITIAL_STATE);
   })
 

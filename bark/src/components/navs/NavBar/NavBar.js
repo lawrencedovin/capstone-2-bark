@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
+import { UserContext } from '../../../context/UserContext';
 
 function NavBar() {
-  let isLoggedIn = true;
+
+  const {user, setUser} = useContext(UserContext);
+  
   return(
     <div data-testid="NavBar">
       <nav class="navbar navbar-expand-lg">
@@ -14,7 +17,7 @@ function NavBar() {
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
             <div class="me-auto"></div>
             <div class="d-flex">
-              {isLoggedIn
+              {user
               ?
                 <ul class="navbar-nav me-2">
                   <li class="nav-item">
