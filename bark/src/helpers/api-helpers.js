@@ -100,7 +100,7 @@ export async function getData(accessToken, url) {
           let vaccinated = animal.attributes.shots_current ? 'Vaccinations up to date' : 'Not Vaccinated';
           let neutered = animal.attributes.spayed_neutered ? 'Spayed/Neutered' : 'Not Spayed and Neutered'
           let health = `${vaccinated}, ${neutered}.`;
-          let contactAddress = `${animal.contact.address.address1}\n${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}`;
+          let contactAddress = `${animal.contact.address.address1 === null ? '' : animal.contact.address.address1}\n${animal.contact.address.city}, ${animal.contact.address.state} ${animal.contact.address.postcode}`;
 
           let dog = {
             id: animal.id,
