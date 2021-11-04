@@ -5,6 +5,9 @@ import { UserContext } from '../../../context/UserContext';
 function NavBar() {
 
   const {user, setUser} = useContext(UserContext);
+  const logout = () => {
+    setUser(null)
+  }
   
   return(
     <div data-testid="NavBar">
@@ -21,7 +24,7 @@ function NavBar() {
               ?
                 <ul class="navbar-nav me-2">
                   <li class="nav-item">
-                    <Link className="nav-link navbar__link" to="/edit">lawrence123</Link>
+                    <Link className="nav-link navbar__link" to="/edit">{user.username}</Link>
                   </li>
                   {/* <li class="nav-item">
                     <a class="nav-link navbar__link" href="/breed-list">Breeds</a>
@@ -30,7 +33,7 @@ function NavBar() {
                     <Link className="nav-link navbar__link" to="/dog-list">Dogs</Link>
                   </li>
                   <li class="nav-item">
-                    <Link className="nav-link navbar__link" to="/logout">Logout</Link>
+                    <Link className="nav-link navbar__link" onClick={logout}>Logout</Link>
                   </li>
                 </ul>
               :
