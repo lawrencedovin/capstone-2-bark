@@ -12,6 +12,7 @@ const CardsList = ({props, type}) => (
             <div className="col-md-3">
                 <Cards 
                   // imgUrl={process.env.PUBLIC_URL + 'images/' + type + '/' + prop.imgUrl + '.png'}
+                  dogId={prop.id}
                   imgUrl={prop.imgUrl}
                   title={prop.title}
                   description={prop.description}

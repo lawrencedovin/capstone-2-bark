@@ -131,7 +131,7 @@ router.post('/login', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const results = await db.query(
-            `SELECT u.username as username, u.email as email, u.zipcode as zipcode, u.password as password, d.dogs as dogs
+            `SELECT u.id as id, u.username as username, u.email as email, u.zipcode as zipcode, u.password as password, d.dogs as dogs
             FROM users u
             JOIN liked_dogs d
                 ON d.user_id = u.id
@@ -141,6 +141,7 @@ router.post('/login', async (req, res, next) => {
 
         const user = results.rows[0];
         const message = {
+            id: user.id,
             username: user.username,
             email: user.email,
             zipcode: user.zipcode,

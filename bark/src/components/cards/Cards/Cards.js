@@ -2,9 +2,30 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../context/UserContext';
 
-function Cards({imgUrl, title, description, btnText, link, status, statusClass}) {
+function Cards({dogId, imgUrl, title, description, btnText, link, status, statusClass}) {
 
   const {user, setUser} = useContext(UserContext);
+
+  const addDog = () => {
+    const user_id = user.id;
+    const dog_id = dogId;
+    alert(`user_id: ${user_id}, dog_id: ${dog_id}`);
+    // const dog_id = 
+    // const { user_id, email, zipcode, password } = formData;
+    // postData('/users', { username, email, zipcode, password })
+    // .then(data => {
+    //   setAlertData(alertData => ({...alertData, 'visible': true}));
+    //   countdown(resetShowAlert);
+    //   if(data.hasOwnProperty('user')) {
+    //     setAlertData(alertData => ({...alertData, 'content': `${data.user.username} successfully created account!`}));
+    //     setUser(data.user);
+    //   }
+    //   else {
+    //     setAlertData(alertData => ({...alertData, 'type': 'error', 'content': `${data.error.message}`}));
+    //   }
+    // });
+    
+  }
 
   return(
     <div data-testid="Cards">
@@ -15,7 +36,7 @@ function Cards({imgUrl, title, description, btnText, link, status, statusClass})
           </div>
           {user
           ?
-          <button className="logged-in-card__like d-flex align-items-center justify-content-center">
+          <button className="logged-in-card__like d-flex align-items-center justify-content-center" onClick={addDog}>
               <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
           </button>
           :
