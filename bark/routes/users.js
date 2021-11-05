@@ -138,6 +138,7 @@ router.post('/login', async (req, res, next) => {
             WHERE username=$1`,
             [username]
         );
+
         const user = results.rows[0];
         const message = {
             username: user.username,

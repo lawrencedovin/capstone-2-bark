@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import FormFooter from '../../components/footers/FormFooter/FormFooter';
 import UserInput from '../../components/forms/UserInput/UserInput';
 import { UserContext } from '../../context/UserContext';
+import { postData } from '../../helpers/api-helpers';
 
 function Login() {
 
@@ -25,12 +26,15 @@ function Login() {
   const handleSubmit = ((e) => {
     e.preventDefault();
     const { username, password } = formData;
-    // alert(`User: ${username}-${password}`);
-    setUser({
-      username: username,
-      loggedIn: true
-    })
-    alert(`User: ${JSON.stringify(user)}`);
+    postData('/users/login', { username, password })
+    .then(data => {
+      if(data.hasOwnProperty('user')) {
+        alert(`${data.user.username} successfully logged in!`);
+      }
+      else {
+        alert(`${data.error.message}`)
+      }
+    });
     setFormData(FORM_INPUT_INITIAL_STATE);
   })
 
