@@ -26,3 +26,9 @@ SELECT u.username as username, u.email as email, u.zipcode as zipcode, d.dogs as
     JOIN liked_dogs d
         ON d.user_id = u.id
     WHERE username='popcorn123';
+
+SELECT u.username as username, u.email as email, u.zipcode as zipcode, d.dogs as dogs
+    FROM users u
+    JOIN liked_dogs d
+        ON d.user_id = u.id
+    WHERE username='lawrencejr';
