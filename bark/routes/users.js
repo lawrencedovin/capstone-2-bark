@@ -126,6 +126,33 @@ router.delete('/:id', async (req, res, next) => {
     }
 });
 
+/** POST / - Checks login a user by their id `{user: [...]}` */
+router.post('/login', async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        const results = await db.query(
+            `SELECT u.username as username, u.email as email, u.zipcode as zipcode, u.password as password, d.dogs as dogs
+            FROM users u
+            JOIN liked_dogs d
+                ON d.user_id = u.id
+            WHERE username=$1`,
+            [username]
+        );
+        const user = results.rows[0];
+
+        if(user) {
+            // compare req.body password with user password
+            const isValid = password === user.password ? true : false;
+            if(isValid) return res.json({user});
+        }
+
+        throw new ExpressError("Invalid username/password", 404);
+    }
+    catch(e) {
+        return next(e);
+    }
+});
+
 /** GET / - returns a user by their id with their liked dogs `{user: [...]}` */
 router.get('/:id/liked-dogs', async (req, res, next) => {
     try {

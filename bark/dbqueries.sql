@@ -19,3 +19,10 @@ SELECT u.username as username, u.email as email, u.zipcode as zipcode, b.breeds 
         ON b.user_id = u.id
     JOIN liked_dogs d
         ON d.user_id = u.id;
+
+--- Query for getting user details with their respective Liked Dogs
+SELECT u.username as username, u.email as email, u.zipcode as zipcode, d.dogs as dogs
+    FROM users u
+    JOIN liked_dogs d
+        ON d.user_id = u.id
+    WHERE username='popcorn123';
