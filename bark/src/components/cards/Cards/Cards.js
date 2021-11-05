@@ -1,8 +1,11 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../../context/UserContext';
 
 function Cards({imgUrl, title, description, btnText, link, status, statusClass}) {
-  let isLoggedIn = true;
+
+  const {user, setUser} = useContext(UserContext);
+
   return(
     <div data-testid="Cards">
       <div className="logged-in-card">
@@ -10,7 +13,7 @@ function Cards({imgUrl, title, description, btnText, link, status, statusClass})
           <div className="logged-in-card__img-container">
             <img className="logged-in-card__img" src={imgUrl} alt={title} />
           </div>
-          {isLoggedIn
+          {user
           ?
           <button className="logged-in-card__like d-flex align-items-center justify-content-center">
               <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
