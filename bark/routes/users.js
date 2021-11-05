@@ -139,11 +139,17 @@ router.post('/login', async (req, res, next) => {
             [username]
         );
         const user = results.rows[0];
+        const message = {
+            username: user.username,
+            email: user.email,
+            zipcode: user.zipcode,
+            dogs: user.dogs
+        }
 
         if(user) {
             // compare req.body password with user password
             const isValid = password === user.password ? true : false;
-            if(isValid) return res.json({user});
+            if(isValid) return res.json({user: message});
         }
 
         throw new ExpressError("Invalid username/password", 404);
