@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import FormFooter from '../../components/footers/FormFooter/FormFooter';
 import UserInput from '../../components/forms/UserInput/UserInput';
+import { UserContext } from '../../context/UserContext';
 import { countdown } from '../../helpers/general-helpers';
 import { postData } from '../../helpers/api-helpers';
 
 function Register() {
+
+  const {user, setUser} = useContext(UserContext);
 
   const FORM_INPUT_INITIAL_STATE = {
     username: '',
@@ -53,6 +56,7 @@ function Register() {
       countdown(resetShowAlert);
       if(data.hasOwnProperty('user')) {
         setAlertData(alertData => ({...alertData, 'content': `${data.user.username} successfully created account!`}));
+        setUser(data.user);
       }
       else {
         setAlertData(alertData => ({...alertData, 'type': 'error', 'content': `${data.error.message}`}));
