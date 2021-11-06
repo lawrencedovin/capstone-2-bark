@@ -235,6 +235,22 @@ input[type=number] {
   .logged-in-card__like:hover .logged-in-card__like-icon {
     background: url("/icons/liked-icon.svg") no-repeat center; }
 
+.logged-in-card__unlike {
+  height: 32px;
+  width: 32px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  border: none;
+  top: 8px;
+  right: 8px; }
+  .logged-in-card__unlike-icon {
+    background: url("/icons/liked-icon.svg") no-repeat center;
+    height: 24px;
+    width: 24px; }
+  .logged-in-card__unlike:hover .logged-in-card__unlike-icon {
+    background: url("/icons/unliked-icon.svg") no-repeat center; }
+
 .logged-in-card__title {
   color: #0A1F3F;
   font-size: 2rem; }

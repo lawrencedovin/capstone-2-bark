@@ -53,6 +53,28 @@
 
     }
 
+    &__unlike {
+        height: 32px;
+        width: 32px;
+        background: $color-white;
+        border-radius: 50%;
+        position: absolute;
+        border: none;
+        top: 8px;
+        right: 8px;
+
+        &-icon {
+            background: url("/icons/liked-icon.svg") no-repeat center;
+            height: 24px;
+            width: 24px;
+        }
+
+        &:hover &-icon {
+            background: url("/icons/unliked-icon.svg") no-repeat center;
+        }
+
+    }
+
     &__title {
         color: $color-black;
         font-size: $font-size-xsmedium;

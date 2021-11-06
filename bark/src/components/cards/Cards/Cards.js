@@ -58,8 +58,8 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
           </div>
           {user
           ?
-          <button className="logged-in-card__like d-flex align-items-center justify-content-center" onClick={addDog}>
-              <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
+          <button className="logged-in-card__unlike d-flex align-items-center justify-content-center" onClick={addDog}>
+              <div className="logged-in-card__unlike-icon img-fluid" alt="like"></div>
           </button>
           :
           <></>
