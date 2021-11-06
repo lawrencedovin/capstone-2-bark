@@ -4,6 +4,7 @@ import { UserContext } from '../../../context/UserContext';
 import { patchData } from '../../../helpers/api-helpers';
 import LikeButton from '../../buttons/LikeButton/LikeButton';
 import UnlikeButton from '../../buttons/UnlikeButton/UnlikeButton';
+import DogListButton from '../../buttons/DogListButton/DogListButton';
 
 function Cards({dogId, imgUrl, title, description, btnText, link, status, statusClass}) {
 
@@ -15,16 +16,6 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
     patchData(`/users/${user_id}/liked-dogs/${dog_id}/add-dog`)
     .then(data => {
       alert(JSON.stringify(data));
-      // alert(user.dogs);
-
-      // if(!user.dogs.includes(dog_id)) setUser({dogs: [...user.dogs, parseInt(dogId)]})
-      // if(data.hasOwnProperty('user')) {
-      //   setAlertData(alertData => ({...alertData, 'content': data.message}));
-      //   setUser(data.user);
-      // }
-      // else {
-      //   setAlertData(alertData => ({...alertData, 'type': 'error', 'content': `${data.error.message}`}));
-      // }
     });
     let userDogs = user.dogs;
     userDogs.push(dog_id)
@@ -32,26 +23,32 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
     alert(user.dogs);
   }
 
-  let cardButton;
-
+  const removeDog = () => {
+    const user_id = user.id;
+    const dog_id = dogId;
+    patchData(`/users/${user_id}/liked-dogs/${dog_id}/remove-dog`)
+    .then(data => {
+      alert(JSON.stringify(data));
+    });
+    let userDogs = user.dogs;
+    let dogIdIndex = userDogs.indexOf(dog_id);
+    userDogs.splice(dogIdIndex, 1);
+    if(user.dogs.includes(dog_id)) setUser(...user, {dogs: userDogs});
+    alert(user.dogs);
+  }
   
-  // { user && user.dogs.includes(dogId) &&
-  //   (<button className="logged-in-card__like d-flex align-items-center justify-content-center" onClick={addDog}>
-  //     favorited
-  //     <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
-  //   </button>)
-  // }
-  // { user && !user.dog.includes(dogId) &&
-  //   (<button className="logged-in-card__like d-flex align-items-center justify-content-center" onClick={addDog}>
-  //     unfavorited
-  //     <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
-  //   </button>)
-  // }
-  // { !user && (<></>)}
-
-  // if(user.dogs.includes(dogId)) {
-  //   return 
-  // }
+  let inDogList;
+  let clickHandle;
+  if(user) {
+    if(user.dogs.includes(dogId)) {
+      inDogList = true;
+      clickHandle = removeDog;
+    }
+    else {
+      inDogList = false;
+      clickHandle = addDog;
+    }
+  }
 
   return(
     <div data-testid="Cards">
@@ -62,7 +59,8 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
           </div>
           {user
           ?
-            <LikeButton addDog={addDog} />
+            // <LikeButton addDog={addDog} />
+            <DogListButton inDogList={inDogList} clickHandle={clickHandle} />
           :
           <></>
           }
