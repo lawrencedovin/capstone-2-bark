@@ -43,7 +43,7 @@ function Login() {
       if(data.hasOwnProperty('user')) {
         setAlertData(alertData => ({...alertData, 'content': `${data.user.username} successfully logged in!`}));
         setUser(data.user);
-        alert(JSON.stringify(data.user));
+        // alert(JSON.stringify(data.user));
       }
       else {
         setAlertData(alertData => ({...alertData, 'type': 'error', 'content': `${data.error.message}`}));

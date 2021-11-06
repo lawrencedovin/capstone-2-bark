@@ -1,53 +1,46 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../context/UserContext';
 import { patchData } from '../../../helpers/api-helpers';
 import LikeButton from '../../buttons/LikeButton/LikeButton';
 import UnlikeButton from '../../buttons/UnlikeButton/UnlikeButton';
-import DogListButton from '../../buttons/DogListButton/DogListButton';
 
 function Cards({dogId, imgUrl, title, description, btnText, link, status, statusClass}) {
 
   const {user, setUser} = useContext(UserContext);
+  // Initializes state to check whether the dog ID is found in current user's dog list
+  // Updates button to likedButton or unlikedButton.
+  const [dogInList, setDogInList] = useState(user ? user.dogs.includes(dogId) : null);
 
-  const addDog = () => {
+  const addDog = (e) => {
+    e.preventDefault();
     const user_id = user.id;
     const dog_id = dogId;
-    patchData(`/users/${user_id}/liked-dogs/${dog_id}/add-dog`)
-    .then(data => {
-      alert(JSON.stringify(data));
-    });
     let userDogs = user.dogs;
     userDogs.push(dog_id)
     if(!user.dogs.includes(dog_id)) setUser(...user, {dogs: userDogs});
-    alert(user.dogs);
+    patchData(`/users/${user_id}/liked-dogs/${dog_id}/add-dog`)
+    .then(data => {
+      // alert(JSON.stringify(data));
+    });
+    setDogInList(!dogInList);
+    // alert(user.dogs);
   }
 
-  const removeDog = () => {
+  const removeDog = (e) => {
+    e.preventDefault();
     const user_id = user.id;
     const dog_id = dogId;
-    patchData(`/users/${user_id}/liked-dogs/${dog_id}/remove-dog`)
-    .then(data => {
-      alert(JSON.stringify(data));
-    });
     let userDogs = user.dogs;
     let dogIdIndex = userDogs.indexOf(dog_id);
     userDogs.splice(dogIdIndex, 1);
     if(user.dogs.includes(dog_id)) setUser(...user, {dogs: userDogs});
-    alert(user.dogs);
-  }
-  
-  let inDogList;
-  let clickHandle;
-  if(user) {
-    if(user.dogs.includes(dogId)) {
-      inDogList = true;
-      clickHandle = removeDog;
-    }
-    else {
-      inDogList = false;
-      clickHandle = addDog;
-    }
+    patchData(`/users/${user_id}/liked-dogs/${dog_id}/remove-dog`)
+    .then(data => {
+      // alert(JSON.stringify(data));
+    });
+    setDogInList(!dogInList);
+    // alert(user.dogs);
   }
 
   return(
@@ -57,10 +50,11 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
           <div className="logged-in-card__img-container">
             <img className="logged-in-card__img" src={imgUrl} alt={title} />
           </div>
-          {user
-          ?
-            // <LikeButton addDog={addDog} />
-            <DogListButton inDogList={inDogList} clickHandle={clickHandle} />
+          {user ?
+          (dogInList
+              ? <UnlikeButton removeDog={removeDog} /> 
+              : <LikeButton addDog={addDog} />
+          )
           :
           <></>
           }
