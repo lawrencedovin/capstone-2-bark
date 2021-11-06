@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../context/UserContext';
 import { patchData } from '../../../helpers/api-helpers';
+import LikeButton from '../../buttons/LikeButton/LikeButton';
+import UnlikeButton from '../../buttons/UnlikeButton/UnlikeButton';
 
 function Cards({dogId, imgUrl, title, description, btnText, link, status, statusClass}) {
 
@@ -29,6 +31,8 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
     if(!user.dogs.includes(dog_id)) setUser(...user, {dogs: userDogs});
     alert(user.dogs);
   }
+
+  let cardButton;
 
   
   // { user && user.dogs.includes(dogId) &&
@@ -58,9 +62,7 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
           </div>
           {user
           ?
-          <button className="logged-in-card__unlike d-flex align-items-center justify-content-center" onClick={addDog}>
-              <div className="logged-in-card__unlike-icon img-fluid" alt="like"></div>
-          </button>
+            <LikeButton addDog={addDog} />
           :
           <></>
           }
