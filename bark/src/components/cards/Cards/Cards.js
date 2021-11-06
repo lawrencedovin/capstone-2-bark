@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../context/UserContext';
 import { patchData } from '../../../helpers/api-helpers';
-import LikeButton from '../../buttons/LikeButton/LikeButton';
-import UnlikeButton from '../../buttons/UnlikeButton/UnlikeButton';
+import CardLikeButton from '../../buttons/CardLikeButton/CardLikeButton';
+import CardUnlikeButton from '../../buttons/CardUnlikeButton/CardUnlikeButton';
 
 function Cards({dogId, imgUrl, title, description, btnText, link, status, statusClass}) {
 
@@ -52,8 +52,8 @@ function Cards({dogId, imgUrl, title, description, btnText, link, status, status
           </div>
           {user ?
           (dogInList
-              ? <UnlikeButton removeDog={removeDog} /> 
-              : <LikeButton addDog={addDog} />
+              ? <CardUnlikeButton removeDog={removeDog} /> 
+              : <CardLikeButton addDog={addDog} />
           )
           :
           <></>

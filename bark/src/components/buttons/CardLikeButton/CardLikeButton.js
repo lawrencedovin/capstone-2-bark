@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function LikeButton({addDog}) {
+function CardLikeButton({addDog}) {
   return (
     <button className="logged-in-card__like d-flex align-items-center justify-content-center" onClick={addDog}>
       <div className="logged-in-card__like-icon img-fluid" alt="like"></div>
@@ -9,4 +9,4 @@ function LikeButton({addDog}) {
   )
 }
 
-export default LikeButton;
+export default CardLikeButton;
