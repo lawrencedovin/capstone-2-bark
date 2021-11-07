@@ -152,3 +152,35 @@ export async function getData(accessToken, url) {
         });
     })
   }
+
+  export async function getDogsListData(dogsURL, setLoading, getDogs) {
+    postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
+      .then(data => {
+        let accessToken = data.access_token;
+        getData(accessToken, dogsURL)
+        .then(res => {
+
+          let { animal } = res;
+
+          let dog = {
+              id: animal.id, 
+              title: animal.name,
+              status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
+              statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
+              imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
+              description: {
+                            breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
+                            location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
+                            status: animal.status
+                          }
+          }
+          getDogs.push(dog);
+          alert(JSON.stringify(getDogs));
+          // return dog;
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoading(false);
+        });
+    })
+  }
