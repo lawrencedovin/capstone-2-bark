@@ -19,7 +19,7 @@ function DogList() {
   let zipcode = 20720;
   let breedsURL = 'https://api.petfinder.com/v2/types/dog/breeds';
   // let dogsURL = `https://api.petfinder.com/v2/animals?location=${zipcode}&type=dog&limit=24`;
-  let dogURL = `https://api.petfinder.com/v2/animals/`;
+  let baseURL = `https://api.petfinder.com/v2/animals`;
 
   const {user, setUser} = useContext(UserContext);
 
@@ -30,10 +30,13 @@ function DogList() {
   // }, []);
 
   useEffect(() => {
-    getBreedsData(breedsURL, getBreeds, setBreeds);
-    for(let dog of user.dogs) {
-      getDogsListData(`${dogURL}${dog}`, setLoading, getDogs);
-    }
+    // getBreedsData(breedsURL, getBreeds, setBreeds);
+    // for(let dog of user.dogs) {
+    //   getDogsListData(`${dogURL}${dog}`, setLoading, getDogs);
+    // }
+    // getDogsListData(baseURL, setLoading, getDogs, user.dogs);
+
+    getDogsListData(baseURL, setLoading, getDogs, user.dogs);
 
     // alert(getDogsListData(dogURL, setLoading));
     // alert(user.dogs);
@@ -44,7 +47,7 @@ function DogList() {
     //   alert(`Dog ID: ${dog}`);
     // }
     // alert(JSON.stringify(dog));
-  }, [dogURL]);
+  }, [baseURL]);
 
   return(
     <div data-testid="Search">

@@ -1,4 +1,5 @@
 import {titleCase, pushToGoodOrNotGoodWith, splitArrayWithComma} from './general-helpers';
+import axios from "axios";
 export let grant_type = "client_credentials";
 export let client_id = "hsZc8lR0OonlToBVNomWdiUr2noodWHfp3HiKrX4tThWMxJ1cG";
 export let client_secret = "cTGO1vj4Bn9Zvz37zg3D8nJ5kyM5JSEhnR0UqO9M";
@@ -106,6 +107,8 @@ export async function getData(accessToken, url) {
         let accessToken = data.access_token;
         getData(accessToken, dogURL)
         .then(res => {
+
+          
           
           let { animal } = res;
 
@@ -153,34 +156,82 @@ export async function getData(accessToken, url) {
     })
   }
 
-  export async function getDogsListData(dogsURL, setLoading, getDogs) {
+  export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs) {
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         let accessToken = data.access_token;
-        getData(accessToken, dogsURL)
-        .then(res => {
+        for(let dogID of dogIDs) {
+          getData(accessToken, `${baseURL}/${dogID}`)
+          .then(res => {
 
-          let { animal } = res;
+            let { animal } = res;
 
-          let dog = {
-              id: animal.id, 
-              title: animal.name,
-              status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
-              statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
-              imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
-              description: {
-                            breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
-                            location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
-                            status: animal.status
-                          }
-          }
-          getDogs.push(dog);
-          alert(JSON.stringify(getDogs));
+            let dog = {
+                id: animal.id, 
+                title: animal.name,
+                status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
+                statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
+                imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
+                description: {
+                              breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
+                              location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
+                              status: animal.status
+                            }
+            }
+            getDogs.push(dog);
+            // alert(JSON.stringify(getDogs));
           // return dog;
         })
-        .catch(err => console.log(err))
-        .finally(() => {
-          setLoading(false);
-        });
+      }
+      // return getDogs;
     })
+    .catch(err => console.log(err))
+    .finally(() => {
+      setLoading(false);
+      // alert(JSON.stringify(getDogs));
+    });
   }
+
+  // export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs) {
+  //   let dogPromises = [];
+  //   postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
+  //     .then(data => {
+  //       let accessToken = data.access_token;
+  //       for(let dogID of dogIDs) {
+  //         dogPromises.push(
+  //           axios.get(`${baseURL}/${dogID}`)
+  //         );
+  //       }
+  //       Promise.all(dogPromises)
+  //       .then(dogs => (
+  //         dogs.forEach(dog => {
+  //           // alert(JSON.stringify(dog))
+  //           getData(accessToken, dog)
+  //           .then(res => {
+
+  //             let { animal } = res;
+
+  //             alert(JSON.stringify(animal))
+
+  //             let dog = {
+  //                 id: animal.id, 
+  //                 title: animal.name,
+  //                 status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
+  //                 statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
+  //                 imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
+  //                 description: {
+  //                               breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
+  //                               location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
+  //                               status: animal.status
+  //                             }
+  //             }
+  //             getDogs.push(dog);
+  //             })
+  //         })
+  //       ))
+  //     })
+  //     .catch(err => console.log(err))
+  //     .finally(() => {
+  //       setLoading(false);
+  //     })
+  // }
