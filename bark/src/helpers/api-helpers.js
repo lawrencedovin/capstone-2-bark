@@ -157,6 +157,14 @@ export async function getData(accessToken, url) {
   }
 
   export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs, setDogs) {
+    // 1. Get user token to access petfinder API.
+    // 2. Make multiple requests where each request.
+    //  - Gets each dog ID in user's list.
+    //  - loop through each dog ID and get data from API request.
+    //  - transform each dog data returned to be formatted for the Dog Cards.
+    //  - Push each formatted dog data to an array.
+    // 3. After all the dog data is pushed to an array return that array.
+    // 4. Finally setLoading(false) after the returned array is filled with all the formatted dog data.
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
         let accessToken = data.access_token;
@@ -180,10 +188,10 @@ export async function getData(accessToken, url) {
             }
             getDogs.push(dog);
             // alert(JSON.stringify(dog));
-            
+            return getDogs;
         })
         .then(data => {
-          setDogs(getDogs);
+          setDogs(data);
         })
         .catch(err => console.log(err))
         .finally(() => {
