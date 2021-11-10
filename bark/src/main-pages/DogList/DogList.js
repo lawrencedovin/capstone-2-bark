@@ -30,13 +30,13 @@ function DogList() {
   // }, []);
 
   useEffect(() => {
-    // getBreedsData(breedsURL, getBreeds, setBreeds);
+    getBreedsData(breedsURL, getBreeds, setBreeds);
     // for(let dog of user.dogs) {
     //   getDogsListData(`${dogURL}${dog}`, setLoading, getDogs);
     // }
     // getDogsListData(baseURL, setLoading, getDogs, user.dogs);
 
-    getDogsListData(baseURL, setLoading, getDogs, user.dogs);
+    getDogsListData(baseURL, setLoading, getDogs, user.dogs, setDogs);
 
     // alert(getDogsListData(dogURL, setLoading));
     // alert(user.dogs);
@@ -47,7 +47,9 @@ function DogList() {
     //   alert(`Dog ID: ${dog}`);
     // }
     // alert(JSON.stringify(dog));
-  }, [baseURL]);
+  // }, [baseURL, setLoading, getDogs, user.dogs, setDogs, getBreeds, breedsURL]);
+  // maybe setDogs
+}, [user.dogs]);
 
   return(
     <div data-testid="Search">
