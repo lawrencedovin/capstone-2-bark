@@ -49,7 +49,13 @@ function DogList() {
     // alert(JSON.stringify(dog));
   // }, [baseURL, setLoading, getDogs, user.dogs, setDogs, getBreeds, breedsURL]);
   // maybe setDogs
-}, [user.dogs]);
+
+  // X 1. user.dogs
+  // X 2. baseURL [kind of]
+  // X 3. setLoading
+  // X 4. getDogs [kind of]
+  // 5. setDogs
+}, [setDogs]);
 
   return(
     <div data-testid="Search">

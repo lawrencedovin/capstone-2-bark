@@ -156,57 +156,7 @@ export async function getData(accessToken, url) {
     })
   }
 
-  // export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs, setDogs) {
-  //   // 1. Get user token to access petfinder API.
-  //   // 2. Make multiple requests where each request.
-  //   //  - Gets each dog ID in user's list.
-  //   //  - loop through each dog ID and get data from API request.
-  //   //  - transform each dog data returned to be formatted for the Dog Cards.
-  //   //  - Push each formatted dog data to an array.
-  //   // 3. After all the dog data is pushed to an array return that array.
-  //   // 4. Finally setLoading(false) after the returned array is filled with all the formatted dog data.
-  //   postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
-  //     .then(data => {
-  //       let accessToken = data.access_token;
-  //       for(let dogID of dogIDs) {
-  //         getData(accessToken, `${baseURL}/${dogID}`)
-  //         .then(res => {
-
-  //           let { animal } = res;
-
-  //           let dog = {
-  //               id: animal.id, 
-  //               title: animal.name,
-  //               status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
-  //               statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
-  //               imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
-  //               description: {
-  //                             breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
-  //                             location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
-  //                             status: animal.status
-  //                           }
-  //           }
-  //           getDogs.push(dog);
-  //           // alert(JSON.stringify(dog));
-  //           return getDogs;
-  //       })
-  //       .then(data => {
-  //         setDogs(data);
-  //       })
-  //       .catch(err => console.log(err))
-  //       .finally(() => {
-  //         setLoading(false);
-  //         // alert('hello');
-  //       })
-  //     }
-  //   })
-
-  //   // .catch(err => console.log(err))
-  //   // .finally(() => {
-  //   // });
-  // }
-
-  export async function getDogsListData(baseURL, setLoading, dogIDs, setDogs) {
+  export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs, setDogs) {
     // 1. Get user token to access petfinder API.
     // 2. Make multiple requests where each request.
     //  - Gets each dog ID in user's list.
@@ -215,17 +165,13 @@ export async function getData(accessToken, url) {
     //  - Push each formatted dog data to an array.
     // 3. After all the dog data is pushed to an array return that array.
     // 4. Finally setLoading(false) after the returned array is filled with all the formatted dog data.
-    let accessToken;
-    let getDogs =[];
     postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
       .then(data => {
-        accessToken = data.access_token;
-      })
-      .then(res => {
+        let accessToken = data.access_token;
         for(let dogID of dogIDs) {
           getData(accessToken, `${baseURL}/${dogID}`)
           .then(res => {
-            
+
             let { animal } = res;
 
             let dog = {
@@ -241,17 +187,74 @@ export async function getData(accessToken, url) {
                             }
             }
             getDogs.push(dog);
-          })
-        }
-      })
-      .then(data => {
-        return getDogs;
-      })
-      .catch(err => console.log(err))
-      .finally(() => {
-        setLoading(false);
-      })
+            // alert(JSON.stringify(dog));
+            return getDogs;
+        })
+        .then(data => {
+          setDogs(data);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+          setLoading(false);
+          // alert('hello');
+        })
+      }
+    })
+
+    // .catch(err => console.log(err))
+    // .finally(() => {
+    // });
   }
+
+  // export async function getDogsListData(baseURL, setLoading, dogIDs, setDogs) {
+  //   // 1. Get user token to access petfinder API.
+  //   // 2. Make multiple requests where each request.
+  //   //  - Gets each dog ID in user's list.
+  //   //  - loop through each dog ID and get data from API request.
+  //   //  - transform each dog data returned to be formatted for the Dog Cards.
+  //   //  - Push each formatted dog data to an array.
+  //   // 3. After all the dog data is pushed to an array return that array.
+  //   // 4. Finally setLoading(false) after the returned array is filled with all the formatted dog data.
+  //   let accessToken;
+  //   let getDogs =[];
+  //   postData('https://api.petfinder.com/v2/oauth2/token', { grant_type, client_id, client_secret})
+  //     .then(data => {
+  //       accessToken = data.access_token;
+  //     })
+  //     .then(res => {
+  //       for(let dogID of dogIDs) {
+  //         getData(accessToken, `${baseURL}/${dogID}`)
+  //         .then(res => {
+            
+  //           let { animal } = res;
+
+  //           let dog = {
+  //               id: animal.id, 
+  //               title: animal.name,
+  //               status: titleCase(animal.status) === 'Adoptable' ? titleCase(animal.status) : titleCase(animal.status) + ' 🎉',
+  //               statusClass: titleCase(animal.status) === 'Adoptable' ? 'status--adoptable' : 'status--adopted',
+  //               imgUrl: animal.primary_photo_cropped === null ? `/${process.env.PUBLIC_URL}icons/placeholder-icon.svg` : animal.primary_photo_cropped.medium,
+  //               description: {
+  //                             breed: animal.breeds.secondary === null ? animal.breeds.primary : `${animal.breeds.primary} & ${animal.breeds.secondary}`,
+  //                             location: `${animal.contact.address.city},  ${animal.contact.address.state}`, 
+  //                             status: animal.status
+  //                           }
+  //           }
+  //           getDogs.push(dog);
+  //           alert(getDogs);
+  //         })
+  //       }
+  //     })
+  //     .then(data => {
+  //       // return getDogs;
+  //       // setDogs(getDogs);
+  //       // alert(getDogs);
+  //     })
+  //     .catch(err => console.log(err))
+  //     .finally(() => {
+  //       setLoading(false);
+  //     })
+  // }
 
   // export async function getDogsListData(baseURL, setLoading, getDogs, dogIDs) {
   //   let dogPromises = [];
