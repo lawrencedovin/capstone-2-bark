@@ -18,8 +18,8 @@ function Search() {
   let getBreeds = [];
   let breedsURL = 'https://api.petfinder.com/v2/types/dog/breeds';
   let dogsURL = breed === 'all breeds' 
-                          ? `https://api.petfinder.com/v2/animals?location=${zipcode}&type=dog&limit=24`
-                          : `https://api.petfinder.com/v2/animals?location=${zipcode}&type=dog&breed=${breed}&limit=24`;
+                          ? `https://api.petfinder.com/v2/animals?postcode=${zipcode}&type=dog&limit=24`
+                          : `https://api.petfinder.com/v2/animals?postcode=${zipcode}&type=dog&breed=${breed}&limit=24`;
 
   useEffect(() => {
     getBreedsData(breedsURL, getBreeds, setBreeds)

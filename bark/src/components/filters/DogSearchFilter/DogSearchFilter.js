@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
-import { useHistory, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import UserInput from '../../forms/UserInput/UserInput';
 
 function DogSearchFilter({breeds}) {
 
-  const history = useHistory();
+  const history = useNavigate();
   const [breed, setBreed] = useState('all breeds');
-  const [zipcode, setZipcode] = useState('');
+  const [postcode, setPostcode] = useState('');
   let [disabledButton, setDisableButton] = useState(true);
   let [errorStylesDisplay, setErrorStylesDisplay] = useState(false);
   
@@ -19,15 +19,15 @@ function DogSearchFilter({breeds}) {
   };
   
 
-  const handleZipcodeChange = (e) => {
+  const handlePostcodeChange = (e) => {
     let inputLength = e.target.value.length;
     inputLength === 5 ? setDisableButton(false) : setDisableButton(true);
     inputLength > 5 ? setErrorStylesDisplay(true) : setErrorStylesDisplay(false);
-    setZipcode(e.target.value);
+    setPostcode(e.target.value);
   }
 
   const onClick = () => {
-    return history.push(`/search/breeds=${breed}&zipcode=${zipcode}`)
+    return history.push(`/search/breeds=${breed}&postcode=${postcode}`)
   }
 
   return (
@@ -42,10 +42,10 @@ function DogSearchFilter({breeds}) {
             </select>
             <div className="input-group">
               <UserInput 
-                      name="zipcode" 
-                      value={zipcode} 
+                      name="postcode" 
+                      value={postcode} 
                       type="text"
-                      handleChange={handleZipcodeChange}
+                      handleChange={handlePostcodeChange}
                       className="form-control dog-search-filter__input"
               />
             </div>

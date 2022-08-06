@@ -8,7 +8,7 @@ import BreedList from "./main-pages/BreedList/BreedList";
 import BreedDetails from "./main-pages/BreedDetails/BreedDetails";
 import DogDetails from "./main-pages/DogDetails/DogDetails";
 import NavBar from "./components/navs/NavBar/NavBar";
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useMemo, useState } from "react";
 import { UserContext } from './context/UserContext'; 
 
@@ -84,33 +84,21 @@ function App() {
           } */}
           {/* {state.data && state.data.map(person => <h1>{person.id} {person.username}</h1>)} */}
           {/* {state.data.map(home => <div>{home.id}</div>)} */}
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/edit">
-            <EditUser />
-          </Route>
-          <Route path="/search/breeds=:breed&zipcode=:zipcode">
-            <Search />
-          </Route>
-          <Route exact path="/dog-list">
-            <DogList />
-          </Route>
-          {/* <Route exact path="/breed-list">
-            <BreedList />
-          </Route> */}
-          {/* <Route exact path="/breed-details">
-            <BreedDetails />
-          </Route> */}
-          <Route path="/dog/:id">
-            <DogDetails />
-          </Route>
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route exact path="/register" element={<Register />}></Route>
+            <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/edit" element={<EditUser />}></Route>
+            <Route path="/search/breeds=:breed&postcode=:postcode" element={<Search />}></Route>
+            <Route exact path="/dog-list" element={<DogList />}></Route>
+            {/* <Route exact path="/breed-list">
+              <BreedList />
+            </Route> */}
+            {/* <Route exact path="/breed-details">
+              <BreedDetails />
+            </Route> */}
+            <Route path="/dog/:id" element={<DogDetails />}></Route>
+          </Routes>
         </UserContext.Provider>
       </BrowserRouter>
     </div>
