@@ -30,7 +30,7 @@ function Search() {
     <div data-testid="Search">
       <SearchTitle title={`${breed} in ${zipcode}`} />
       <DogSearchFilter breeds={breeds}/>
-      {loading ? <LoadingCardsList type={"dogs"} numberOfCards={24}/> : <DogsCardsList dogs={dogs}/>}
+      {/* {loading ? <LoadingCardsList type={"dogs"} numberOfCards={24}/> : <DogsCardsList dogs={dogs}/>} */}
       <MainFooter/>
     </div>
   );

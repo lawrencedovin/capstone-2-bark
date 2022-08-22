@@ -90,6 +90,7 @@ function App() {
             <Route exact path="/login" element={<Login />}></Route>
             <Route exact path="/edit" element={<EditUser />}></Route>
             <Route path="/search/breeds=:breed&postcode=:postcode" element={<Search />}></Route>
+            <Route path="/hello" element={<Search />}></Route>
             <Route exact path="/dog-list" element={<DogList />}></Route>
             {/* <Route exact path="/breed-list">
               <BreedList />
